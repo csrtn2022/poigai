@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import vm from 'node:vm';
 import worker from '../server/worker.js';
+const fileChrome="<link rel=\"stylesheet\" href=\"/site-chrome.css?v=20261016-a\"><script src=\"/site-chrome.js?v=20261016-a\" defer></script>";
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const data=JSON.parse(read('knowledge/data.json'));
 test('knowledge claims remain traceable and publish with matching downloadable data',async()=>{
@@ -10,7 +11,7 @@ test('knowledge claims remain traceable and publish with matching downloadable d
  for(const source of data.sources){assert.equal(new URL(source.url).protocol,'https:');for(const field of ['publisher','year','type','review','note','checked'])assert(source[field],source.id+' '+field);}
  const html=read('knowledge/index.html');const htmlIds=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(htmlIds).size,htmlIds.length);
  for(const issue of data.issues){assert(issue.sources.length);for(const id of issue.sources)assert(ids.has(id));for(const field of ['baseline','measure','owner','gap'])assert(issue[field]);assert(html.includes('id="'+issue.id+'"'));}
- for(const file of ['index.html','knowledge.css','knowledge.js','data.json','knowledge-bank.md','sources.csv']){assert.equal(read('knowledge/'+file),read('dist/knowledge/'+file));let served=false;const response=await worker.fetch(new Request('https://www.poigai.com/knowledge/'+file),{ASSETS:{fetch:()=>{served=true;return new Response('public');}}});assert.equal(response.status,200);assert(served);}
+ for(const file of ['index.html','knowledge.css','knowledge.js','data.json','knowledge-bank.md','sources.csv']){assert.equal(read('knowledge/'+file),read('dist/knowledge/'+file).replace(fileChrome,''));let served=false;const response=await worker.fetch(new Request('https://www.poigai.com/knowledge/'+file),{ASSETS:{fetch:()=>{served=true;return new Response('public');}}});assert.equal(response.status,200);assert(served);}
  for(const match of html.matchAll(/(?:href|src)="([^"#]+)(?:#[^"]*)?"/g)){const target=match[1];if(!target.startsWith('/'))continue;const path=target.endsWith('/')?target+'index.html':target;assert(existsSync(new URL('..'+path,import.meta.url)),target);}
  assert(html.includes('not a review of every study'));assert(html.includes('Review depth:'));assert(html.includes('POIGAI planning synthesis'));
 });
