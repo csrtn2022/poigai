@@ -18,9 +18,9 @@ export async function adminApi(request,env,passwordMatches,passwordHash){
   const owner=await env.DB.prepare("SELECT id,email FROM admin_users WHERE id='Admin' AND email='contact@poigai.com' AND status='pending' AND password_hash IS NULL").first();
   if(!owner)return json({error:'Activation not available.'},409);
   const token=Array.from(crypto.getRandomValues(new Uint8Array(32)),x=>x.toString(16).padStart(2,'0')).join('');
-  await env.DB.prepare('INSERT INTO admin_activation_tokens(token_hash,admin_id,expires_at,created_at) VALUES(?,?,?,?)').bind(await digest(token),owner.id,t+1800,t).run();
+  await env.DB.batch([env.DB.prepare('DELETE FROM admin_activation_tokens WHERE admin_id=?').bind(owner.id),env.DB.prepare('INSERT INTO admin_activation_tokens(token_hash,admin_id,expires_at,created_at) VALUES(?,?,?,?)').bind(await digest(token),owner.id,t+1800,t)]);
   const link=env.APP_ORIGIN+'/admin/#activate='+token;
-  const response=await fetch('https://api.resend.com/emails',{method:'POST',headers:{'Authorization':'Bearer '+env.RESEND_API_KEY,'Content-Type':'application/json'},body:JSON.stringify({from:'POIGAI <contact@poigai.com>',to:[owner.email],subject:'Activate your POIGAI administrator account',text:'Your owner-only POIGAI admin activation link (valid 30 minutes, single use):\\n\\n'+link+'\\n\\nDo not forward this link. If you did not request it, ignore this email.'})});
+  const response=await fetch('https://api.resend.com/emails',{method:'POST',headers:{'Authorization':'Bearer '+env.RESEND_API_KEY,'Content-Type':'application/json'},body:JSON.stringify({from:'POIGAI <contact@poigai.com>',to:[owner.email],subject:'Activate your POIGAI administrator account',text:'Your owner-only POIGAI admin activation link (valid 30 minutes, single use):\n\n'+link+'\n\nDo not forward this link. If you did not request it, ignore this email.'})});
   if(!response.ok){await env.DB.prepare('DELETE FROM admin_activation_tokens WHERE token_hash=?').bind(await digest(token)).run();return json({error:'Mail delivery failed.'},503);}
   return json({message:'Activation email submitted to the fixed owner inbox.'},202);
  }
