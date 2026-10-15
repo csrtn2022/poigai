@@ -101,7 +101,7 @@ async function cleanup(env){
  const time=now();
  await env.DB.batch(['auth_tokens','auth_sessions','auth_limits'].map(table=>env.DB.prepare(`DELETE FROM ${table} WHERE expires_at<=?`).bind(time)));
 }
-const PUBLIC_PATHS=new Set(['/','/index.html','/styles.css','/script.js','/enquiry.js','/robots.txt','/sitemap.xml','/assets/poigai-social.png','/assets/poigai-symbol.svg','/account','/account/','/account/index','/account/index.html','/account/account.css','/account/account.js','/projects','/projects/','/projects/index','/projects/index.html','/projects/projects.css','/projects/projects.js']);
+const PUBLIC_PATHS=new Set(['/','/index.html','/styles.css','/theme.css','/assets/climate/water.svg','/assets/climate/heat.svg','/assets/climate/agriculture.svg','/assets/climate/south-india.svg','/script.js','/enquiry.js','/robots.txt','/sitemap.xml','/assets/poigai-social.png','/assets/poigai-symbol.svg','/account','/account/','/account/index','/account/index.html','/account/account.css','/account/account.js','/projects','/projects/','/projects/index','/projects/index.html','/projects/projects.css','/projects/projects.js']);
 export default {
  async fetch(request,env,context){try{
   const url=new URL(request.url);
