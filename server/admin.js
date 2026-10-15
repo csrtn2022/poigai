@@ -11,8 +11,11 @@ export async function adminApi(request,env,passwordMatches,passwordHash){
 
  if(!enabled(env))return json({error:'Administrator access is not activated.'},503);
  if(path==='/api/admin/request-activation'&&request.method==='POST'){
-  if(!env.ADMIN_BOOTSTRAP_KEY||request.headers.get('authorization')!==('Bearer '+env.ADMIN_BOOTSTRAP_KEY))return json({error:'Not found.'},404);
-  const t=expiry(),owner=await env.DB.prepare("SELECT id,email FROM admin_users WHERE id='Admin' AND email='contact@poigai.com' AND status='pending' AND password_hash IS NULL").first();
+  if(request.headers.get('origin')!==env.APP_ORIGIN)return json({error:'Invalid origin.'},403);
+  const t=expiry();
+  const limiter=await env.DB.prepare("INSERT INTO auth_limits(key,hits,expires_at) VALUES('admin:owner-invite',1,?) ON CONFLICT(key) DO UPDATE SET hits=CASE WHEN expires_at<=? THEN 1 ELSE hits+1 END,expires_at=CASE WHEN expires_at<=? THEN ? ELSE expires_at END RETURNING hits").bind(t+86400,t,t,t+86400).first();
+  if(limiter.hits>3)return json({error:'Invitation limit reached. Try again tomorrow.'},429,{'Retry-After':'86400'});
+  const owner=await env.DB.prepare("SELECT id,email FROM admin_users WHERE id='Admin' AND email='contact@poigai.com' AND status='pending' AND password_hash IS NULL").first();
   if(!owner)return json({error:'Activation not available.'},409);
   const token=Array.from(crypto.getRandomValues(new Uint8Array(32)),x=>x.toString(16).padStart(2,'0')).join('');
   await env.DB.prepare('INSERT INTO admin_activation_tokens(token_hash,admin_id,expires_at,created_at) VALUES(?,?,?,?)').bind(await digest(token),owner.id,t+1800,t).run();
