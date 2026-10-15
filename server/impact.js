@@ -94,11 +94,13 @@ export async function impactApi(req,env,getUser){
  }
  if(!org)return j({error:'Create your organisation profile first.'},409);
  if(path==='/api/impact/proposal'){
+  if(org.kind==='funder')return j({error:'Implementing partner profile required for project proposals.'},403);
+  if(!families.includes(data.issueFamily)||!impacts.includes(data.impactCategory))return j({error:'Select a climate family and beneficiary impact category.'},400);
   const title=clean(data.title,160),state=clean(data.state,100),district=clean(data.district,100),issue=clean(data.issue,120),beneficiaries=clean(data.beneficiaries,350),need=clean(data.need,1400),strategy=clean(data.strategy,1400),baseline=clean(data.baseline,900),maintenance=clean(data.maintenance,900);
   const budget=data.budget===null||data.budget===''?null:Number(data.budget);
   if(!title||!state||!district||!issue||!beneficiaries||!need||!strategy||!baseline||!maintenance||(budget!==null&&(!Number.isSafeInteger(budget)||budget<0||budget>1e12)))return j({error:'Complete the project requirements and use a valid budget.'},400);
   const id=crypto.randomUUID();
-  await env.DB.prepare('INSERT INTO impact_proposals(id,organisation_id,title,state,district,issue,beneficiaries,need,strategy,baseline,budget_inr,maintenance_plan,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)').bind(id,org.id,title,state,district,issue,beneficiaries,need,strategy,baseline,budget,maintenance,time,time).run();
+  await env.DB.prepare('INSERT INTO impact_proposals(id,organisation_id,title,state,district,issue,beneficiaries,need,strategy,baseline,budget_inr,maintenance_plan,issue_family,impact_category,match_consent,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)').bind(id,org.id,title,state,district,issue,beneficiaries,need,strategy,baseline,budget,maintenance,data.issueFamily,data.impactCategory,data.matchConsent===true?1:0,time,time).run();
   await audit(env,user.id,'proposal',id,'draft_created');
   return j({message:'Private project draft created.',id},201);
  }
