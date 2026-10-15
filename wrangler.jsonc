@@ -1,0 +1,6 @@
+{
+  "name": "poigai",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-10-15",
+  "vars": {"AUTH_ENABLED": "false", "APP_ORIGIN": "https://www.poigai.com"}
+}
