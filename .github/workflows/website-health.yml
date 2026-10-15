@@ -1,0 +1,72 @@
+name: POIGAI Website Health
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: poigai-website-health
+  cancel-in-progress: false
+
+jobs:
+  check-live-sites:
+    name: Check live website endpoints
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check endpoints with retries
+        shell: bash
+        run: |
+          set -uo pipefail
+
+          urls=(
+            "https://poigai.csrtn2022.workers.dev/"
+            "https://poigai.com/"
+            "https://www.poigai.com/"
+          )
+
+          failed=0
+
+          for url in "${urls[@]}"; do
+            echo "::group::Checking ${url}"
+            success=0
+
+            for attempt in $(seq 1 10); do
+              body_file="$(mktemp)"
+              status="$(curl --location --silent --show-error --max-time 20 \
+                --output "$body_file" --write-out "%{http_code}" "$url" 2>/dev/null || true)"
+
+              echo "Attempt ${attempt}: HTTP ${status:-no response}"
+
+              if [[ "$status" == "200" ]] && grep -qi "POIGAI" "$body_file"; then
+                echo "PASS: HTTP 200 and POIGAI page content detected."
+                success=1
+                rm -f "$body_file"
+                break
+              fi
+
+              rm -f "$body_file"
+              sleep 15
+            done
+
+            if [[ "$success" -ne 1 ]]; then
+              echo "::error title=Website health check failed::${url} did not return HTTP 200 with POIGAI page content after retries."
+              failed=1
+            fi
+
+            echo "::endgroup::"
+          done
+
+          if [[ "$failed" -ne 0 ]]; then
+            echo "One or more POIGAI endpoints need attention."
+            exit 1
+          fi
+
+          echo "All POIGAI website endpoints passed."
