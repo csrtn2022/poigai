@@ -111,7 +111,7 @@ export default {
    if(env.DB&&context?.waitUntil&&now()-cleanupAt>3600){cleanupAt=now();context.waitUntil(cleanup(env).catch(()=>{}));}
    return response;
   }
-  if(!PUBLIC_PATHS.has(url.pathname))return new Response('Not found',{status:404,headers:{...headers,'Content-Type':'text/plain; charset=utf-8'}});
+  if(!PUBLIC_PATHS.has(url.pathname) && !url.pathname.startsWith('/admin/'))return new Response('Not found',{status:404,headers:{...headers,'Content-Type':'text/plain; charset=utf-8'}});
   // One canonical origin keeps host-only sessions and email links consistent.
   if(url.hostname==='poigai.com'&&url.pathname.startsWith('/account'))return Response.redirect('https://www.poigai.com'+url.pathname+url.search,308);
   const response=await env.ASSETS.fetch(request),out=new Response(response.body,response);
