@@ -2,5 +2,17 @@
   "name": "poigai",
   "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-10-15",
-  "vars": {"AUTH_ENABLED": "false", "ENQUIRIES_ENABLED": "false", "APP_ORIGIN": "https://www.poigai.com"}
+  "vars": {
+    "AUTH_ENABLED": "false",
+    "ENQUIRIES_ENABLED": "false",
+    "APP_ORIGIN": "https://www.poigai.com"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "poigai-auth",
+      "database_id": "2432432c-ac80-4bb7-aa41-4b72f7d3fb6f",
+      "migrations_dir": "migrations"
+    }
+  ]
 }
