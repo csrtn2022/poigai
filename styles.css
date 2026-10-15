@@ -3,3 +3,36 @@
 @media(max-width:1000px){nav{gap:15px}.hero{padding-left:5%;padding-right:5%}.graphic{transform:scale(.9)}.section,.dark{padding-left:6%;padding-right:6%}.cards{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){header{height:72px;padding:0 6%}.logo{font-size:18px}.mark{width:37px;height:37px}.menu{display:block}nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);padding:18px 6%;flex-direction:column;align-items:stretch;gap:0;box-shadow:0 14px 20px #102b2a0c}nav.open{display:flex}nav a{padding:12px 0}.navbtn{text-align:center;margin-top:7px}.hero{display:flex;flex-direction:column;align-items:stretch;padding:55px 7%;gap:12px}.hero h1{font-size:clamp(42px,10vw,59px)}.hero-copy>p{font-size:14px}.graphic{height:365px;transform:scale(.84);transform-origin:top center;margin-bottom:-35px}.o1{width:350px;height:350px}.o2{width:250px;height:250px}.core{width:140px;height:140px}.ngo{left:-2%;top:20px}.corp{right:-3%;top:145px}.experts{left:5%;bottom:18px}.herofoot{display:none}.principles{grid-template-columns:1fr 1fr;padding:15px 5%}.principles span{justify-content:flex-start;padding:11px;border:0}.principles span:nth-child(odd){border-right:1px solid #e7e9e2}.section,.dark{padding:66px 7%}.twocol,.contactgrid{grid-template-columns:1fr;gap:22px}.section h2,.contact h2{font-size:37px}.cards{margin-top:32px;gap:10px}.cards article{padding:18px;min-height:255px}.cards h3{font-size:15px}.dark .twocol{gap:20px}.steps{grid-template-columns:1fr 1fr;row-gap:15px;margin-top:38px}.steps article{min-height:205px;margin-right:12px;padding-right:12px}.steps article:nth-child(2){border-right:0;margin:0}.steps article:nth-child(3),.steps article:nth-child(4){border-top:1px solid #3b5a50;padding-top:20px}.partnergrid{grid-template-columns:1fr}.partnergrid article{padding:23px;grid-template-columns:40px 1fr;gap:14px}.round{width:40px;height:40px}.partnergrid h3{font-size:21px}.belief{grid-template-columns:52px 1fr;padding:36px 7%;gap:17px}.beliefmark{width:50px;height:50px}.belief>p{grid-column:1/-1}.contactgrid{gap:30px}.contact form{padding:23px 19px}.row{grid-template-columns:1fr}.footmain{flex-wrap:wrap;align-items:flex-start}.footmain p{order:3;width:100%;margin:0}.footbottom{flex-direction:column;gap:8px}}
 @media(max-width:390px){.hero h1{font-size:40px}.graphic{transform:scale(.72);height:315px;margin-left:-15px;margin-right:-15px}.cards{grid-template-columns:1fr}.cards article{min-height:215px}.partnergrid article{grid-template-columns:1fr}.round{margin-bottom:4px}}
+
+/* POIGAI Premium Dark System — Phase 1 visual foundation */
+:root{--forest:#101816;--forest2:#18231f;--teal:#72b7a2;--cream:#151c19;--paper:#101613;--ink:#eef2ec;--muted:#a1aea6;--line:#34413a;--gold:#c5a16a;--font:'DM Sans',sans-serif;--display:'Manrope',sans-serif}
+html{background:var(--paper);color-scheme:dark}body{background:var(--paper);color:var(--ink)}
+.topline{background:#090e0c;color:#b8d3c6;border-bottom:1px solid #26362e}
+header{background:rgba(16,22,19,.96);border-bottom:1px solid #2c3931;backdrop-filter:blur(16px)}
+.logo{color:#f1f4ed}.logo small{color:#9aaba0}.mark{background:#203b31;color:#9bd2b9;border:1px solid #385749}
+nav{color:#c1ccc3}nav a:hover{color:#a5d6bf}.navbtn{background:#c4a16b;color:#151a16}.navbtn:hover{background:#d7b984;color:#111}
+.hero{background:radial-gradient(ellipse at 78% 42%,#20392e 0%,#17251e 30%,#111815 70%);color:#f1f4ed}
+.eyebrow,.kicker{color:#9ac8b2}.hero h1,.section h2,.contact h2{color:#f1f4ed}
+.hero h1 em,.section h2 em,.dark h2 em,.belief h2 em,.contact h2 em{color:#91cdb3}
+.hero-copy>p,.prose p,.twocol>p,.contactgrid>div>p{color:#b2beb5}
+.btn.primary,.primary{background:#c5a16a;color:#171c17}.btn.primary:hover,.primary:hover{background:#d8b77f;color:#111}
+.simple{color:#dce9df}.smallnote{color:#a1b0a5}.orbit{border-color:#40594a}.o2{border-color:#496252}
+.core{background:#213a2e;color:#eff3ea;border:1px solid #577a62;box-shadow:0 20px 70px #0008}.core span{color:#a5d6b9}
+.bubble{background:#1a241e;border-color:#3b4b40;box-shadow:0 16px 40px #0005}.bubble b{color:#eef3eb}.bubble small,.caption{color:#9eafa2}.herofoot{color:#8fa398}
+.principles{background:#131a16;border-color:#2c3931}.principles span{color:#d2dbd2;border-color:#2d3a32}.principles i{color:#c5a16a}
+.section{background:#101613}.kicker span{color:#72877a}.cards article{background:#17201b;border-color:#344238}.cards article.featured{background:#1c3025}
+.cards h3{color:#eef2e9}.cards p{color:#acb9ae}.cards article>a,.under{color:#9ed2b7}.under{border-color:#587e67}
+.dark{background:#090e0c;border-top:1px solid #27372e;border-bottom:1px solid #27372e}.dark .kicker{color:#9ac8b2}.dark .kicker span{color:#61796b}.dark .twocol>p{color:#afbeb3}
+.steps{border-color:#35483b}.steps article{border-color:#35483b}.steps h3{color:#eff3eb}.steps p{color:#acbbb0}
+.notice{background:#15231a;border-color:#354e3b;color:#c2d0c4}.notice b{color:#f2f4ec}
+.partnergrid article{background:#1a2b20;border:1px solid #344b3a}.partnergrid article.warm{background:#29241b;border-color:#504432}
+.round{border-color:#4b725a;color:#a7d6b8}.warm .round{border-color:#786448;color:#dfbf8b}.partnergrid small{color:#9fc9ad}.warm small{color:#d0b184}.partnergrid h3{color:#f0f3eb}.partnergrid p{color:#b3c0b4}
+.light{background:#c5a16a;color:#171c17}.outline{background:transparent;border-color:#9d8258;color:#e4c795}
+.belief{background:#18251d;border-top:1px solid #304237;border-bottom:1px solid #304237}.beliefmark{background:#284333;color:#a4d6b7;border:1px solid #54745d}
+.belief small{color:#9cc7a9}.belief h2{color:#f0f3eb}.belief>p{color:#b4c1b5}
+.contact form{background:#17201b;border-color:#35443a;box-shadow:0 20px 60px #0003}.contact form h3{color:#eef2e9}.contact form h3 small{color:#a0aea2}
+.contact label{color:#c8d3c8}.contact input,.contact select,.contact textarea{background:#101713;border-color:#3b4b40;color:#eef2e9}
+.contact input::placeholder,.contact textarea::placeholder{color:#7f9184}.contact input:focus,.contact select:focus,.contact textarea:focus{border-color:#8ac5a6;box-shadow:0 0 0 3px #8ac5a61c}
+.point b{color:#e5ede4}.point small{color:#a4b1a6}.fine{color:#9aa89c}
+footer{background:#080d0b;border-top:1px solid #2c3b31}.footmain{border-color:#29392f}.footmain p{color:#a5b6a9}.footmain>a:last-child{color:#a5d4b9}.footbottom{color:#809488}.menu{color:#e4eee5}
+@media(max-width:760px){nav{background:#111815;box-shadow:0 14px 24px #0008}}
