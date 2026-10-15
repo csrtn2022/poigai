@@ -286,3 +286,83 @@ header{box-shadow:0 12px 36px #0002}
 .footmain p a{display:inline-block;color:#78C8AF;margin-top:7px;font-weight:700}
 @media(max-width:760px){.hero{min-height:0}.hero-signature{margin-top:20px}.section{padding-top:70px;padding-bottom:70px}.journey-grid{grid-template-columns:1fr;gap:13px;margin-top:30px}.journey-card{padding:24px}.journey-card li{font-size:12px}.cards article:hover,.partnergrid article:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.btn,.navbtn,.cards article,.partnergrid article{transition:none!important;transform:none!important}}
+
+
+/* POIGAI 2026 — editorial environmental-institution design */
+:root{--paper:#081A18;--ink:#F3F3EA;--forest:#102F2A;--forest2:#17443A;--teal:#9CD2BF;--gold:#C9A875;--line:#304F46;--font:'DM Sans',sans-serif;--display:'Manrope',sans-serif}
+html,body{background:#081A18;color:#F3F3EA}
+.topline{background:#061411;letter-spacing:.19em;font-size:9px;color:#ABC9BB;border-bottom:1px solid #29443B}
+.topline span{color:#D1B17F}
+header{height:88px;background:#0A201C;box-shadow:0 14px 30px #0002}
+.logo{font-size:23px}.logo small{color:#C2D2C8;letter-spacing:.13em;font-size:8px}
+.logo .mark{border-radius:16px;border:1px solid #4A826D}
+nav{gap:23px}nav a{font-size:12px;transition:color .2s}nav a:hover{color:#C9A875}
+.hero{background:radial-gradient(circle at 77% 45%,#1B5040 0%,#0C2A23 35%,#061713 84%);min-height:710px}
+.hero h1{font-size:clamp(46px,5vw,75px);letter-spacing:-.062em;max-width:780px}
+.hero h1 em{color:#B9DFCB}.hero-copy>p{font-size:16px;color:#D0DFD4}
+.hero .eyebrow{color:#D0B17D}
+.graphic .core{box-shadow:0 0 90px #72CC9822,0 20px 60px #0006}
+.principles{background:#0A241E}.principles span{color:#E3ECE3}.principles i{color:#D3B17D}
+.section{background:#0B211C}
+.cards article{background:#102F27;border:1px solid #365B4A}
+.cards article.featured{background:#184136}
+.cards h3,.partnergrid h3{letter-spacing:-.025em}
+.cards p,.partnergrid p{font-size:12px;line-height:1.85}
+.dark{background:#061713}
+.steps article{border-color:#4A6A59}
+.partnergrid article{background:#14382D}.partnergrid article.warm{background:#30291E}
+.science{background:#EEEDE3!important;color:#12352B}
+.science h2{color:#12352B}.science h2 em{color:#2F7660}
+.science .kicker{color:#3C7564}
+.science .kicker span{color:#68897A}
+.science .twocol>p{color:#4F665C;font-size:14px}
+.science-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:46px}
+.science-grid article{background:#FCFAF3;border:1px solid #D8DED1;border-radius:14px;padding:35px 29px;min-height:225px}
+.science-grid span{font-size:10px;letter-spacing:.19em;color:#8C764E;font-weight:800}
+.science-grid h3{font:750 21px/1.3 var(--display);color:#173F31;margin:21px 0 11px}
+.science-grid p{font-size:13px;color:#596A60;line-height:1.8}
+.science-caveat{font-size:11px;color:#5C6B60;margin:25px 0 0}
+.journeys{background:#09241E!important}
+.journey-card{background:linear-gradient(155deg,#153A30,#0A241E);border:1px solid #456759}
+.contact{background:#0C2821}
+.contact form{border-radius:18px}
+footer{background:#05130F}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:1000px){.science-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){
+ html,body{width:100%;max-width:100%;overflow-x:clip}
+ body{padding-left:0!important;padding-bottom:0!important}
+ .topline{font-size:8px;padding:7px 9px}
+ .topline span{display:none}
+ header{height:76px;display:flex;flex-direction:row;justify-content:flex-start;gap:14px;padding:0 17px;background:#081F19;z-index:100}
+ .menu{display:grid!important;place-items:center;order:-2;flex:0 0 44px;width:44px;height:44px;min-width:44px;border:1px solid #476E5C;border-radius:11px;color:#F4EFE1;background:#153B30;font-size:24px;line-height:1;cursor:pointer}
+ .logo{order:-1;min-width:0;gap:9px;font-size:18px;letter-spacing:.085em}
+ .logo .mark{height:43px;width:43px;flex:0 0 43px}
+ .logo small{font-size:7px;letter-spacing:.065em;line-height:1.3}
+ nav{display:none;position:absolute;top:76px;left:0;right:0;padding:12px 18px 22px;max-height:calc(100dvh - 76px);overflow-y:auto;background:#09251E;border-bottom:1px solid #416D59;box-shadow:0 25px 55px #0009;gap:0;z-index:110;align-items:stretch}
+ nav.open{display:flex}
+ nav a{display:block;padding:15px 12px;font-size:14px;color:#E3F0E6;border-bottom:1px solid #24483A}
+ nav .navbtn{margin-top:18px;text-align:center;background:#C9A875;color:#11251D;border-bottom:0;border-radius:10px}
+ .side-rail{display:none!important}
+ .floating-dock{position:static!important;transform:none!important;width:auto!important;margin:0!important;border-radius:0!important;display:flex!important;flex-wrap:wrap!important;justify-content:center!important;padding:16px!important;box-shadow:none!important;border-left:0!important;border-right:0!important;border-bottom:0!important}
+ .floating-dock .dock-label{display:none!important}
+ .floating-dock>a{font-size:13px!important}
+ .floating-dock>a.dock-primary{padding:13px 16px!important}
+ .hero{padding:56px 7% 50px;min-height:0;gap:20px}
+ .hero h1{font-size:clamp(39px,10vw,55px);line-height:1.12;letter-spacing:-.055em}
+ .hero-copy>p{font-size:14px;line-height:1.85}
+ .hero-signature{font-size:13px}
+ .graphic{transform:scale(.77);transform-origin:top center;height:335px;margin:0 -6% -55px}
+ .principles{padding:19px 6%}
+ .principles span{font-size:11px}
+ .science{padding:66px 7%}
+ .science h2{font-size:clamp(32px,8vw,43px)}
+ .science-grid{grid-template-columns:1fr;gap:12px;margin-top:30px}
+ .science-grid article{padding:25px;min-height:0}
+ .journey-grid{grid-template-columns:1fr}
+ .section h2{font-size:clamp(32px,8vw,42px)}
+ .contact-direct a{font-size:18px}
+ section[id]{scroll-margin-top:85px}
+}
+@media(max-width:380px){.logo small{font-size:6px}.logo{font-size:16px}.graphic{transform:scale(.68);height:302px}.floating-dock>a:first-of-type{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
