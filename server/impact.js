@@ -3,6 +3,8 @@ const j=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:h})
 const now=()=>Math.floor(Date.now()/1000);
 const clean=(s,max=500)=>typeof s==='string'&&s.trim().length>0&&s.trim().length<=max?s.trim():null;
 const role=['ngo','funder','technical','community'];
+const families=['water','heat','flood','agriculture','coasts','biodiversity','energy','waste','other'];
+const impacts=['people','livestock','trees','lakes','farms','heat','flood','energy','other'];
 const stages=['draft','submitted','needs_info','under_review','eligible_for_matching','declined','contracted','in_delivery','completed'];
 const rows=async(stmt,...args)=>(await stmt.bind(...args).all()).results;
 const audit=(env,actor,recordType,recordId,action)=>env.DB.prepare('INSERT INTO impact_audit(id,actor_type,actor_id,record_type,record_id,action,occurred_at) VALUES(?,?,?,?,?,?,?)').bind(crypto.randomUUID(),'stakeholder',actor,recordType,recordId,action,now()).run();
@@ -25,10 +27,21 @@ export async function impactApi(req,env,getUser){
   const projects=org?await rows(env.DB.prepare('SELECT * FROM impact_proposals WHERE organisation_id=? ORDER BY updated_at DESC LIMIT 100'),org.id):[];
   return j({organisation:org,projects});
  }
+ if(path==='/api/impact/preferences'&&req.method==='GET'){
+  if(!org||org.kind!=='funder')return j({error:'Funder organisation profile required.'},403);
+  const preferences=await env.DB.prepare('SELECT * FROM impact_funder_preferences WHERE organisation_id=?').bind(org.id).first();
+  return j({preferences});
+ }
  if(path==='/api/impact/matches'&&req.method==='GET'){
-  if(!org)return j({matches:[],note:'Create an organisation profile before seeking eligible partnerships.'});
-  const matches=await rows(env.DB.prepare("SELECT id,name,kind,state,district,description,website FROM impact_organisations WHERE public_consent=1 AND public_approved_at IS NOT NULL AND verification_status='verified' AND owner_user_id<>? AND kind=? AND (state=? OR state='Pan-India') ORDER BY name LIMIT 30"),user.id,org.kind==='funder'?'ngo':'funder',org.state);
-  return j({matches,note:'Geographic discovery only. Listing is not donor interest, award, financial offer or eligibility confirmation.'});
+  if(!org)return j({matches:[],note:'Create an organisation profile before seeking partnerships.'});
+  if(org.kind==='funder'){
+   const pref=await env.DB.prepare('SELECT * FROM impact_funder_preferences WHERE organisation_id=?').bind(org.id).first();
+   if(org.verification_status!=='verified'||!pref?.matching_consent)return j({matches:[],note:'Matching requires verified funder status and explicit interest-profile consent.'});
+   const matches=await rows(env.DB.prepare("SELECT p.id,p.title,p.state,p.district,p.issue_family,p.impact_category,p.budget_inr FROM impact_proposals p JOIN impact_organisations o ON o.id=p.organisation_id WHERE p.stage='eligible_for_matching' AND p.match_consent=1 AND o.verification_status='verified' AND (?='' OR p.state=?) AND (?='any' OR p.issue_family=?) AND (?='any' OR p.impact_category=?) AND (?=0 OR p.budget_inr>=?) AND (?=0 OR p.budget_inr<=?) ORDER BY p.updated_at DESC LIMIT 50"),pref.state,pref.state,pref.issue_family,pref.issue_family,pref.impact_category,pref.impact_category,pref.min_budget_inr,pref.min_budget_inr,pref.max_budget_inr,pref.max_budget_inr);
+   return j({matches,note:'Private preliminary suitability screening only; no applicant contacts, approval or funding commitment disclosed.'});
+  }
+  const matches=await rows(env.DB.prepare("SELECT id,name,kind,state,district,description,website FROM impact_organisations WHERE public_consent=1 AND public_approved_at IS NOT NULL AND verification_status='verified' AND owner_user_id<>? AND kind='funder' AND (state=? OR state='Pan-India') ORDER BY name LIMIT 30"),user.id,org.state);
+  return j({matches,note:'Opted-in public funder profiles only. Geographic discovery does not establish funding interest.'});
  }
  if(path==='/api/impact/detail'&&req.method==='GET'){
   const requested=new URL(req.url).searchParams.get('id');
