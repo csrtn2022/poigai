@@ -23,6 +23,21 @@ export async function impactApi(req,env,getUser){
   const projects=org?await rows(env.DB.prepare('SELECT * FROM impact_proposals WHERE organisation_id=? ORDER BY updated_at DESC LIMIT 100'),org.id):[];
   return j({organisation:org,projects});
  }
+ if(path==='/api/impact/matches'&&req.method==='GET'){
+  if(!org)return j({matches:[],note:'Create an organisation profile before seeking eligible partnerships.'});
+  const matches=await rows(env.DB.prepare("SELECT id,name,kind,state,district,description,website FROM impact_organisations WHERE public_consent=1 AND public_approved_at IS NOT NULL AND verification_status='verified' AND owner_user_id<>? AND kind=? AND (state=? OR state='Pan-India') ORDER BY name LIMIT 30"),user.id,org.kind==='funder'?'ngo':'funder',org.state);
+  return j({matches,note:'Geographic discovery only. Listing is not donor interest, award, financial offer or eligibility confirmation.'});
+ }
+ if(path==='/api/impact/detail'&&req.method==='GET'){
+  const requested=new URL(req.url).searchParams.get('id');
+  if(!org||!requested)return j({error:'Project unavailable.'},404);
+  const p=await project(env,org.id,requested);if(!p)return j({error:'Project unavailable.'},404);
+  const [milestones,metrics]=await Promise.all([
+   rows(env.DB.prepare('SELECT id,title,due_date,status,evidence_note,updated_at FROM impact_milestones WHERE proposal_id=? ORDER BY updated_at DESC LIMIT 100'),p.id),
+   rows(env.DB.prepare('SELECT id,indicator,unit,baseline,target,observed,verification,updated_at FROM impact_metrics WHERE proposal_id=? ORDER BY updated_at DESC LIMIT 100'),p.id)
+  ]);
+  return j({project:p,milestones,metrics});
+ }
  if(req.method!=='POST')return j({error:'Method not allowed.'},405);
  if(req.headers.get('origin')!=='https://www.poigai.com')return j({error:'Invalid origin.'},403);
  if(!req.headers.get('content-type')?.startsWith('application/json'))return j({error:'JSON required.'},415);
@@ -43,21 +58,6 @@ export async function impactApi(req,env,getUser){
    await audit(env,user.id,'organisation',org.id,'resubmitted_for_review');
   }
   return j({message:'Saved privately. Public listing requires consent and independent admin verification.'},201);
- }
- if(path==='/api/impact/matches'&&req.method==='GET'){
-  if(!org)return j({matches:[],note:'Create an organisation profile before seeking eligible partnerships.'});
-  const matches=await rows(env.DB.prepare("SELECT id,name,kind,state,district,description,website FROM impact_organisations WHERE public_consent=1 AND public_approved_at IS NOT NULL AND verification_status='verified' AND owner_user_id<>? AND kind=? AND (state=? OR state='Pan-India') ORDER BY name LIMIT 30"),user.id,org.kind==='funder'?'ngo':'funder',org.state);
-  return j({matches,note:'Geographic discovery only. Listing is not donor interest, award, financial offer or eligibility confirmation.'});
- }
- if(path==='/api/impact/detail'&&req.method==='GET'){
-  const requested=new URL(req.url).searchParams.get('id');
-  if(!org||!requested)return j({error:'Project unavailable.'},404);
-  const p=await project(env,org.id,requested);if(!p)return j({error:'Project unavailable.'},404);
-  const [milestones,metrics]=await Promise.all([
-   rows(env.DB.prepare('SELECT id,title,due_date,status,evidence_note,updated_at FROM impact_milestones WHERE proposal_id=? ORDER BY updated_at DESC LIMIT 100'),p.id),
-   rows(env.DB.prepare('SELECT id,indicator,unit,baseline,target,observed,verification,updated_at FROM impact_metrics WHERE proposal_id=? ORDER BY updated_at DESC LIMIT 100'),p.id)
-  ]);
-  return j({project:p,milestones,metrics});
  }
  if(!org)return j({error:'Create your organisation profile first.'},409);
  if(path==='/api/impact/proposal'){
