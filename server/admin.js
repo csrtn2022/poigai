@@ -67,7 +67,23 @@ export async function adminApi(request,env,passwordMatches,passwordHash){
    env.DB.prepare("SELECT id,name,kind,state,district,verification_status,public_consent,public_approved_at,created_at FROM impact_organisations ORDER BY updated_at DESC LIMIT 100").all(),
    env.DB.prepare("SELECT p.id,p.title,p.state,p.district,p.issue,p.stage,p.budget_inr,o.name organisation FROM impact_proposals p JOIN impact_organisations o ON o.id=p.organisation_id ORDER BY p.updated_at DESC LIMIT 100").all()
   ]);
-  return json({organisations:organisations.results,proposals:proposals.results});
+  const [milestones,metrics]=await Promise.all([env.DB.prepare("SELECT m.id,m.title,m.status,m.evidence_note,m.proposal_id,p.title project FROM impact_milestones m JOIN impact_proposals p ON p.id=m.proposal_id ORDER BY m.updated_at DESC LIMIT 100").all(),env.DB.prepare("SELECT i.id,i.indicator,i.unit,i.observed,i.verification,i.proposal_id,p.title project FROM impact_metrics i JOIN impact_proposals p ON p.id=i.proposal_id ORDER BY i.updated_at DESC LIMIT 100").all()]);
+  return json({organisations:organisations.results,proposals:proposals.results,milestones:milestones.results,metrics:metrics.results});
+ }
+ if(path==='/api/admin/impact-verify'&&request.method==='POST'){
+  if(request.headers.get('origin')!==env.APP_ORIGIN)return json({error:'Invalid origin.'},403);
+  const raw=await request.text();if(raw.length>2048)return json({error:'Too large.'},413);
+  let data;try{data=JSON.parse(raw);}catch{return json({error:'Invalid request.'},400);}
+  if(typeof data?.id!=='string'||!/^[a-f0-9-]{36}$/.test(data.id)||typeof data.reason!=='string'||data.reason.trim().length<12||data.reason.length>1000)return json({error:'Record and independent verification rationale required.'},400);
+  const isMilestone=data.kind==='milestone',isMetric=data.kind==='metric';
+  if(!isMilestone&&!isMetric)return json({error:'Invalid record type.'},400);
+  const status=isMilestone?(data.status==='verified'?'verified':data.status==='rejected'?'rejected':null):(data.status==='verified'?'verified':data.status==='reviewed'?'reviewed':null);
+  if(!status)return json({error:'Invalid verification status.'},400);
+  const stmt=isMilestone?"UPDATE impact_milestones SET status=?,updated_at=? WHERE id=? AND status='submitted'":"UPDATE impact_metrics SET verification=?,updated_at=? WHERE id=? AND verification IN ('unverified','reviewed')";
+  const result=await env.DB.prepare(stmt).bind(status,expiry(),data.id).run();
+  if(result.meta?.changes!==1)return json({error:'Record cannot be verified in its current state.'},409);
+  await env.DB.prepare('INSERT INTO impact_audit(id,actor_type,actor_id,record_type,record_id,action,occurred_at,details) VALUES(?,?,?,?,?,?,?,?)').bind(crypto.randomUUID(),'administrator',admin.id,data.kind,data.id,'verification:'+status,expiry(),data.reason.trim()).run();
+  return json({message:'Independent review decision recorded.'});
  }
  if(path==='/api/admin/impact-decision'&&request.method==='POST'){
   if(request.headers.get('origin')!==env.APP_ORIGIN)return json({error:'Invalid origin.'},403);
