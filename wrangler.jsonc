@@ -1,0 +1,8 @@
+{
+  "name": "poigai",
+  "main": "server/worker.js",
+  "compatibility_date": "2026-10-15",
+  "assets": {"directory": "./dist", "binding": "ASSETS", "run_worker_first": true},
+  "triggers": {"crons": ["13 1 * * *"]},
+  "vars": {"AUTH_ENABLED": "false", "APP_ORIGIN": "https://www.poigai.com"}
+}
