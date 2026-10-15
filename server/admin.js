@@ -76,6 +76,8 @@ export async function adminApi(request,env,passwordMatches,passwordHash){
   let data;try{data=JSON.parse(raw);}catch{return json({error:'Invalid request.'},400);}
   if(!data||typeof data.id!=='string'||!/^[a-f0-9-]{36}$/.test(data.id))return json({error:'Invalid record.'},400);
   const t=expiry();
+  const reason=typeof data.reason==='string'?data.reason.trim():'';
+  if(reason.length<12||reason.length>1000)return json({error:'Provide a review rationale (12–1000 characters).'},400);
   if(data.kind==='organisation'){
    if(!['needs_info','verified','rejected'].includes(data.status)||typeof data.publicApproved!=='boolean')return json({error:'Invalid decision.'},400);
    const found=await env.DB.prepare('SELECT id,public_consent,verification_status FROM impact_organisations WHERE id=?').bind(data.id).first();
@@ -87,11 +89,17 @@ export async function adminApi(request,env,passwordMatches,passwordHash){
    if(!['needs_info','under_review','eligible_for_matching','declined','contracted','in_delivery','completed'].includes(data.status))return json({error:'Invalid decision.'},400);
    const p=await env.DB.prepare("SELECT p.stage,o.verification_status FROM impact_proposals p JOIN impact_organisations o ON o.id=p.organisation_id WHERE p.id=?").bind(data.id).first();
    if(!p)return json({error:'Record not found.'},404);
-   if(!['submitted','needs_info','under_review','eligible_for_matching','contracted','in_delivery'].includes(p.stage))return json({error:'Proposal not in review lifecycle.'},409);
+   const transitions={submitted:['needs_info','under_review','declined'],needs_info:['under_review','declined'],under_review:['needs_info','eligible_for_matching','declined'],eligible_for_matching:['under_review','contracted','declined'],contracted:['in_delivery'],in_delivery:['completed']};
+   if(!transitions[p.stage]?.includes(data.status))return json({error:'Invalid project stage transition.'},409);
+   if(['contracted','in_delivery','completed'].includes(data.status)&&!/^reference:[A-Za-z0-9 _./#:-]{8,}/.test(reason))return json({error:'Contracting or delivery requires a documented reference: ... review note.'},409);
+   if(data.status==='completed'){
+    const verified=await env.DB.prepare("SELECT COUNT(*) n FROM impact_milestones WHERE proposal_id=? AND status='verified'").bind(data.id).first();
+    if(!verified?.n)return json({error:'At least one independently verified milestone is required before completion.'},409);
+   }
    if(['eligible_for_matching','contracted','in_delivery','completed'].includes(data.status)&&p.verification_status!=='verified')return json({error:'Organisation verification required.'},409);
    await env.DB.prepare('UPDATE impact_proposals SET stage=?,updated_at=? WHERE id=?').bind(data.status,t,data.id).run();
   }else return json({error:'Invalid record type.'},400);
-  await env.DB.prepare('INSERT INTO impact_audit(id,actor_type,actor_id,record_type,record_id,action,occurred_at) VALUES(?,?,?,?,?,?,?)').bind(crypto.randomUUID(),'administrator',admin.id,data.kind,data.id,'status:'+data.status,t).run();
+  await env.DB.prepare('INSERT INTO impact_audit(id,actor_type,actor_id,record_type,record_id,action,occurred_at,details) VALUES(?,?,?,?,?,?,?,?)').bind(crypto.randomUUID(),'administrator',admin.id,data.kind,data.id,'status:'+data.status,t,reason).run();
   return json({message:'Decision saved with audit entry.'});
  }
  if(request.method!=='GET')return json({error:'Method not allowed.'},405);
