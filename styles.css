@@ -368,23 +368,36 @@ footer{background:#05130F}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 /* Rich emerald sitewide background — user-selected palette, 2026-10-15 */
-:root{--emerald:#087F5B;--paper:var(--emerald);--forest:var(--emerald);--forest2:var(--emerald);--cream:var(--emerald);--ink:#FFFFFF;--muted:#F7F7F2;--teal:#FFFFFF;--line:#FFFFFF66}
-html,body,.topline,header,nav,.hero,.principles,.section,.dark,.science,.journeys,.belief,.contact,footer,.side-rail,.floating-dock{background:var(--emerald)!important;background-image:none!important;color:#FFFFFF}
+:root{--emerald:#087F5B;--paper:var(--emerald);--forest:var(--emerald);--forest2:var(--emerald);--cream:var(--emerald);--ink:#FFF4DC;--muted:#FFF4DC;--teal:#FFF4DC;--line:#FFF4DC66}
+html,body,.topline,header,nav,.hero,.principles,.section,.dark,.science,.journeys,.belief,.contact,footer,.side-rail,.floating-dock{background:var(--emerald)!important;background-image:none!important;color:#FFF4DC}
 .hero:before{background-image:none}
-.cards article,.cards article.featured,.partnergrid article,.partnergrid article.warm,.science-grid article,.journey-card,.contact form,.contact-direct,.notice,.bubble,.core,.mark,.beliefmark,.rail-brand,.rail-link i,.menu{background:var(--emerald);background-image:none;border-color:#FFFFFF66}
-.logo,.logo small,nav,nav a,.eyebrow,.kicker,.kicker span,.hero .eyebrow,.hero h1,.hero h1 em,.section h2,.section h2 em,.dark h2,.dark h2 em,.belief h2,.belief h2 em,.contact h2,.contact h2 em,.science h2,.science h2 em,.science .kicker,.science .kicker span,.hero-copy>p,.prose p,.twocol>p,.dark .twocol>p,.science .twocol>p,.contactgrid>div>p{color:#FFFFFF}
-.smallnote,.herofoot,.caption,.bubble b,.bubble small,.core,.core span,.principles span,.principles i,.cards article>span,.cards article>span b,.cards h3,.cards p,.cards article>a,.under,.steps i,.steps article>b,.steps h3,.steps p,.notice,.partnergrid small,.warm small,.partnergrid h3,.partnergrid p,.round,.warm .round{color:#FFFFFF}
-.science-grid span,.science-grid h3,.science-grid p,.science-caveat,.journey-card>span,.journey-card h3,.journey-card li,.journey-card li:before,.journey-note,.belief small,.belief>p,.contact form h3,.contact form h3 small,.contact label,.point b,.point small,.fine,.contact #msg,.contact-direct span,.contact-direct a,.footmain p,.footmain p a,.footmain>a:last-child,.footbottom,.rail-caption,.rail-link,.dock-label,.floating-dock>a{color:#FFFFFF}
-.orbit,.o2,.principles,.principles span,.steps,.steps article,.notice,.round,.warm .round,.journey-card li,.contact-direct,.under,.footmain,header,nav,nav a,footer,.belief,.side-rail,.floating-dock{border-color:#FFFFFF66}
-.contact input,.contact select,.contact textarea{background:#F7F7F2;color:#0B3028;border-color:#FFFFFF}
+.cards article,.cards article.featured,.partnergrid article,.partnergrid article.warm,.science-grid article,.journey-card,.contact form,.contact-direct,.notice,.bubble,.core,.mark,.beliefmark,.rail-brand,.rail-link i,.menu{background:var(--emerald);background-image:none;border-color:#FFF4DC66}
+.logo,.logo small,nav,nav a,.eyebrow,.kicker,.kicker span,.hero .eyebrow,.hero h1,.hero h1 em,.section h2,.section h2 em,.dark h2,.dark h2 em,.belief h2,.belief h2 em,.contact h2,.contact h2 em,.science h2,.science h2 em,.science .kicker,.science .kicker span,.hero-copy>p,.prose p,.twocol>p,.dark .twocol>p,.science .twocol>p,.contactgrid>div>p{color:#FFF4DC}
+.smallnote,.herofoot,.caption,.bubble b,.bubble small,.core,.core span,.principles span,.principles i,.cards article>span,.cards article>span b,.cards h3,.cards p,.cards article>a,.under,.steps i,.steps article>b,.steps h3,.steps p,.notice,.partnergrid small,.warm small,.partnergrid h3,.partnergrid p,.round,.warm .round{color:#FFF4DC}
+.science-grid span,.science-grid h3,.science-grid p,.science-caveat,.journey-card>span,.journey-card h3,.journey-card li,.journey-card li:before,.journey-note,.belief small,.belief>p,.contact form h3,.contact form h3 small,.contact label,.point b,.point small,.fine,.contact #msg,.contact-direct span,.contact-direct a,.footmain p,.footmain p a,.footmain>a:last-child,.footbottom,.rail-caption,.rail-link,.dock-label,.floating-dock>a{color:#FFF4DC}
+.orbit,.o2,.principles,.principles span,.steps,.steps article,.notice,.round,.warm .round,.journey-card li,.contact-direct,.under,.footmain,header,nav,nav a,footer,.belief,.side-rail,.floating-dock{border-color:#FFF4DC66}
+.contact input,.contact select,.contact textarea{background:#FFF4DC;color:#0B3028;border-color:#FFF4DC}
 .contact input::placeholder,.contact textarea::placeholder{color:#52685E}
-.contact input:focus,.contact select:focus,.contact textarea:focus{border-color:#FFFFFF;box-shadow:0 0 0 3px #FFFFFF55}
-.btn.primary,.primary,.navbtn,.light,nav .navbtn,.floating-dock>a.dock-primary{background:#F7F7F2;color:#0B3028;border-color:#F7F7F2}
+.contact input:focus,.contact select:focus,.contact textarea:focus{border-color:#FFF4DC;box-shadow:0 0 0 3px #FFF4DC55}
+.btn.primary,.primary,.navbtn,.light,nav .navbtn,.floating-dock>a.dock-primary{background:#FFF4DC;color:#0B3028;border-color:#FFF4DC}
 .btn.primary:hover,.primary:hover,.navbtn:hover,.light:hover,.floating-dock>a.dock-primary:hover{background:#E2EEE6;color:#0B3028}
-.simple,.outline{color:#FFFFFF;border-color:#FFFFFF}
-nav a:hover,.floating-dock>a:hover{color:#FFFFFF;text-decoration:underline}
-.rail-link:hover,.rail-link:focus-visible,.rail-link.active{background:#FFFFFF;color:#087F5B;border-color:#FFFFFF}
-.cards article:hover,.partnergrid article:hover{border-color:#FFFFFF}
-:focus-visible{outline-color:#FFFFFF}
-::selection{background:#FFFFFF;color:#087F5B}
+.simple,.outline{color:#FFF4DC;border-color:#FFF4DC}
+nav a:hover,.floating-dock>a:hover{color:#FFF4DC;text-decoration:underline}
+.rail-link:hover,.rail-link:focus-visible,.rail-link.active{background:#FFF4DC;color:#087F5B;border-color:#FFF4DC}
+.cards article:hover,.partnergrid article:hover{border-color:#FFF4DC}
+:focus-visible{outline-color:#FFF4DC}
+::selection{background:#FFF4DC;color:#087F5B}
 @media(max-width:760px){header,nav,.hero,.side-rail,.floating-dock{background:var(--emerald)!important}}
+
+/* Warm ivory typography with pale champagne emphasis on rich emerald. */
+:root{--ink:#FFF4DC;--muted:#FFF4DC;--teal:#FFE0A3;--gold:#FFE0A3}
+.logo small,.hero h1 em,.section h2 em,.dark h2 em,.science h2 em,.belief h2 em,.contact h2 em{color:#FFE0A3}
+.hero .eyebrow,.kicker,.science .kicker,.principles i,.steps article>b,.science-grid span,.journey-card>span,.belief small,.topline span{color:#FFE0A3}
+.logo small{letter-spacing:.12em}
+@media(max-width:760px){
+ .hero-copy{min-width:0;max-width:100%}
+ .hero h1{font-size:clamp(32px,8.5vw,55px);overflow-wrap:anywhere}
+ .logo>span:last-child{min-width:0}
+ .logo small{font-size:7px;letter-spacing:.07em;white-space:normal}
+ .topline{overflow-wrap:anywhere}
+}
