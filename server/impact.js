@@ -19,6 +19,7 @@ export async function impactApi(req,env,getUser){
  const user=await getUser(req,env);
  if(!user)return j({error:'Sign in to a verified stakeholder account.'},401);
  const organisation=await owner(env,user.id);
+ const org=organisation;
  if(path==='/api/impact/my'&&req.method==='GET'){
   const org=organisation;
   const projects=org?await rows(env.DB.prepare('SELECT * FROM impact_proposals WHERE organisation_id=? ORDER BY updated_at DESC LIMIT 100'),org.id):[];
