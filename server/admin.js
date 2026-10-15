@@ -5,10 +5,25 @@ const digest=async s=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-
 const expiry=()=>Math.floor(Date.now()/1000);
 function enabled(env){return env.ADMIN_ENABLED==='true'&&env.DB&&env.AUTH_PEPPER?.length>=32&&env.APP_ORIGIN==='https://www.poigai.com';}
 async function session(request,env){const token=(request.headers.get('cookie')||'').split(';').map(x=>x.trim()).find(x=>x.startsWith(COOKIE+'='))?.slice(COOKIE.length+1);if(!token||!/^[a-f0-9]{64}$/.test(token))return null;return env.DB.prepare("SELECT a.id,a.email,a.display_name FROM admin_sessions s JOIN admin_users a ON a.id=s.admin_id WHERE s.token_hash=? AND s.expires_at>? AND a.status='active'").bind(await digest(token),expiry()).first();}
-export async function adminApi(request,env,passwordMatches){
+export async function adminApi(request,env,passwordMatches,passwordHash){
  const path=new URL(request.url).pathname;
  if(path==='/api/admin/status'&&request.method==='GET')return json({available:enabled(env)});
+
  if(!enabled(env))return json({error:'Administrator access is not activated.'},503);
+ if(path==='/api/admin/activate'&&request.method==='POST'){
+  if(request.headers.get('origin')!==env.APP_ORIGIN)return json({error:'Invalid origin.'},403);
+  if(!request.headers.get('content-type')?.startsWith('application/json'))return json({error:'JSON required.'},415);
+  const raw=await request.text();if(raw.length>4096)return json({error:'Too large.'},413);
+  let data;try{data=JSON.parse(raw);}catch{return json({error:'Invalid request.'},400);}
+  if(typeof data.token!=='string'||!/^[a-f0-9]{64}$/.test(data.token)||typeof data.password!=='string'||data.password.length<12||data.password.length>128)return json({error:'Invalid or expired activation link or password.'},400);
+  const hash=await passwordHash(data.password,env.AUTH_PEPPER),t=expiry();
+  const used=await env.DB.prepare("DELETE FROM admin_activation_tokens WHERE token_hash=? AND expires_at>? RETURNING admin_id").bind(await digest(data.token),t).first();
+  if(!used)return json({error:'Activation link expired or already used.'},400);
+  const updated=await env.DB.prepare("UPDATE admin_users SET password_hash=?,status='active',activated_at=? WHERE id=? AND status='pending' AND password_hash IS NULL").bind(hash,t,used.admin_id).run();
+  if(updated.meta.changes!==1)return json({error:'Activation unavailable.'},409);
+  return json({message:'Administrator account activated. You can sign in.'});
+ }
+
  if(path==='/api/admin/me'&&request.method==='GET'){const a=await session(request,env);return a?json({admin:a}):json({error:'Sign in required.'},401);}
  if(path==='/api/admin/login'&&request.method==='POST'){
   if(request.headers.get('origin')!==env.APP_ORIGIN)return json({error:'Invalid origin.'},403);
