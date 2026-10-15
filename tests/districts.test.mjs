@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import vm from 'node:vm';
 import worker from '../server/worker.js';
+const fileChrome="<link rel=\"stylesheet\" href=\"/site-chrome.css?v=20261016-a\"><script src=\"/site-chrome.js?v=20261016-a\" defer></script>";
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const data=JSON.parse(read('knowledge/districts/data.json'));
 const bank=JSON.parse(read('knowledge/data.json'));
@@ -13,7 +14,7 @@ test('all 144 current districts have distinct practical profiles, evidence route
  assert(data.districts.some(d=>d.name==='Markapuram'));assert(data.districts.some(d=>d.name==='Polavaram'));assert(data.districts.some(d=>d.name==='Bengaluru South'&&d.aliases.join(' ').includes('Ramanagara')));
 });
 test('public routes serve every district deliverable while all links and build copies remain valid',async()=>{
- for(const file of ['index.html','data.json','districts.css','districts.js','district-register.csv','district-knowledge-bank.md']){assert.equal(read('knowledge/districts/'+file),read('dist/knowledge/districts/'+file));let served=false;const r=await worker.fetch(new Request('https://www.poigai.com/knowledge/districts/'+file),{ASSETS:{fetch:()=>{served=true;return new Response('public');}}});assert.equal(r.status,200);assert(served);}
+ for(const file of ['index.html','data.json','districts.css','districts.js','district-register.csv','district-knowledge-bank.md']){assert.equal(read('knowledge/districts/'+file),read('dist/knowledge/districts/'+file).replace(fileChrome,''));let served=false;const r=await worker.fetch(new Request('https://www.poigai.com/knowledge/districts/'+file),{ASSETS:{fetch:()=>{served=true;return new Response('public');}}});assert.equal(r.status,200);assert(served);}
  const html=read('knowledge/districts/index.html');const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);for(const d of data.districts)assert(ids.includes(d.id));
  for(const m of html.matchAll(/(?:href|src)="([^"#]+)(?:#[^"]*)?"/g)){if(!m[1].startsWith('/'))continue;const path=m[1].split('?')[0];assert(existsSync(new URL('..'+path+(path.endsWith('/')?'index.html':''),import.meta.url)),path);}
  assert(html.includes('not 144 completed risk assessments'));assert(html.includes('No severity ranking'));assert(read('knowledge/index.html').includes('/knowledge/districts/'));assert(read('sitemap.xml').includes('https://www.poigai.com/knowledge/districts/'));
