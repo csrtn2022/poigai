@@ -60,6 +60,15 @@ export async function impactApi(req,env,getUser){
  let data;try{data=JSON.parse(raw);}catch{return j({error:'Invalid JSON.'},400)}
  if(!data||typeof data!=='object'||Array.isArray(data))return j({error:'Invalid request.'},400);
  const time=now();
+ if(path==='/api/impact/preferences'){
+  if(!org||org.kind!=='funder')return j({error:'Funder profile required.'},403);
+  const state=typeof data.state==='string'?data.state.trim().slice(0,100):'';
+  const issue=clean(data.issueFamily,30),impact=clean(data.impactCategory,30),min=Number(data.minBudget||0),max=Number(data.maxBudget||0);
+  if((issue!=='any'&&!families.includes(issue))||(impact!=='any'&&!impacts.includes(impact))||!Number.isSafeInteger(min)||!Number.isSafeInteger(max)||min<0||max<0||(max>0&&min>max))return j({error:'Invalid funder preferences.'},400);
+  await env.DB.prepare("INSERT INTO impact_funder_preferences(organisation_id,state,issue_family,impact_category,min_budget_inr,max_budget_inr,matching_consent,updated_at) VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(organisation_id) DO UPDATE SET state=excluded.state,issue_family=excluded.issue_family,impact_category=excluded.impact_category,min_budget_inr=excluded.min_budget_inr,max_budget_inr=excluded.max_budget_inr,matching_consent=excluded.matching_consent,updated_at=excluded.updated_at").bind(org.id,state,issue,impact,min,max,data.consent===true?1:0,time).run();
+  await audit(env,user.id,'funder_preferences',org.id,'preferences_changed');
+  return j({message:'Private matching preferences saved.'});
+ }
  if(path==='/api/impact/organisation'){
   const name=clean(data.name,150),kind=clean(data.kind,20),state=clean(data.state,100),district=clean(data.district,100),description=clean(data.description,1000),registration=typeof data.registration==='string'?data.registration.slice(0,120):'',website=typeof data.website==='string'?data.website.slice(0,250):'';
   if(!name||!role.includes(kind)||!state||!district||!description)return j({error:'Complete the organisation fields.'},400);
