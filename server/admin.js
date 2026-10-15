@@ -62,6 +62,38 @@ export async function adminApi(request,env,passwordMatches,passwordHash){
   return json({message:'Signed out.'},200,{'Set-Cookie':`${COOKIE}=; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=0`});
  }
  const admin=await session(request,env);if(!admin)return json({error:'Administrator authentication required.'},401);
+ if(path==='/api/admin/impact-review'&&request.method==='GET'){
+  const [organisations,proposals]=await Promise.all([
+   env.DB.prepare("SELECT id,name,kind,state,district,verification_status,public_consent,public_approved_at,created_at FROM impact_organisations ORDER BY updated_at DESC LIMIT 100").all(),
+   env.DB.prepare("SELECT p.id,p.title,p.state,p.district,p.issue,p.stage,p.budget_inr,o.name organisation FROM impact_proposals p JOIN impact_organisations o ON o.id=p.organisation_id ORDER BY p.updated_at DESC LIMIT 100").all()
+  ]);
+  return json({organisations:organisations.results,proposals:proposals.results});
+ }
+ if(path==='/api/admin/impact-decision'&&request.method==='POST'){
+  if(request.headers.get('origin')!==env.APP_ORIGIN)return json({error:'Invalid origin.'},403);
+  if(!request.headers.get('content-type')?.startsWith('application/json'))return json({error:'JSON required.'},415);
+  const raw=await request.text();if(raw.length>2048)return json({error:'Too large.'},413);
+  let data;try{data=JSON.parse(raw);}catch{return json({error:'Invalid request.'},400);}
+  if(!data||typeof data.id!=='string'||!/^[a-f0-9-]{36}$/.test(data.id))return json({error:'Invalid record.'},400);
+  const t=expiry();
+  if(data.kind==='organisation'){
+   if(!['needs_info','verified','rejected'].includes(data.status)||typeof data.publicApproved!=='boolean')return json({error:'Invalid decision.'},400);
+   const found=await env.DB.prepare('SELECT id,public_consent,verification_status FROM impact_organisations WHERE id=?').bind(data.id).first();
+   if(!found)return json({error:'Record not found.'},404);
+   if(data.publicApproved&&!found.public_consent)return json({error:'Explicit organisation publication consent required.'},409);
+   const approved=data.status==='verified'&&data.publicApproved?t:null;
+   await env.DB.prepare('UPDATE impact_organisations SET verification_status=?,public_approved_at=?,updated_at=? WHERE id=?').bind(data.status,approved,t,data.id).run();
+  }else if(data.kind==='proposal'){
+   if(!['needs_info','under_review','eligible_for_matching','declined','contracted','in_delivery','completed'].includes(data.status))return json({error:'Invalid decision.'},400);
+   const p=await env.DB.prepare("SELECT p.stage,o.verification_status FROM impact_proposals p JOIN impact_organisations o ON o.id=p.organisation_id WHERE p.id=?").bind(data.id).first();
+   if(!p)return json({error:'Record not found.'},404);
+   if(!['submitted','needs_info','under_review','eligible_for_matching','contracted','in_delivery'].includes(p.stage))return json({error:'Proposal not in review lifecycle.'},409);
+   if(['eligible_for_matching','contracted','in_delivery','completed'].includes(data.status)&&p.verification_status!=='verified')return json({error:'Organisation verification required.'},409);
+   await env.DB.prepare('UPDATE impact_proposals SET stage=?,updated_at=? WHERE id=?').bind(data.status,t,data.id).run();
+  }else return json({error:'Invalid record type.'},400);
+  await env.DB.prepare('INSERT INTO impact_audit(id,actor_type,actor_id,record_type,record_id,action,occurred_at) VALUES(?,?,?,?,?,?,?)').bind(crypto.randomUUID(),'administrator',admin.id,data.kind,data.id,'status:'+data.status,t).run();
+  return json({message:'Decision saved with audit entry.'});
+ }
  if(request.method!=='GET')return json({error:'Method not allowed.'},405);
  if(path==='/api/admin/summary'){
   const [u,q]=await Promise.all([env.DB.prepare('SELECT COUNT(*) n FROM auth_users').first(),env.DB.prepare('SELECT COUNT(*) n FROM enquiries').first()]);return json({adminId:admin.id,stakeholders:u.n,enquiries:q.n});
