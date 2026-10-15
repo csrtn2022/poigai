@@ -1,0 +1,43 @@
+/* POIGAI: charcoal foundation, forest surfaces, emerald actions, ivory type. */
+:root{color-scheme:dark;--charcoal:#101815;--surface:#14231C;--surface-raised:#193126;--emerald:#159A70;--mint:#64D6AC;--ivory:#F5F1E8;--champagne:#C8AC70;--ink:var(--ivory);--muted:#B7C4BB;--teal:var(--mint);--gold:var(--champagne);--paper:var(--charcoal);--forest:var(--surface);--forest2:var(--surface-raised);--cream:var(--surface);--line:#344B3E;--green:var(--charcoal)}
+html:root{background:var(--charcoal)!important}
+body.poigai-theme{background:var(--charcoal)!important;color:var(--ivory)}
+.poigai-theme :is(.topline,header,nav,.hero,.section,.dark,.science,.journeys,.belief,.contact,footer,.side-rail,.floating-dock,.p-home){background:var(--charcoal)!important;background-image:none!important;color:var(--ivory);border-color:var(--line)}
+.poigai-theme :is(.topline,.side-rail,footer){background:#0B110E!important}
+.poigai-theme header{background:#101815f5!important;box-shadow:none;border-bottom:1px solid var(--line)}
+.poigai-theme :is(.principles,.dark,.science,.belief,#local-projects){background:#13221B!important}
+.poigai-theme :is(.cards article,.cards article.featured,.partnergrid article,.partnergrid article.warm,.science-grid article,.journey-card,.contact form,.contact-direct,.notice,.mark,.beliefmark,.rail-brand,.menu,.p-project,.p-home-grid article,.p-control>div,.p-resource-list>div,.panel,.intro aside){background:var(--surface);background-image:none;border-color:var(--line)}
+.poigai-theme :is(.cards article.featured,.partnergrid article.warm){background:var(--surface-raised)}
+.poigai-theme :is(.logo,.brand,nav a,.hero h1,.section h2,.dark h2,.science h2,.belief h2,.contact h2,.cards h3,.partnergrid h3,.science-grid h3,.journey-card h3,.p-project h3,.contact form h3,.point b,.contact-direct a){color:var(--ivory)}
+.poigai-theme :is(.hero h1 em,.section h2 em,.dark h2 em,.science h2 em,.belief h2 em,.contact h2 em,.p-hero h1 em,.p-home h2 em){color:var(--mint)}
+.poigai-theme :is(.logo small,.brand small,.eyebrow,.hero .eyebrow,.kicker,.science .kicker,.principles i,.science-grid span,.journey-card>span,.belief small,.contact-direct span,.p-eyebrow,.p-home-grid small,.p-place,.p-badge){color:var(--champagne)}
+.poigai-theme :is(p,.hero-copy>p,.prose p,.twocol>p,.dark .twocol>p,.science .twocol>p,.contactgrid>div>p,.cards p,.partnergrid p,.science-grid p,.journey-card li,.journey-note,.belief>p,.smallnote,.herofoot,.science-caveat,.fine,.point small,.footmain p,.footbottom,.p-note,.rail-caption){color:var(--muted)}
+.poigai-theme :is(.under,.cards article>a,.p-home-grid a,.contact-direct a,.footmain p a,.journey-card li:before,.p-resource-list b,.p-table th,.p-table small,.p-control dt){color:var(--mint)}
+.poigai-theme :is(.principles span,.steps h3,.steps p,.notice,.contact label,.dock-label,.floating-dock>a,.rail-link){color:var(--ivory)}
+.poigai-theme :is(.btn.primary,.primary,.navbtn,.btn.light,nav .navbtn,.floating-dock>a.dock-primary,.p-cta,#submit,#logout){background:var(--emerald)!important;color:#071A11!important;border:1px solid #3BB389;font-weight:750}
+.poigai-theme :is(.btn.primary,.navbtn,.btn.light,.p-cta,#submit,#logout):hover{background:#35B58A!important;color:#071A11!important}
+.poigai-theme :is(.simple,.outline){background:transparent;color:var(--ivory);border-color:#597363}
+.poigai-theme .rail-link.active{background:var(--surface-raised);color:var(--mint);border:1px solid #41634F}
+.poigai-theme :is(.principles span,.steps article,.journey-card li,.contact-direct,.footmain,.side-rail,.floating-dock,.p-stats,.p-table th,.p-table td,.p-project details){border-color:var(--line)}
+.poigai-theme .journey-card:before{background:linear-gradient(90deg,var(--emerald),var(--champagne),transparent);opacity:.75}
+.poigai-theme :is(input,select,textarea,.contact input,.contact select,.contact textarea,.p-filters select){background:#101C16;color:var(--ivory);border:1px solid #527060}
+.poigai-theme :is(input,textarea)::placeholder{color:#A4B4A8}
+.poigai-theme :is(input,select,textarea):focus{border-color:var(--mint);box-shadow:0 0 0 3px #64D6AC25;outline-color:var(--mint)}
+.poigai-theme :focus-visible{outline:3px solid var(--mint);outline-offset:4px}
+.poigai-theme .p-next{background:#1B3527;border-left-color:var(--champagne)}
+.poigai-theme .p-callout{border-color:#756B46;border-left-color:var(--champagne)}
+.poigai-theme .p-stats b{color:var(--mint)}
+.poigai-theme .p-resource-list .p-match{border-color:var(--mint);box-shadow:inset 3px 0 var(--mint)}
+.poigai-theme .hero{gap:40px;padding-top:78px;padding-bottom:80px;min-height:650px;align-items:center}
+.poigai-theme .hero h1{font-size:clamp(42px,4.4vw,66px);line-height:1.12;letter-spacing:-.055em}
+.hero-visual{margin:0;min-width:0;border:1px solid var(--line);padding:14px;border-radius:22px;background:#14231C;box-shadow:0 26px 70px #0003;transform:rotate(-1deg)}
+.hero-visual img{width:100%;height:auto;display:block;border-radius:14px}
+.hero-visual figcaption{padding:14px 5px 3px;font-size:11px;color:var(--muted);line-height:1.7}
+.visual-tag{display:block;color:var(--champagne);font-size:10px;letter-spacing:.1em;margin-bottom:4px;text-transform:uppercase}
+.climate-art{margin:0 0 21px}.climate-art img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}.climate-art figcaption{font-size:10px;line-height:1.6;color:var(--muted);margin-top:7px}
+.p-home-grid .climate-art{margin:-10px -10px 20px}.p-home-grid .climate-art img{border:0}
+.p-project .climate-art{max-width:700px;margin:24px 0}.p-project .climate-art img{max-height:360px;object-fit:cover}
+.location-visual{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;margin:36px 0 24px}.location-visual figure{margin:0;min-width:0}.location-visual img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:18px}.location-visual h3{font-size:25px;line-height:1.3}.location-visual p{font-size:14px}
+.poigai-theme #enquiry-privacy{border-top:1px solid var(--line)}
+@media(max-width:760px){.poigai-theme .hero{padding:46px 7% 55px;gap:30px;min-height:0}.poigai-theme .hero h1{font-size:clamp(34px,8.5vw,52px)}.hero-visual{transform:none;padding:9px;border-radius:16px}.hero-visual figcaption{font-size:10px}.location-visual{grid-template-columns:1fr;gap:15px}.poigai-theme nav{background:#14231C!important}.poigai-theme .menu{background:#193126;color:var(--ivory);border-color:#41634F}.p-project .climate-art{margin:20px 0}.poigai-theme .p-nav{background:transparent!important}}
+@media(prefers-reduced-motion:reduce){.hero-visual{transform:none}}
