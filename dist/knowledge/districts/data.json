@@ -1,0 +1,2944 @@
+{
+  "edition": "1.1",
+  "reviewed": "2026-10-15",
+  "coverage": "Five southern states; existing Puducherry and Lakshadweep material remains in the regional bank.",
+  "method": "District names checked against government directories. Contexts, questions, problem selections and proposed actions are POIGAI planning synthesis using regional briefs and district source routes, not 144 completed district risk assessments. No severity ranking or confirmed local unmet need is claimed. Consult the cited district plan/maps and obtain local measurements before project selection.",
+  "states": {
+    "TN": {
+      "name": "Tamil Nadu",
+      "expected": 38,
+      "directory": "https://lokbhavan.tn.gov.in/districts-of-tamil-nadu/",
+      "evidence": "https://tnclimatetracker.tn.gov.in/districtinsights",
+      "label": "Official district climate insights",
+      "depth": "Official climate portal and selected district-plan landing pages screened; district-specific measurements have not been extracted for every district."
+    },
+    "KL": {
+      "name": "Kerala",
+      "expected": 14,
+      "directory": "https://sdma.kerala.gov.in/disaster-management-plans/",
+      "evidence": "https://sdma.kerala.gov.in/hazard-maps/",
+      "label": "KSDMA district flood maps and GSI landslide layers",
+      "depth": "Map catalogue screened. Historic flood maps, RCP8.5 scenario maps and GSI 2022 landslide layers are distinct; individual layers require site-level interpretation."
+    },
+    "KA": {
+      "name": "Karnataka",
+      "expected": 31,
+      "directory": "https://igod.gov.in/sg/KA/E042/organizations",
+      "evidence": "https://ksndmc.org/en/Maps/HazardMap",
+      "label": "KSNDMC hazard and drought map catalogue",
+      "depth": "Official map catalogue screened; taluk drought frequency and landslide maps are available. No district severity class has been copied or invented."
+    },
+    "AP": {
+      "name": "Andhra Pradesh",
+      "expected": 28,
+      "directory": "https://codes.ap.gov.in/districts",
+      "evidence": "https://apsdma.ap.gov.in/files/7ccefae73384591bbf862fb9697c31b0.pdf",
+      "label": "APSDMA Heat Wave Action Plan 2026 (PDF)",
+      "depth": "Official plan located through indexed metadata; full PDF retrieval timed out. Read the current district plan and reconcile the 2025 reorganisation before design."
+    },
+    "TS": {
+      "name": "Telangana",
+      "expected": 33,
+      "directory": "https://www.telangana.gov.in/about/districts/",
+      "evidence": "https://napccindia.moef.gov.in/sapcc/state/telangana",
+      "label": "Official Telangana climate-action framework",
+      "depth": "State framework and district directory screened. Mandal-level heat, flood and agricultural observations still need extraction and local verification."
+    }
+  },
+  "problemTypes": {
+    "D": {
+      "title": "Dry-season water reliability",
+      "issue": "K02",
+      "problem": "Check whether drinking-water sources, wells and storage remain dependable through dry months.",
+      "action": "Prepare a seasonal water budget, test source quality and compare leak repair, demand reduction and hydrogeologically suitable recharge.",
+      "baseline": "Monthly supply days, well levels, abstraction and water-quality tests.",
+      "measure": "Reliable service days and seasonal extraction, with water quality maintained.",
+      "roles": "Local body, water utility, hydrogeologist and participating water users."
+    },
+    "H": {
+      "title": "Heat in homes, workplaces and institutions",
+      "issue": "K06",
+      "problem": "Check occupied indoor heat and outdoor work exposure, including humidity and access to shade.",
+      "action": "Audit a school, health centre or worksite; compare roof treatment, shading, ventilation and professionally designed heat-response arrangements.",
+      "baseline": "Occupied-hour indoor/outdoor temperature, humidity, occupancy and energy use.",
+      "measure": "Hours above an agreed comfort threshold; protected work periods; weather-adjusted electricity.",
+      "roles": "Building owner, facilities operator, occupational-health team and qualified designer."
+    },
+    "F": {
+      "title": "River floods and access disruption",
+      "issue": "K04",
+      "problem": "Check floodplain settlements, drainage bottlenecks and routes that may become unusable during heavy rain.",
+      "action": "Combine official flood maps with local flood marks; protect flow paths and assess retention, warning reach and accessible evacuation routes.",
+      "baseline": "Observed inundation depth/duration, rainfall, drainage connections and affected essential services.",
+      "measure": "Comparable-event access and service interruption; warning-to-action time.",
+      "roles": "District disaster authority, local body, irrigation engineers and affected communities."
+    },
+    "C": {
+      "title": "Coastal storms, erosion and fishing access",
+      "issue": "K08",
+      "problem": "Check exposed shore settlements, boat access, shelter routes and seasonal shoreline change.",
+      "action": "Assess sediment and coastal hazards before selecting setbacks, dunes, habitat recovery or engineered protection; protect fishing access and neighbouring shores.",
+      "baseline": "Seasonal beach profiles, shoreline history, exposure and evacuation travel time.",
+      "measure": "Exposure avoided; livelihood access retained; shoreline response monitored.",
+      "roles": "Coastal authority, district administration, fisheries teams and fishing communities."
+    },
+    "L": {
+      "title": "Slope instability and intense hill rainfall",
+      "issue": "K05",
+      "problem": "Check steep inhabited slopes, road cuts and drainage against official landslide-susceptibility information.",
+      "action": "Arrange geotechnical inspection, drainage review and last-mile warnings; prioritise exposure reduction and safe access before structural works.",
+      "baseline": "Slope geology, failure history, rainfall, drainage and households in possible runout paths.",
+      "measure": "People with viable evacuation access; warning response; inspected drainage maintained.",
+      "roles": "District disaster authority, geotechnical specialists, road agency and local communities."
+    },
+    "A": {
+      "title": "Rainfall-sensitive crops and farm income",
+      "issue": "K11",
+      "problem": "Check crop-stage dry spells, excess-rain damage and income sensitivity for locally grown crops.",
+      "action": "Co-design a small comparable farmer trial with KVK support: crop timing, locally suited varieties, soil cover and water budgeting.",
+      "baseline": "Crop-wise multi-season yield, rainfall, labour, input costs and farm water use.",
+      "measure": "Yield stability and net return including household labour, compared across seasons.",
+      "roles": "Farmer group or FPO, KVK agronomist and independent evaluator."
+    },
+    "U": {
+      "title": "Urban waterlogging and polluted water bodies",
+      "issue": "K03",
+      "problem": "Check storm-drain connectivity, sewage inflows and low-lying homes or public buildings.",
+      "action": "Trace catchments and inlets, separate pollution control from flood management, and compare utility repairs with retention and wetland options.",
+      "baseline": "Drain connections, inlet flows and pollution loads; inundation records and treatment uptime.",
+      "measure": "Compliant treated flows; comparable-storm waterlogging duration; maintenance completed.",
+      "roles": "Municipal body, sewer/drainage utility, asset custodian and community representatives."
+    },
+    "S": {
+      "title": "Salinity and dependable freshwater",
+      "issue": "K01",
+      "problem": "Check seasonal saltwater intrusion or saline sources before treating a freshwater shortage as a quantity-only problem.",
+      "action": "Test conductivity and relevant water-quality parameters through wet and dry periods; assess source protection and demand management with water specialists.",
+      "baseline": "Seasonal conductivity, water-quality tests, source availability and abstraction.",
+      "measure": "Water meeting the intended-use standard and reliable freshwater service days.",
+      "roles": "Water utility, accredited laboratory, hydrogeologist and local users."
+    },
+    "B": {
+      "title": "Habitat condition and catchment protection",
+      "issue": "K15",
+      "problem": "Check native habitat, invasive spread and erosion in catchments supporting people and wildlife.",
+      "action": "Map the original habitat and rights first; trial appropriate native recovery and invasive control with repeat maintenance, rather than assume every open site needs trees.",
+      "baseline": "Native cover, invasive cover, soil condition, regeneration and community resource use.",
+      "measure": "Native recovery and habitat function; invasive rebound; livelihood access retained.",
+      "roles": "Habitat custodian, restoration ecologist and rights-holding communities."
+    },
+    "E": {
+      "title": "Energy demand and efficient local services",
+      "issue": "K19",
+      "problem": "Check cooling, pumping and productive electricity demand before specifying new equipment.",
+      "action": "Meter loads, reduce avoidable demand and compare efficient equipment or suitable rooftop solar with structural and lifecycle checks.",
+      "baseline": "Metered energy, operating hours, equipment condition and roof safety where relevant.",
+      "measure": "Weather/production-adjusted electricity and lifecycle costs using disclosed assumptions.",
+      "roles": "Asset owner, energy professional and accepted maintenance contractor."
+    }
+  },
+  "districts": [
+    {
+      "id": "tn-ariyalur",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Ariyalur",
+      "aliases": [],
+      "context": "inland villages and cultivated plains",
+      "question": "Which village water sources fail before the next dependable rains?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://ariyalur.nic.in/"
+    },
+    {
+      "id": "tn-chengalpattu",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Chengalpattu",
+      "aliases": [],
+      "context": "coastal settlements, tanks and the urban fringe",
+      "question": "Which tank-linked settlements lose drainage or safe access during heavy rain?",
+      "priorities": [
+        "U",
+        "C",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://chengalpattu.nic.in/"
+    },
+    {
+      "id": "tn-chennai",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Chennai",
+      "aliases": [
+        "Madras"
+      ],
+      "context": "dense urban neighbourhoods and coastal infrastructure",
+      "question": "Which low-lying wards and occupied buildings need joint flood and heat protection?",
+      "priorities": [
+        "U",
+        "H",
+        "C"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://chennai.nic.in/"
+    },
+    {
+      "id": "tn-coimbatore",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Coimbatore",
+      "aliases": [],
+      "context": "urban-industrial areas and western foothill catchments",
+      "question": "Where can water-demand and cooling audits identify a feasible institutional pilot?",
+      "priorities": [
+        "D",
+        "H",
+        "E"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://coimbatore.nic.in/"
+    },
+    {
+      "id": "tn-cuddalore",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Cuddalore",
+      "aliases": [],
+      "context": "coastal villages and river-outfall settlements",
+      "question": "Which coastal and river-adjacent settlements need compound-flood access planning?",
+      "priorities": [
+        "C",
+        "F",
+        "S"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://cuddalore.nic.in/"
+    },
+    {
+      "id": "tn-dharmapuri",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Dharmapuri",
+      "aliases": [],
+      "context": "interior farming villages and hill margins",
+      "question": "Which rainfed farmer group can document crop-stage water stress and net income?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://dharmapuri.nic.in/"
+    },
+    {
+      "id": "tn-dindigul",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Dindigul",
+      "aliases": [],
+      "context": "inland farms and Palani hill settlements",
+      "question": "Which hill and plain settlements require different water and runoff responses?",
+      "priorities": [
+        "D",
+        "A",
+        "L"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://dindigul.nic.in/"
+    },
+    {
+      "id": "tn-erode",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Erode",
+      "aliases": [],
+      "context": "Bhavani–Cauvery farming and urban-industrial areas",
+      "question": "Where should farm water budgets and industrial demand be assessed separately?",
+      "priorities": [
+        "D",
+        "A",
+        "E"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://erode.nic.in/"
+    },
+    {
+      "id": "tn-kallakurichi",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Kallakurichi",
+      "aliases": [],
+      "context": "rainfed plains and Kalvarayan hill villages",
+      "question": "Which hill-access routes and rainfed farms need separate rainfall-risk assessments?",
+      "priorities": [
+        "A",
+        "D",
+        "L"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "http://kallakurichi.nic.in/"
+    },
+    {
+      "id": "tn-kancheepuram",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Kancheepuram",
+      "aliases": [
+        "Kanchipuram"
+      ],
+      "context": "tank-fed inland settlements and growing built areas",
+      "question": "Which tank catchments and institutions need a combined water and heat baseline?",
+      "priorities": [
+        "U",
+        "D",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://kancheepuram.nic.in/"
+    },
+    {
+      "id": "tn-karur",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Karur",
+      "aliases": [],
+      "context": "Cauvery–Amaravathi settlements and industrial workplaces",
+      "question": "Which occupied workplaces and river-adjacent services should be assessed first?",
+      "priorities": [
+        "H",
+        "F",
+        "E"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "http://karur.nic.in/",
+      "localEvidenceUrl": "https://karur.nic.in/disaster-management/",
+      "localEvidenceNote": "2026 district plan and heat/cooling resource listings screened; plan contents not fully appraised."
+    },
+    {
+      "id": "tn-krishnagiri",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Krishnagiri",
+      "aliases": [],
+      "context": "dry inland horticulture and growing towns",
+      "question": "Which farm and town water demands can be reconciled in one catchment budget?",
+      "priorities": [
+        "D",
+        "A",
+        "U"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://krishnagiri.nic.in/"
+    },
+    {
+      "id": "tn-madurai",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Madurai",
+      "aliases": [],
+      "context": "Vaigai urban neighbourhoods and surrounding farms",
+      "question": "Which schools and water-supply zones face the greatest measured seasonal burden?",
+      "priorities": [
+        "H",
+        "D",
+        "U"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://madurai.nic.in/"
+    },
+    {
+      "id": "tn-mayiladuthurai",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Mayiladuthurai",
+      "aliases": [],
+      "context": "Cauvery delta villages and the coastal edge",
+      "question": "Which delta drainage links and freshwater sources need seasonal monitoring?",
+      "priorities": [
+        "F",
+        "C",
+        "S"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://mayiladuthurai.nic.in/",
+      "localEvidenceUrl": "https://mayiladuthurai.nic.in/disaster-management/",
+      "localEvidenceNote": "2025 district plan and four taluk vulnerability-map listings screened; local exposure values not extracted."
+    },
+    {
+      "id": "tn-nagapattinam",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Nagapattinam",
+      "aliases": [],
+      "context": "low-lying delta and fishing settlements",
+      "question": "Which fishing settlements need safe access and protected freshwater together?",
+      "priorities": [
+        "C",
+        "S",
+        "F"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://nagapattinam.nic.in/"
+    },
+    {
+      "id": "tn-kanyakumari",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Kanyakumari",
+      "aliases": [
+        "Kanniyakumari Cape Comorin"
+      ],
+      "context": "coastal villages and Western Ghats foothills",
+      "question": "Which coast and foothill sites require different hazard and maintenance plans?",
+      "priorities": [
+        "C",
+        "L",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://kanniyakumari.nic.in/"
+    },
+    {
+      "id": "tn-namakkal",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Namakkal",
+      "aliases": [],
+      "context": "interior farms and livestock-linked settlements",
+      "question": "Which farm clusters can measure water needs and heat exposure together?",
+      "priorities": [
+        "D",
+        "H",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://namakkal.nic.in/"
+    },
+    {
+      "id": "tn-perambalur",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Perambalur",
+      "aliases": [],
+      "context": "rainfed inland plains and village tanks",
+      "question": "Which rainfed crops and village supplies need dry-season reliability trials?",
+      "priorities": [
+        "A",
+        "D",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://perambalur.nic.in/"
+    },
+    {
+      "id": "tn-pudukkottai",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Pudukkottai",
+      "aliases": [
+        "Pudukottai"
+      ],
+      "context": "tank-dependent interiors and a coastal strip",
+      "question": "Which inland tank systems and shore settlements need distinct screening?",
+      "priorities": [
+        "D",
+        "A",
+        "C"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://pudukkottai.nic.in/",
+      "localEvidenceUrl": "https://pudukkottai.nic.in/disaster-management/",
+      "localEvidenceNote": "2025 multi-part district-plan listing screened; full report not appraised."
+    },
+    {
+      "id": "tn-ramanathapuram",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Ramanathapuram",
+      "aliases": [],
+      "context": "dry coastal villages and Gulf of Mannar communities",
+      "question": "Which village has a verified safe-water service gap after existing schemes?",
+      "priorities": [
+        "D",
+        "S",
+        "C"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://ramanathapuram.nic.in/",
+      "localEvidenceUrl": "https://ramanathapuram.nic.in/disaster-management/",
+      "localEvidenceNote": "District plan 2026–2027 landing page screened; not a current village-level baseline."
+    },
+    {
+      "id": "tn-ranipet",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Ranipet",
+      "aliases": [],
+      "context": "Palar basin settlements and industrial workplaces",
+      "question": "Which workplaces and water systems can supply verifiable baseline records?",
+      "priorities": [
+        "D",
+        "H",
+        "E"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://ranipet.nic.in/"
+    },
+    {
+      "id": "tn-salem",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Salem",
+      "aliases": [],
+      "context": "inland urban areas, farms and hill settlements",
+      "question": "Which occupied buildings and hill-drainage corridors need local measurements?",
+      "priorities": [
+        "H",
+        "D",
+        "L"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://salem.nic.in/"
+    },
+    {
+      "id": "tn-sivaganga",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Sivaganga",
+      "aliases": [],
+      "context": "tank-linked villages and rainfed farms",
+      "question": "Which village tanks and supply services can be assessed with accepted ownership?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://sivaganga.nic.in/",
+      "localEvidenceUrl": "https://sivaganga.nic.in/document-category/plan-report/",
+      "localEvidenceNote": "2025–26 plan listing screened; no local outcome or priority rank inferred."
+    },
+    {
+      "id": "tn-tenkasi",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Tenkasi",
+      "aliases": [],
+      "context": "Western Ghats foothills and farm-water systems",
+      "question": "Which foothill drains and farm sites need runoff and access checks?",
+      "priorities": [
+        "L",
+        "F",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://tenkasi.nic.in/"
+    },
+    {
+      "id": "tn-thanjavur",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Thanjavur",
+      "aliases": [],
+      "context": "Cauvery delta cropping and settlements",
+      "question": "Which crop and drainage units face different wet-season and dry-season constraints?",
+      "priorities": [
+        "F",
+        "A",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://thanjavur.nic.in/"
+    },
+    {
+      "id": "tn-theni",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Theni",
+      "aliases": [],
+      "context": "Western Ghats slopes and irrigated valley farms",
+      "question": "Which slope-drainage and farm-water issues can be assessed without conflating them?",
+      "priorities": [
+        "L",
+        "A",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://theni.nic.in/"
+    },
+    {
+      "id": "tn-tiruvallur",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Tiruvallur",
+      "aliases": [
+        "Thiruvallur"
+      ],
+      "context": "northern Chennai fringe, reservoirs and coast",
+      "question": "Which growing settlements have mismatched drainage and water-service capacity?",
+      "priorities": [
+        "U",
+        "C",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://tiruvallur.nic.in/"
+    },
+    {
+      "id": "tn-tiruvarur",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Tiruvarur",
+      "aliases": [
+        "Thiruvarur"
+      ],
+      "context": "low-lying delta farms and village drainage",
+      "question": "Which drainage channels and farm plots need a wet/dry season comparison?",
+      "priorities": [
+        "F",
+        "S",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://tiruvarur.nic.in/"
+    },
+    {
+      "id": "tn-thoothukudi",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Thoothukudi",
+      "aliases": [
+        "Tuticorin"
+      ],
+      "context": "coastal settlements and urban-industrial areas",
+      "question": "Which drainage and evacuation routes protect people during compound coastal rain events?",
+      "priorities": [
+        "F",
+        "C",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://thoothukudi.nic.in/"
+    },
+    {
+      "id": "tn-tiruchirappalli",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Tiruchirappalli",
+      "aliases": [
+        "Trichy Tiruchi"
+      ],
+      "context": "Cauvery urban institutions and surrounding farms",
+      "question": "Which institution can host a permission-based occupied-hour thermal baseline?",
+      "priorities": [
+        "H",
+        "F",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://tiruchirappalli.nic.in/"
+    },
+    {
+      "id": "tn-tirunelveli",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Tirunelveli",
+      "aliases": [],
+      "context": "Tamiraparani settlements and western foothills",
+      "question": "Which river-adjacent services and foothill roads require separate exposure checks?",
+      "priorities": [
+        "F",
+        "L",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://tirunelveli.nic.in/"
+    },
+    {
+      "id": "tn-tirupathur",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Tirupathur",
+      "aliases": [
+        "Tirupattur"
+      ],
+      "context": "interior tanks, farms and hill settlements",
+      "question": "Which tank-fed farms and hill access routes need seasonal monitoring?",
+      "priorities": [
+        "D",
+        "A",
+        "L"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://tirupathur.nic.in/"
+    },
+    {
+      "id": "tn-tiruppur",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Tiruppur",
+      "aliases": [
+        "Tirupur"
+      ],
+      "context": "textile-linked towns and dry farming hinterland",
+      "question": "Where can water and energy audits support a measurable efficiency pilot?",
+      "priorities": [
+        "D",
+        "H",
+        "E"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://tiruppur.nic.in/"
+    },
+    {
+      "id": "tn-tiruvannamalai",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Tiruvannamalai",
+      "aliases": [],
+      "context": "rainfed villages and hill catchments",
+      "question": "Which crop-water and catchment restoration questions have community support?",
+      "priorities": [
+        "D",
+        "A",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://tiruvannamalai.nic.in/"
+    },
+    {
+      "id": "tn-the-nilgiris",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "The Nilgiris",
+      "aliases": [
+        "Nilgiris Ooty Udhagamandalam"
+      ],
+      "context": "montane slopes, shola–grassland mosaics and settlements",
+      "question": "Which inhabited slopes need drainage inspection while protecting native grassland?",
+      "priorities": [
+        "L",
+        "B",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://nilgiris.nic.in/"
+    },
+    {
+      "id": "tn-vellore",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Vellore",
+      "aliases": [],
+      "context": "hot inland settlements and Palar-linked water systems",
+      "question": "Which schools and water-supply areas can document seasonal heat and reliability?",
+      "priorities": [
+        "H",
+        "D",
+        "U"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://vellore.nic.in/"
+    },
+    {
+      "id": "tn-viluppuram",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Viluppuram",
+      "aliases": [
+        "Villupuram"
+      ],
+      "context": "tank-fed plains and coastal settlements",
+      "question": "Which catchment drainage and coast-access issues need distinct local baselines?",
+      "priorities": [
+        "F",
+        "D",
+        "C"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://viluppuram.nic.in/"
+    },
+    {
+      "id": "tn-virudhunagar",
+      "state": "Tamil Nadu",
+      "stateCode": "TN",
+      "name": "Virudhunagar",
+      "aliases": [
+        "Virudunagar"
+      ],
+      "context": "dry inland towns, farms and industrial work areas",
+      "question": "Which worker groups and rainfed farms can define a small evaluable intervention?",
+      "priorities": [
+        "H",
+        "D",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://virudhunagar.nic.in/"
+    },
+    {
+      "id": "kl-thiruvananthapuram",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Thiruvananthapuram",
+      "aliases": [
+        "Trivandrum"
+      ],
+      "context": "urban catchments, coast and eastern uplands",
+      "question": "Which urban, shore and hill communities need separate site-specific assessments?",
+      "priorities": [
+        "U",
+        "C",
+        "L"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-kollam",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Kollam",
+      "aliases": [],
+      "context": "coastal and backwater settlements with eastern uplands",
+      "question": "Which backwater communities need flood access and freshwater quality checks?",
+      "priorities": [
+        "C",
+        "F",
+        "S"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-pathanamthitta",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Pathanamthitta",
+      "aliases": [],
+      "context": "Pamba–Achankovil catchments and inhabited slopes",
+      "question": "Which floodplain services and hill routes need coordinated warning and access plans?",
+      "priorities": [
+        "F",
+        "L",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-alappuzha",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Alappuzha",
+      "aliases": [
+        "Alleppey"
+      ],
+      "context": "Kuttanad lowlands, backwaters and coast",
+      "question": "Which lowland households need a combined flood-access and freshwater assessment?",
+      "priorities": [
+        "F",
+        "S",
+        "C"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-kottayam",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Kottayam",
+      "aliases": [],
+      "context": "backwater margins, river valleys and eastern slopes",
+      "question": "Which low-lying and hill settlements need different drainage and safe-water responses?",
+      "priorities": [
+        "F",
+        "L",
+        "S"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-idukki",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Idukki",
+      "aliases": [],
+      "context": "high-range settlements, slopes and plantation catchments",
+      "question": "Which inhabited slopes and plantation drains need inspection before monsoon works?",
+      "priorities": [
+        "L",
+        "A",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-ernakulam",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Ernakulam",
+      "aliases": [
+        "Kochi Cochin"
+      ],
+      "context": "Kochi urban/backwater areas and eastern uplands",
+      "question": "Which urban and backwater services have the most verifiable interruption records?",
+      "priorities": [
+        "U",
+        "C",
+        "F"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-thrissur",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Thrissur",
+      "aliases": [],
+      "context": "Kole lowlands, coastal settlements and uplands",
+      "question": "Which Kole drainage units and shore settlements need locally agreed water management?",
+      "priorities": [
+        "F",
+        "C",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-palakkad",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Palakkad",
+      "aliases": [],
+      "context": "interior plains, the Gap and eastern/western hill margins",
+      "question": "Which institutions and farms need hot-season water and thermal measurements?",
+      "priorities": [
+        "H",
+        "D",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-malappuram",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Malappuram",
+      "aliases": [],
+      "context": "Chaliyar catchments, hills and coastal settlements",
+      "question": "Which river-access and hill-drainage problems require catchment-scale coordination?",
+      "priorities": [
+        "F",
+        "L",
+        "C"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-kozhikode",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Kozhikode",
+      "aliases": [
+        "Calicut"
+      ],
+      "context": "urban/coastal settlements and eastern hill catchments",
+      "question": "Which low-lying urban routes and hill communities need different rain-response plans?",
+      "priorities": [
+        "U",
+        "C",
+        "L"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-wayanad",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Wayanad",
+      "aliases": [],
+      "context": "highland farms, inhabited slopes and forest catchments",
+      "question": "Which exposed settlement can pair official slope evidence with community evacuation planning?",
+      "priorities": [
+        "L",
+        "A",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "localEvidenceUrl": "https://www.worldweatherattribution.org/landslide-triggering-rainfall-made-more-intense-by-human-induced-climate-change-devastating-highly-vulnerable-communities-in-northern-kerala/",
+      "localEvidenceNote": "2024 research-team findings and modelling limitations screened; event rainfall attribution does not establish every slope’s risk."
+    },
+    {
+      "id": "kl-kannur",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Kannur",
+      "aliases": [],
+      "context": "coastal settlements, rivers and eastern hills",
+      "question": "Which coast-access and hill-drainage interventions can be maintained locally?",
+      "priorities": [
+        "C",
+        "L",
+        "F"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "kl-kasaragod",
+      "state": "Kerala",
+      "stateCode": "KL",
+      "name": "Kasaragod",
+      "aliases": [
+        "Kasargod"
+      ],
+      "context": "coastal and lateritic inland water systems",
+      "question": "Which lateritic and coastal sources need separate seasonal water-quality checks?",
+      "priorities": [
+        "D",
+        "S",
+        "C"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-bagalkote",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Bagalkote",
+      "aliases": [
+        "Bagalkot"
+      ],
+      "context": "Krishna–Ghataprabha basin settlements and dryland farms",
+      "question": "Which floodplain and dryland communities need separate seasonal water plans?",
+      "priorities": [
+        "F",
+        "D",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-ballari",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Ballari",
+      "aliases": [
+        "Bellary"
+      ],
+      "context": "hot inland towns, farms and industrial work areas",
+      "question": "Which institutions and workplaces can host measurable heat and energy pilots?",
+      "priorities": [
+        "H",
+        "D",
+        "E"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-belagavi",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Belagavi",
+      "aliases": [
+        "Belgaum"
+      ],
+      "context": "western high-rainfall areas and eastern river plains",
+      "question": "Which western and eastern taluks require different rainfall and access responses?",
+      "priorities": [
+        "F",
+        "L",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-bengaluru-rural",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Bengaluru Rural",
+      "aliases": [
+        "Bangalore Rural"
+      ],
+      "context": "urbanising villages, tanks and horticultural farms",
+      "question": "Which expanding settlements need a shared farm-and-town water budget?",
+      "priorities": [
+        "D",
+        "U",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-bengaluru-south",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Bengaluru South",
+      "aliases": [
+        "Ramanagara Ramanagar"
+      ],
+      "context": "Ramanagara-region tanks, farms and rocky hill settlements",
+      "question": "Which tank catchment can reconcile growing water demand and habitat care?",
+      "priorities": [
+        "D",
+        "U",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Formerly Ramanagara; district website records rename on 23 May 2025. Do not confuse with the Bengaluru city corporation of a similar name.",
+      "districtUrl": "https://bengalurusouth.nic.in/en/"
+    },
+    {
+      "id": "ka-bengaluru-urban",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Bengaluru Urban",
+      "aliases": [
+        "Bangalore Urban Bangalore Bengaluru"
+      ],
+      "context": "dense urban catchments, lakes and growing neighbourhoods",
+      "question": "Which lake-linked neighbourhood can document drainage, sewage and heat exposure?",
+      "priorities": [
+        "U",
+        "H",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-bidar",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Bidar",
+      "aliases": [],
+      "context": "Deccan plateau villages and rainfed cropping",
+      "question": "Which crop and supply-water records support a small dry-spell adaptation trial?",
+      "priorities": [
+        "A",
+        "D",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-chamarajanagar",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Chamarajanagar",
+      "aliases": [
+        "Chamarajanagara"
+      ],
+      "context": "dry farming plains and forested hill margins",
+      "question": "Which farming and habitat needs can be addressed without displacing customary use?",
+      "priorities": [
+        "D",
+        "A",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-chikkaballapura",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Chikkaballapura",
+      "aliases": [
+        "Chikkaballapur"
+      ],
+      "context": "dry inland horticulture and tank catchments",
+      "question": "Which farm group can establish a defensible groundwater-demand baseline?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-chikkamagaluru",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Chikkamagaluru",
+      "aliases": [
+        "Chikmagalur Chikkamagalur"
+      ],
+      "context": "Western Ghats slopes, plantations and eastern drylands",
+      "question": "Which western slopes and eastern farms need distinct water-risk designs?",
+      "priorities": [
+        "L",
+        "A",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-chitradurga",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Chitradurga",
+      "aliases": [],
+      "context": "dry plateau farms and water-dependent settlements",
+      "question": "Which dryland cluster can test soil-moisture management with water-use limits?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-dakshina-kannada",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Dakshina Kannada",
+      "aliases": [
+        "Mangaluru Mangalore"
+      ],
+      "context": "coastal towns, river mouths and Ghats slopes",
+      "question": "Which river-mouth and slope-road communities need coordinated monsoon access plans?",
+      "priorities": [
+        "C",
+        "F",
+        "L"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-davanagere",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Davanagere",
+      "aliases": [
+        "Davanagere Davangere"
+      ],
+      "context": "interior farms, towns and irrigation-linked settlements",
+      "question": "Which farms can compare seasonal water use and net-income stability?",
+      "priorities": [
+        "A",
+        "D",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-dharwad",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Dharwad",
+      "aliases": [
+        "Hubballi Hubli"
+      ],
+      "context": "urban institutions and rainfed farming hinterland",
+      "question": "Which institutional heat and peri-urban drainage problems have measurable baselines?",
+      "priorities": [
+        "H",
+        "U",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-gadag",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Gadag",
+      "aliases": [],
+      "context": "dry plateau villages and rainfed farms",
+      "question": "Which village and farmer group can jointly assess dry-season reliability?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-hassan",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Hassan",
+      "aliases": [],
+      "context": "western hill catchments and eastern agricultural plains",
+      "question": "Which hill-access and agricultural-water issues need different interventions?",
+      "priorities": [
+        "L",
+        "A",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-haveri",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Haveri",
+      "aliases": [],
+      "context": "interior rainfed and river-linked agricultural settlements",
+      "question": "Which farms need both dry-spell and excess-rain contingency checks?",
+      "priorities": [
+        "A",
+        "D",
+        "F"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-kalaburagi",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Kalaburagi",
+      "aliases": [
+        "Gulbarga"
+      ],
+      "context": "hot dry plateau settlements and rainfed cropping",
+      "question": "Which worker groups and farms need paired heat and water assessments?",
+      "priorities": [
+        "H",
+        "D",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-kodagu",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Kodagu",
+      "aliases": [
+        "Coorg"
+      ],
+      "context": "steep plantation catchments and inhabited valleys",
+      "question": "Which settlement and access road need slope-drainage inspection with ecosystem safeguards?",
+      "priorities": [
+        "L",
+        "A",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-kolar",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Kolar",
+      "aliases": [],
+      "context": "dry horticultural farms and growing settlements",
+      "question": "Which farming water budget can avoid shifting shortages to neighbouring users?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-koppal",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Koppal",
+      "aliases": [],
+      "context": "dry inland villages and Tungabhadra-linked farming",
+      "question": "Which dryland and irrigated crop groups need separate water-use comparisons?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-mandya",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Mandya",
+      "aliases": [],
+      "context": "Cauvery irrigation areas and town institutions",
+      "question": "Which irrigation units can assess water demand alongside farm net returns?",
+      "priorities": [
+        "A",
+        "D",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-mysuru",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Mysuru",
+      "aliases": [
+        "Mysore"
+      ],
+      "context": "urban institutions, farming plains and forest margins",
+      "question": "Which institutions and catchments can host locally maintained resilience work?",
+      "priorities": [
+        "H",
+        "D",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-raichur",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Raichur",
+      "aliases": [],
+      "context": "hot Krishna–Tungabhadra interfluve settlements",
+      "question": "Which heat-exposed settlements also require river-access contingency checks?",
+      "priorities": [
+        "H",
+        "D",
+        "F"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-shivamogga",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Shivamogga",
+      "aliases": [
+        "Shimoga"
+      ],
+      "context": "Western Ghats catchments and eastern town/farm areas",
+      "question": "Which river and slope-access locations need distinct monsoon preparation?",
+      "priorities": [
+        "F",
+        "L",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-tumakuru",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Tumakuru",
+      "aliases": [
+        "Tumkur"
+      ],
+      "context": "dry farming and urbanising tank catchments",
+      "question": "Which shared catchment needs town-water and farm-demand reconciliation?",
+      "priorities": [
+        "D",
+        "A",
+        "U"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-udupi",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Udupi",
+      "aliases": [],
+      "context": "coastal villages, river mouths and inland slopes",
+      "question": "Which shore and river-mouth communities need safe-access and drainage design?",
+      "priorities": [
+        "C",
+        "F",
+        "L"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-uttara-kannada",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Uttara Kannada",
+      "aliases": [
+        "North Canara Karwar"
+      ],
+      "context": "coast, Ghats slopes and inland farming pockets",
+      "question": "Which coastal, hill and dry-season water issues need separate local assessments?",
+      "priorities": [
+        "C",
+        "L",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-vijayapura",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Vijayapura",
+      "aliases": [
+        "Bijapur"
+      ],
+      "context": "dry plateau cropping and Krishna-linked settlements",
+      "question": "Which rainfed cluster can document soil-water and crop-income variability?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-vijayanagara",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Vijayanagara",
+      "aliases": [
+        "Hospete Hampi"
+      ],
+      "context": "Tungabhadra-side settlements and dry inland farms",
+      "question": "Which hot institutions and farm clusters have baseline and maintenance support?",
+      "priorities": [
+        "H",
+        "D",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ka-yadgir",
+      "state": "Karnataka",
+      "stateCode": "KA",
+      "name": "Yadgir",
+      "aliases": [
+        "Yadagiri"
+      ],
+      "context": "Krishna–Bhima farming and hot inland settlements",
+      "question": "Which dry-season supply areas also need river-flood access checks?",
+      "priorities": [
+        "D",
+        "H",
+        "F"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use."
+    },
+    {
+      "id": "ap-alluri-sitharama-raju",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Alluri Sitharama Raju",
+      "aliases": [
+        "Alluri Sitharamaraju ASR Paderu"
+      ],
+      "context": "Paderu-region Eastern Ghats hill settlements",
+      "question": "Which current hill mandals need slope-access and farm-water checks after district reorganisation?",
+      "priorities": [
+        "L",
+        "A",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data.",
+      "districtUrl": "https://allurisitharamaraju.ap.gov.in/history/"
+    },
+    {
+      "id": "ap-anakapalli",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Anakapalli",
+      "aliases": [],
+      "context": "coastal plain, towns and Eastern Ghats margins",
+      "question": "Which coastal and river-linked settlements need compound-rain access assessment?",
+      "priorities": [
+        "C",
+        "F",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-ananthapuramu",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Ananthapuramu",
+      "aliases": [
+        "Anantapur Anantapuramu"
+      ],
+      "context": "dry inland farming settlements",
+      "question": "Which current farmer cluster can measure dry-spell losses and viable responses?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-annamayya",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Annamayya",
+      "aliases": [],
+      "context": "southern inland farming and town settlements",
+      "question": "Which current mandals can provide reconciled multi-season farm and water records?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-bapatla",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Bapatla",
+      "aliases": [],
+      "context": "coastal and delta-linked agricultural settlements",
+      "question": "Which low-lying farms and settlements need drainage and salinity monitoring?",
+      "priorities": [
+        "C",
+        "F",
+        "S"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-chittoor",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Chittoor",
+      "aliases": [],
+      "context": "southern inland horticulture and hill margins",
+      "question": "Which horticultural cluster can test water budgeting and heat-sensitive crop care?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-dr-b-r-ambedkar-konaseema",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Dr. B.R. Ambedkar Konaseema",
+      "aliases": [
+        "Konaseema"
+      ],
+      "context": "Godavari delta and coastal settlements",
+      "question": "Which delta communities need freshwater and safe-access protection together?",
+      "priorities": [
+        "F",
+        "C",
+        "S"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-east-godavari",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "East Godavari",
+      "aliases": [],
+      "context": "Godavari river-side settlements and agricultural areas",
+      "question": "Which current river-side mandals need flood-access and crop-contingency planning?",
+      "priorities": [
+        "F",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data.",
+      "localEvidenceUrl": "https://eastgodavari.ap.gov.in/district-disaster-management-plan/",
+      "localEvidenceNote": "Official district-plan landing page identified; plan tables not extracted."
+    },
+    {
+      "id": "ap-eluru",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Eluru",
+      "aliases": [],
+      "context": "lowland agriculture, wetlands and inland settlements",
+      "question": "Which drainage-connected farm and town areas need joint assessment?",
+      "priorities": [
+        "F",
+        "A",
+        "U"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-guntur",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Guntur",
+      "aliases": [],
+      "context": "Krishna basin towns and farming areas",
+      "question": "Which hot institutions and drainage-linked farms can provide measured records?",
+      "priorities": [
+        "H",
+        "U",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-kakinada",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Kakinada",
+      "aliases": [],
+      "context": "coastal urban areas and delta-linked settlements",
+      "question": "Which river-outfall and urban-drainage locations need compound-flood screening?",
+      "priorities": [
+        "C",
+        "F",
+        "U"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-krishna",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Krishna",
+      "aliases": [],
+      "context": "delta farms and coastal settlements",
+      "question": "Which present-boundary delta units need salinity and drainage comparison?",
+      "priorities": [
+        "F",
+        "C",
+        "S"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-kurnool",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Kurnool",
+      "aliases": [],
+      "context": "hot inland river settlements and dry farming areas",
+      "question": "Which river-adjacent services also need hot-season water planning?",
+      "priorities": [
+        "F",
+        "D",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-markapuram",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Markapuram",
+      "aliases": [
+        "Markapur"
+      ],
+      "context": "western Prakasam-region drylands and Nallamala margins",
+      "question": "Which newly constituted mandals need baseline records remapped from older Prakasam?",
+      "priorities": [
+        "D",
+        "A",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data.",
+      "districtUrl": "https://markapuram.ap.gov.in/"
+    },
+    {
+      "id": "ap-nandyal",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Nandyal",
+      "aliases": [],
+      "context": "inland agricultural valleys and Nallamala margins",
+      "question": "Which farm-water and valley-drainage units need separate seasonal checks?",
+      "priorities": [
+        "D",
+        "A",
+        "F"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-ntr",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "NTR",
+      "aliases": [
+        "Vijayawada"
+      ],
+      "context": "Vijayawada-region urban and Krishna-side settlements",
+      "question": "Which drainage and river-access bottlenecks affect essential urban services?",
+      "priorities": [
+        "U",
+        "F",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-palnadu",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Palnadu",
+      "aliases": [],
+      "context": "inland farming plains and upland settlements",
+      "question": "Which rainfed farmer group can compare soil-water practices and net income?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-parvathipuram-manyam",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Parvathipuram Manyam",
+      "aliases": [
+        "Manyam"
+      ],
+      "context": "Eastern Ghats hills and river-valley settlements",
+      "question": "Which hill-access and valley-farm sites need differentiated rainfall responses?",
+      "priorities": [
+        "L",
+        "F",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-polavaram",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Polavaram",
+      "aliases": [
+        "Rampachodavaram"
+      ],
+      "context": "Rampachodavaram-region Godavari and hill settlements",
+      "question": "Which current river and hill mandals need fresh exposure and access records?",
+      "priorities": [
+        "F",
+        "L",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-prakasam",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Prakasam",
+      "aliases": [
+        "Ongole"
+      ],
+      "context": "remaining central/coastal settlements and dry farming areas",
+      "question": "Which current mandals retain a verified need after Markapuram reorganisation?",
+      "priorities": [
+        "D",
+        "A",
+        "C"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-srikakulam",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Srikakulam",
+      "aliases": [],
+      "context": "northern coast, river mouths and farming plains",
+      "question": "Which river-mouth communities need cyclone-access and farm-contingency design?",
+      "priorities": [
+        "C",
+        "F",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-sri-potti-sriramulu-nellore",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Sri Potti Sriramulu Nellore",
+      "aliases": [
+        "SPSR Nellore Nellore"
+      ],
+      "context": "Penna coastal plain and urban/farm settlements",
+      "question": "Which river/coastal settlements also need dependable dry-season freshwater?",
+      "priorities": [
+        "F",
+        "C",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-sri-sathya-sai",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Sri Sathya Sai",
+      "aliases": [
+        "Puttaparthi"
+      ],
+      "context": "dry southern inland farms and settlements",
+      "question": "Which dryland cluster can compare crop stability and water use across seasons?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-tirupati",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Tirupati",
+      "aliases": [],
+      "context": "coastal plain, pilgrimage urban areas and hill margins",
+      "question": "Which current urban and coastal areas need separate rain and heat baselines?",
+      "priorities": [
+        "F",
+        "C",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-visakhapatnam",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Visakhapatnam",
+      "aliases": [
+        "Vizag"
+      ],
+      "context": "coastal urban neighbourhoods and inhabited hills",
+      "question": "Which urban drainage and hill-cut locations need engineering review together?",
+      "priorities": [
+        "C",
+        "U",
+        "L"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-vizianagaram",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "Vizianagaram",
+      "aliases": [],
+      "context": "northern inland/coastal plain and hill-margin farms",
+      "question": "Which crop and settlement units need excess-rain and heat contingency checks?",
+      "priorities": [
+        "F",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-west-godavari",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "West Godavari",
+      "aliases": [],
+      "context": "delta-linked lowlands and coastal agriculture",
+      "question": "Which lowland drainage and freshwater systems need combined assessment?",
+      "priorities": [
+        "F",
+        "S",
+        "C"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data."
+    },
+    {
+      "id": "ap-ysr-kadapa",
+      "state": "Andhra Pradesh",
+      "stateCode": "AP",
+      "name": "YSR Kadapa",
+      "aliases": [
+        "Kadapa Cuddapah YSR"
+      ],
+      "context": "Penna-basin settlements and dry inland farms",
+      "question": "Which current-boundary water systems need both dry-season and river-access checks?",
+      "priorities": [
+        "D",
+        "F",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Andhra Pradesh official registry lists 28 districts. Reconcile the December 2025 reorganisation, including Markapuram/Prakasam and Polavaram/Alluri Sitharama Raju, before using historical district data.",
+      "localEvidenceUrl": "https://kadapa.ap.gov.in/district-disaster-management-plan/",
+      "localEvidenceNote": "District authority/plan landing page screened; older plans require boundary reconciliation."
+    },
+    {
+      "id": "ts-adilabad",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Adilabad",
+      "aliases": [],
+      "context": "northern plateau farms and forest-edge settlements",
+      "question": "Which farmer and worker groups can document heat and crop-stage water exposure?",
+      "priorities": [
+        "H",
+        "A",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://adilabad.telangana.gov.in/"
+    },
+    {
+      "id": "ts-bhadradri-kothagudem",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Bhadradri Kothagudem",
+      "aliases": [
+        "Kothagudem Bhadrachalam"
+      ],
+      "context": "Godavari-side settlements and forested uplands",
+      "question": "Which river-side essential services need access planning and heat protection?",
+      "priorities": [
+        "F",
+        "H",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://kothagudem.telangana.gov.in/"
+    },
+    {
+      "id": "ts-hanumakonda",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Hanumakonda",
+      "aliases": [],
+      "context": "urban institutions and surrounding farm/tank catchments",
+      "question": "Which institutions and low-lying routes have a measurable combined heat/flood burden?",
+      "priorities": [
+        "U",
+        "H",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://hanumakonda.telangana.gov.in/"
+    },
+    {
+      "id": "ts-hyderabad",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Hyderabad",
+      "aliases": [],
+      "context": "dense urban catchments and occupied buildings",
+      "question": "Which neighbourhood can pair drainage evidence with an institutional cooling pilot?",
+      "priorities": [
+        "U",
+        "H",
+        "E"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://hyderabad.telangana.gov.in/"
+    },
+    {
+      "id": "ts-jagtial",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Jagtial",
+      "aliases": [
+        "Jagitial"
+      ],
+      "context": "Godavari-linked agricultural and town catchments",
+      "question": "Which agricultural drainage and heat-exposure questions need local records?",
+      "priorities": [
+        "A",
+        "F",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://jagtial.telangana.gov.in/"
+    },
+    {
+      "id": "ts-jangaon",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Jangaon",
+      "aliases": [],
+      "context": "interior villages and tank-fed farm areas",
+      "question": "Which rainfed and tank-fed groups need separate seasonal water assessments?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://jangaon.telangana.gov.in/"
+    },
+    {
+      "id": "ts-jayashankar-bhupalpally",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Jayashankar Bhupalpally",
+      "aliases": [
+        "Jayashankar Bhoopalpally"
+      ],
+      "context": "Godavari catchments and forest-edge settlements",
+      "question": "Which river-access and worker-heat issues require district coordination?",
+      "priorities": [
+        "F",
+        "H",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://bhoopalapally.telangana.gov.in/"
+    },
+    {
+      "id": "ts-jogulamba-gadwal",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Jogulamba Gadwal",
+      "aliases": [
+        "Gadwal"
+      ],
+      "context": "Krishna-side settlements and dry interior farms",
+      "question": "Which dry-season water systems also need flood-access planning?",
+      "priorities": [
+        "D",
+        "H",
+        "F"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://gadwal.telangana.gov.in/"
+    },
+    {
+      "id": "ts-kamareddy",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Kamareddy",
+      "aliases": [],
+      "context": "plateau farming villages and tank-linked towns",
+      "question": "Which farmer group can establish a water-and-net-income baseline?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://kamareddy.telangana.gov.in/"
+    },
+    {
+      "id": "ts-karimnagar",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Karimnagar",
+      "aliases": [],
+      "context": "urban institutions and agricultural water systems",
+      "question": "Which institution and catchment can support a small measurable resilience pilot?",
+      "priorities": [
+        "H",
+        "U",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://karimnagar.telangana.gov.in/"
+    },
+    {
+      "id": "ts-khammam",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Khammam",
+      "aliases": [],
+      "context": "Munneru catchments, towns and farming areas",
+      "question": "Which flood-access and crop-loss records can guide a locally maintained intervention?",
+      "priorities": [
+        "F",
+        "H",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://khammam.telangana.gov.in/"
+    },
+    {
+      "id": "ts-kumuram-bheem-asifabad",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Kumuram Bheem Asifabad",
+      "aliases": [
+        "Kumuram Bheem Komaram Bheem Asifabad"
+      ],
+      "context": "northern forest-edge villages and rainfed farms",
+      "question": "Which rainfed communities need farm-water planning with habitat safeguards?",
+      "priorities": [
+        "H",
+        "A",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "http://asifabad.telangana.gov.in/"
+    },
+    {
+      "id": "ts-mahabubabad",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Mahabubabad",
+      "aliases": [],
+      "context": "inland hill-margin and agricultural settlements",
+      "question": "Which crop and village-drainage units need excess-rain and heat checks?",
+      "priorities": [
+        "A",
+        "F",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://mahabubabad.telangana.gov.in/"
+    },
+    {
+      "id": "ts-mahabubnagar",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Mahabubnagar",
+      "aliases": [],
+      "context": "dry plateau towns and farm-water systems",
+      "question": "Which service areas and farms can agree dependable water-use limits?",
+      "priorities": [
+        "D",
+        "H",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://mahabubnagar.telangana.gov.in/"
+    },
+    {
+      "id": "ts-mancherial",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Mancherial",
+      "aliases": [],
+      "context": "Godavari-side towns and industrial work areas",
+      "question": "Which workers and river-adjacent services need paired heat/access assessment?",
+      "priorities": [
+        "H",
+        "F",
+        "E"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://mancherial.telangana.gov.in/"
+    },
+    {
+      "id": "ts-medak",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Medak",
+      "aliases": [],
+      "context": "tank-linked farms and inland settlements",
+      "question": "Which tank users can agree a seasonal demand and maintenance plan?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://medak.telangana.gov.in/"
+    },
+    {
+      "id": "ts-medchal-malkajgiri",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Medchal-Malkajgiri",
+      "aliases": [
+        "Medchal Malkajgiri"
+      ],
+      "context": "dense urban fringe and lake/drain catchments",
+      "question": "Which expanding neighbourhoods need drainage and reliable-water service checks?",
+      "priorities": [
+        "U",
+        "H",
+        "D"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://medchal-malkajgiri.telangana.gov.in/"
+    },
+    {
+      "id": "ts-mulugu",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Mulugu",
+      "aliases": [],
+      "context": "Godavari forest catchments and dispersed settlements",
+      "question": "Which remote settlements need resilient access without damaging native catchments?",
+      "priorities": [
+        "F",
+        "B",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://mulugu.telangana.gov.in/"
+    },
+    {
+      "id": "ts-nagarkurnool",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Nagarkurnool",
+      "aliases": [],
+      "context": "dry interior farms and Nallamala-edge settlements",
+      "question": "Which farm-water measures preserve community rights and native habitat?",
+      "priorities": [
+        "D",
+        "A",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://nagarkurnool.telangana.gov.in/"
+    },
+    {
+      "id": "ts-nalgonda",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Nalgonda",
+      "aliases": [],
+      "context": "dry plateau villages and irrigated farming areas",
+      "question": "Which quantity and water-quality concerns require separate local tests?",
+      "priorities": [
+        "D",
+        "H",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://nalgonda.telangana.gov.in/"
+    },
+    {
+      "id": "ts-narayanpet",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Narayanpet",
+      "aliases": [],
+      "context": "dry western plateau farming villages",
+      "question": "Which farmer cluster can track soil-water practices and full-cost net returns?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://narayanpet.telangana.gov.in/"
+    },
+    {
+      "id": "ts-nirmal",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Nirmal",
+      "aliases": [],
+      "context": "northern catchments and rainfed farms",
+      "question": "Which farms and settlements need both dry-spell and excess-rain contingencies?",
+      "priorities": [
+        "H",
+        "A",
+        "F"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "http://nirmal.telangana.gov.in/"
+    },
+    {
+      "id": "ts-nizamabad",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Nizamabad",
+      "aliases": [],
+      "context": "agricultural plains, tanks and growing towns",
+      "question": "Which crop-water and town-drainage records can support a practical pilot?",
+      "priorities": [
+        "A",
+        "H",
+        "F"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://nizamabad.telangana.gov.in/"
+    },
+    {
+      "id": "ts-peddapalli",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Peddapalli",
+      "aliases": [],
+      "context": "Godavari-side and industrial settlements",
+      "question": "Which institutions and workplaces need heat protection and efficient energy use?",
+      "priorities": [
+        "H",
+        "F",
+        "E"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://peddapalli.telangana.gov.in/"
+    },
+    {
+      "id": "ts-rajanna-sircilla",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Rajanna Sircilla",
+      "aliases": [
+        "Sircilla"
+      ],
+      "context": "town institutions and agricultural catchments",
+      "question": "Which water-demand and drainage bottlenecks affect occupied public buildings?",
+      "priorities": [
+        "H",
+        "D",
+        "U"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://rajannasircilla.telangana.gov.in/"
+    },
+    {
+      "id": "ts-rangareddy",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Rangareddy",
+      "aliases": [
+        "Ranga Reddy"
+      ],
+      "context": "rapidly growing urban fringe and inland farms",
+      "question": "Which shared catchments need town-demand and farm-water reconciliation?",
+      "priorities": [
+        "U",
+        "D",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://rangareddy.telangana.gov.in/"
+    },
+    {
+      "id": "ts-sangareddy",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Sangareddy",
+      "aliases": [],
+      "context": "urban-industrial areas and inland agricultural catchments",
+      "question": "Which institutions or enterprises can document reliable water and energy use?",
+      "priorities": [
+        "D",
+        "H",
+        "E"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://sangareddy.telangana.gov.in/"
+    },
+    {
+      "id": "ts-siddipet",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Siddipet",
+      "aliases": [],
+      "context": "tank-linked farming and town settlements",
+      "question": "Which water users can agree maintenance and measurable seasonal outcomes?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://siddipet.telangana.gov.in/"
+    },
+    {
+      "id": "ts-suryapet",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Suryapet",
+      "aliases": [],
+      "context": "Krishna-linked farms and hot inland settlements",
+      "question": "Which crop and settlement sites need distinct heat and inundation assessments?",
+      "priorities": [
+        "H",
+        "A",
+        "F"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://suryapet.telangana.gov.in/"
+    },
+    {
+      "id": "ts-vikarabad",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Vikarabad",
+      "aliases": [],
+      "context": "upland catchments, forests and farming settlements",
+      "question": "Which restoration and farm-water measures fit native habitat and community use?",
+      "priorities": [
+        "D",
+        "A",
+        "B"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://vikarabad.telangana.gov.in/"
+    },
+    {
+      "id": "ts-wanaparthy",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Wanaparthy",
+      "aliases": [],
+      "context": "dry interior farms and irrigation-linked settlements",
+      "question": "Which farmer groups need water-budget comparisons across irrigated and dryland plots?",
+      "priorities": [
+        "D",
+        "A",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://wanaparthy.telangana.gov.in/"
+    },
+    {
+      "id": "ts-warangal",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Warangal",
+      "aliases": [],
+      "context": "urban/farm catchments and low-lying settlements",
+      "question": "Which drainage links protect essential services during intense local rainfall?",
+      "priorities": [
+        "U",
+        "F",
+        "H"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://warangal.telangana.gov.in/"
+    },
+    {
+      "id": "ts-yadadri-bhuvanagiri",
+      "state": "Telangana",
+      "stateCode": "TS",
+      "name": "Yadadri Bhuvanagiri",
+      "aliases": [
+        "Yadadri Bhongir"
+      ],
+      "context": "plateau farming settlements and growing towns",
+      "question": "Which institutional and farm sites can provide comparable seasonal measurements?",
+      "priorities": [
+        "D",
+        "H",
+        "A"
+      ],
+      "reviewed": "2026-10-15",
+      "status": "Planning screen — local verification pending",
+      "evidenceLevel": "Regional evidence + district source route; site need unverified",
+      "boundaryNote": "Historical studies may cover different boundaries; reconcile mandals/taluks and dates before use.",
+      "districtUrl": "https://yadadri.telangana.gov.in/"
+    }
+  ]
+}

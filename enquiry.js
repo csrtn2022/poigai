@@ -2,6 +2,8 @@ const el=id=>document.getElementById(id),form=el('form');
 const roles=['donor','diaspora','foundation','ngo','corporate','technical','proponent','owner','other'];
 const projectIds=['general','D01','D02','D03'],intents=['brief','assessment','diligence','conversation'];
 const params=new URLSearchParams(location.search);
+// District briefs carry only a public location label into the optional enquiry.
+if(params.has('location')&&el('location')){el('location').value=params.get('location').trim().slice(0,200);const optional=document.querySelector('.d-optional');if(optional)optional.open=true;}
 if(roles.includes(params.get('role')))el('type').value=params.get('role');
 if(projectIds.includes(params.get('project')))el('project').value=params.get('project');
 if(intents.includes(params.get('intent')))el('intent').value=params.get('intent');
