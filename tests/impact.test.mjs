@@ -33,3 +33,6 @@ test('worker routes public directory without authenticated stakeholder account',
  const db=fakeDB();const res=await worker.fetch(request('/api/impact/directory'),{DB:db});
  assert.equal(res.status,200);
 });
+
+test('unverified funders cannot see private eligible projects through matching',async()=>{const db=fakeDB({id:'funder-1',kind:'funder',state:'Tamil Nadu',verification_status:'pending'}),env={DB:db};const response=await impactApi(request('/api/impact/matches'),env,async()=>({id:'funder-user'}));assert.equal(response.status,200);const result=await response.json();assert.deepEqual(result.matches,[]);assert.equal(db.sql.some(x=>x.query.includes('FROM impact_proposals p JOIN impact_organisations')),false);});
+test('private matching consent rejects attempts against unowned proposals',async()=>{const db=fakeDB({id:'ngo-1',kind:'ngo'}),response=await impactApi(request('/api/impact/match-consent','POST',{id:'not-owned',consent:true}),{DB:db},async()=>({id:'ngo-owner'}));assert.equal(response.status,404);assert.equal(db.sql.some(x=>x.query.includes('UPDATE impact_proposals')),false);});
