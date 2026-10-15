@@ -71,3 +71,61 @@ section[id],.belief[id]{scroll-margin-top:104px}
 }
 @media(max-width:380px){.floating-dock>a:first-of-type{display:none}.floating-dock>a.dock-primary{flex:1;justify-content:center}.rail-link{min-width:36px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rail-link{transition:none}}
+
+
+/* POIGAI approved brand refinement — ivory, forest, mint and muted amber */
+:root{--forest:#0B302B;--forest2:#16473C;--teal:#78C8AF;--cream:#F7EEDC;--paper:#F7F5EE;--ink:#18362F;--muted:#63766D;--line:#D9E2D8;--gold:#D9A05D}
+html{background:#F7F5EE;color-scheme:light}
+body{background:#F7F5EE;color:#18362F}
+.topline{background:#0B302B;color:#F7EEDC;border-color:#25483E}
+header{background:rgba(247,245,238,.97);border-color:#DCE3D8}
+.logo{color:#0B302B}.logo small{color:#64786D}
+.mark{width:48px;height:48px;border-radius:14px;background:#0B302B;border:1px solid #28574A;display:grid;place-items:center;overflow:hidden}
+.brand-symbol{display:block;width:35px;height:35px}
+nav{color:#405B50}nav a:hover{color:#21785F}
+.navbtn{background:#0B302B;color:#F7EEDC}.navbtn:hover{background:#16473C;color:#fff}
+.hero{background:radial-gradient(ellipse at 80% 45%,#E1EEE4 0%,#F1F0E6 37%,#F7F5EE 74%);color:#18362F}
+.eyebrow,.kicker{color:#397E68}
+.hero h1,.section h2,.contact h2{color:#0B302B}
+.hero h1 em,.section h2 em,.dark h2 em,.belief h2 em,.contact h2 em{color:#398B73}
+.hero-copy>p,.prose p,.twocol>p,.contactgrid>div>p{color:#5C7066}
+.btn.primary,.primary{background:#0B302B;color:#F7EEDC}
+.btn.primary:hover,.primary:hover{background:#16473C;color:#fff}
+.simple{color:#0B302B}.smallnote{color:#64786D}
+.orbit{border-color:#B9CFC0}.o2{border-color:#B4CBB9}
+.core{background:#0B302B;color:#F7EEDC;border:1px solid #477D68;box-shadow:0 20px 50px #0B302B18}
+.core span{color:#78C8AF}
+.bubble{background:#FFFEFA;border-color:#D7E1D6;box-shadow:0 12px 35px #173A2E0C}
+.bubble b{color:#0B302B}.bubble small,.caption{color:#6C8075}
+.herofoot{color:#788A80}
+.principles{background:#FFFEFA;border-color:#E0E5DC}.principles span{color:#405B50;border-color:#E0E5DC}.principles i{color:#B47C42}
+.section{background:#F7F5EE}.kicker span{color:#89998E}
+.cards article{background:#FFFEFA;border-color:#DCE4D9}.cards article.featured{background:#E6F0E6}
+.cards h3{color:#0B302B}.cards p{color:#61736A}.cards article>a,.under{color:#246F58}.under{border-color:#9FC7B2}
+.dark{background:#0B302B;border-color:#25483E}.dark .kicker{color:#A8D8C1}.dark .kicker span{color:#91B9A5}.dark .twocol>p{color:#D0DED3}
+.steps{border-color:#376052}.steps article{border-color:#376052}.steps h3{color:#F7EEDC}.steps p{color:#C5D7CB}
+.notice{background:#123D32;border-color:#376052;color:#DCE8DE}.notice b{color:#fff}
+.partnergrid article{background:#E4EFE5;border-color:#D2E1D4}.partnergrid article.warm{background:#F4E9D8;border-color:#E4D2B7}
+.round{border-color:#A9CDB6;color:#236D55}.warm .round{border-color:#D8BD96;color:#936A37}
+.partnergrid small{color:#477762}.warm small{color:#9A7648}.partnergrid h3{color:#0B302B}.partnergrid p{color:#5C7066}
+.light{background:#0B302B;color:#F7EEDC}.outline{background:transparent;border-color:#B68C59;color:#6F512D}
+.belief{background:#E5EFE6;border-color:#D0E0D2}.beliefmark{background:#0B302B;border:1px solid #2D6752;display:grid;place-items:center}.beliefmark img{width:43px;height:43px}
+.belief small{color:#4B8068}.belief h2{color:#0B302B}.belief>p{color:#5D7166}
+.contact form{background:#FFFEFA;border-color:#D9E3D8;box-shadow:0 15px 45px #173A2E0B}
+.contact form h3{color:#0B302B}.contact form h3 small{color:#87958B}
+.contact label{color:#405B50}.contact input,.contact select,.contact textarea{background:#FDFCF7;border-color:#D5E0D6;color:#18362F}
+.contact input::placeholder,.contact textarea::placeholder{color:#8A9A90}
+.contact input:focus,.contact select:focus,.contact textarea:focus{border-color:#4A9A7D;box-shadow:0 0 0 3px #4A9A7D18}
+.point b{color:#0B302B}.point small{color:#6C7D73}.fine{color:#7E8E83}
+footer{background:#082720;border-color:#25483E}.footmain{border-color:#315449}.footmain p{color:#C0D3C7}.footmain>a:last-child{color:#A6D9C0}.footbottom{color:#A1B9AA}
+.menu{color:#0B302B}
+.side-rail{background:#0B302B;border-color:#25483E}
+.rail-brand{background:#16473C;border-color:#3E7560;color:#F7EEDC}.rail-brand img{display:block;width:32px;height:32px}
+.rail-caption{color:#B4D5C1}
+.rail-link{color:#C3D7C9}.rail-link i{background:#16473C;border-color:#477762;color:#F7EEDC}
+.rail-link:hover,.rail-link:focus-visible,.rail-link.active{background:#245B48;color:#fff;border-color:#78C8AF}
+.floating-dock{background:rgba(11,48,43,.97);border-color:#356353;box-shadow:0 14px 45px #0B302B24}
+.dock-label{color:#A9CDBA}.floating-dock>a{color:#F7EEDC}
+.floating-dock>a.dock-primary{background:#D9A05D;color:#18362F}
+.floating-dock>a:hover{color:#A9E1C8}.floating-dock>a.dock-primary:hover{background:#E4B477;color:#18362F}
+@media(max-width:760px){nav{background:#F7F5EE;box-shadow:0 14px 24px #0B302B18}.side-rail{background:rgba(11,48,43,.97);border-color:#356353}}
