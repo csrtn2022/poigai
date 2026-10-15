@@ -1,0 +1,47 @@
+const COOKIE='__Host-poigai_admin';
+const h={'Cache-Control':'no-store','Content-Type':'application/json; charset=utf-8','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'};
+const json=(data,status=200,extra={})=>new Response(JSON.stringify(data),{status,headers:{...h,...extra}});
+const digest=async s=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s))),x=>x.toString(16).padStart(2,'0')).join('');
+const expiry=()=>Math.floor(Date.now()/1000);
+function enabled(env){return env.ADMIN_ENABLED==='true'&&env.DB&&env.AUTH_PEPPER?.length>=32&&env.APP_ORIGIN==='https://www.poigai.com';}
+async function session(request,env){const token=(request.headers.get('cookie')||'').split(';').map(x=>x.trim()).find(x=>x.startsWith(COOKIE+'='))?.slice(COOKIE.length+1);if(!token||!/^[a-f0-9]{64}$/.test(token))return null;return env.DB.prepare("SELECT a.id,a.email,a.display_name FROM admin_sessions s JOIN admin_users a ON a.id=s.admin_id WHERE s.token_hash=? AND s.expires_at>? AND a.status='active'").bind(await digest(token),expiry()).first();}
+export async function adminApi(request,env,passwordMatches){
+ const path=new URL(request.url).pathname;
+ if(path==='/api/admin/status'&&request.method==='GET')return json({available:enabled(env)});
+ if(!enabled(env))return json({error:'Administrator access is not activated.'},503);
+ if(path==='/api/admin/me'&&request.method==='GET'){const a=await session(request,env);return a?json({admin:a}):json({error:'Sign in required.'},401);}
+ if(path==='/api/admin/login'&&request.method==='POST'){
+  if(request.headers.get('origin')!==env.APP_ORIGIN)return json({error:'Invalid origin.'},403);
+  if(!request.headers.get('content-type')?.startsWith('application/json'))return json({error:'JSON required.'},415);
+  const raw=await request.text();if(raw.length>4096)return json({error:'Request too large.'},413);
+  let data;try{data=JSON.parse(raw);}catch{return json({error:'Invalid request.'},400);}
+  if(typeof data.email!=='string'||typeof data.password!=='string'||data.password.length>128)return json({error:'Invalid credentials.'},401);
+  const email=data.email.trim().toLowerCase();if(email.length>254||!email.includes('@'))return json({error:'Invalid credentials.'},401);
+  const ip=request.headers.get('cf-connecting-ip')||'local';const key='admin:'+await digest(email+':'+ip);const t=expiry();
+  const counter=await env.DB.prepare('INSERT INTO auth_limits(key,hits,expires_at) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET hits=CASE WHEN expires_at<=? THEN 1 ELSE hits+1 END,expires_at=CASE WHEN expires_at<=? THEN ? ELSE expires_at END RETURNING hits').bind(key,t+900,t,t,t+900).first();
+  if(counter.hits>5)return json({error:'Too many login attempts.'},429,{'Retry-After':'900'});
+  const admin=await env.DB.prepare("SELECT * FROM admin_users WHERE email=? AND status='active' AND password_hash IS NOT NULL").bind(email).first();
+  if(!admin||!(await passwordMatches(data.password,admin.password_hash,env.AUTH_PEPPER)))return json({error:'Invalid credentials.'},401);
+  const bytes=crypto.getRandomValues(new Uint8Array(32));const token=Array.from(bytes,x=>x.toString(16).padStart(2,'0')).join('');
+  await env.DB.prepare('INSERT INTO admin_sessions(token_hash,admin_id,created_at,expires_at) VALUES(?,?,?,?)').bind(await digest(token),admin.id,t,t+3600).run();
+  return json({admin:{id:admin.id,email:admin.email,display_name:admin.display_name}},200,{'Set-Cookie':`${COOKIE}=${token}; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=3600`});
+ }
+ if(path==='/api/admin/logout'&&request.method==='POST'){
+  if(request.headers.get('origin')!==env.APP_ORIGIN)return json({error:'Invalid origin.'},403);
+  const token=(request.headers.get('cookie')||'').split(';').map(x=>x.trim()).find(x=>x.startsWith(COOKIE+'='))?.slice(COOKIE.length+1);
+  if(token&&/^[a-f0-9]{64}$/.test(token))await env.DB.prepare('DELETE FROM admin_sessions WHERE token_hash=?').bind(await digest(token)).run();
+  return json({message:'Signed out.'},200,{'Set-Cookie':`${COOKIE}=; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=0`});
+ }
+ const admin=await session(request,env);if(!admin)return json({error:'Administrator authentication required.'},401);
+ if(request.method!=='GET')return json({error:'Method not allowed.'},405);
+ if(path==='/api/admin/summary'){
+  const [u,q]=await Promise.all([env.DB.prepare('SELECT COUNT(*) n FROM auth_users').first(),env.DB.prepare('SELECT COUNT(*) n FROM enquiries').first()]);return json({adminId:admin.id,stakeholders:u.n,enquiries:q.n});
+ }
+ if(path==='/api/admin/enquiries'){
+  const rows=await env.DB.prepare('SELECT id,stakeholder_type,name,organisation,email,project_id,location,interest,consent_at,created_at FROM enquiries ORDER BY created_at DESC LIMIT 50').all();return json({enquiries:rows.results});
+ }
+ if(path==='/api/admin/stakeholders'){
+  const rows=await env.DB.prepare('SELECT id,email,name,organisation,stakeholder_type,email_verified_at,status,created_at FROM auth_users ORDER BY created_at DESC LIMIT 50').all();return json({stakeholders:rows.results});
+ }
+ return json({error:'Not found.'},404);
+}
