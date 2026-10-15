@@ -21,7 +21,7 @@ export async function enquiries(request,env){
  }catch{return response({error:'Invalid enquiry.'},400);}
  const clean=(key,max)=>typeof data?.[key]==='string'?data[key].trim().slice(0,max+1):'';
  const name=clean('name',100),organisation=clean('organisation',200),email=clean('email',254).toLowerCase(),stakeholderType=clean('stakeholderType',30),projectId=clean('projectId',10),location=clean('location',200),interest=clean('interest',2500),requestId=clean('requestId',36);
- if(!name||name.length>100||!organisation||organisation.length>200||!/^\S+@[^\s@]+\.[^\s@]+$/.test(email)||email.length>254||!['ngo','corporate','technical','proponent','owner','other'].includes(stakeholderType)||!['general','D01','D02','D03'].includes(projectId)||location.length>200||!interest||interest.length>2500||data.consent!==true||!/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(requestId))return response({error:'Check your details and confirm enquiry data consent.'},400);
+ if(!name||name.length>100||organisation.length>200||!/^\S+@[^\s@]+\.[^\s@]+$/.test(email)||email.length>254||!['donor','diaspora','foundation','ngo','corporate','technical','proponent','owner','other'].includes(stakeholderType)||!['general','D01','D02','D03'].includes(projectId)||location.length>200||!interest||interest.length>2500||data.consent!==true||!/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(requestId))return response({error:'Check your details and confirm enquiry data consent.'},400);
  const payloadHash=await digest(JSON.stringify([name,organisation,email,stakeholderType,projectId,location,interest]));
  const time=Math.floor(Date.now()/1000);
  // Rate-limit retries too; public references never permit reading stored enquiries.
