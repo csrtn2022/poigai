@@ -1,0 +1,845 @@
+{
+  "title": "POIGAI South India Climate & Ecology Knowledge Bank",
+  "edition": "1.0",
+  "reviewed": "2026-10-15",
+  "scope": "Tamil Nadu, Kerala, Karnataka, Andhra Pradesh, Telangana, Puducherry and Lakshadweep. Neighbouring Western Ghats research is background only.",
+  "method": "Curated evidence map, not an exhaustive review of all studies. Searches used government and original research organisations, research-team summaries and practitioner records. Review depth is stated per source. Search snippets and catalogues are explicitly distinguished from report excerpts. No full-text appraisal is claimed where access failed.",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Assessment of Climate Change over the Indian Region",
+      "publisher": "MoES / IITM; Krishnan et al. (editors)",
+      "year": "2020",
+      "type": "Scientific assessment",
+      "url": "https://link.springer.com/book/10.1007/978-981-15-4327-2",
+      "review": "Publisher overview and contents",
+      "note": "Regional climate synthesis; national or model-grid findings are not village forecasts.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S02",
+      "title": "Mapping India’s Climate Vulnerability: A District-Level Assessment",
+      "publisher": "CEEW; Mohanty & Wadhawan",
+      "year": "2021",
+      "type": "Research report",
+      "url": "https://www.ceew.in/publications/mapping-climate-change-vulnerability-index-of-india-a-district-level-assessment",
+      "review": "Executive findings and methodology overview",
+      "note": "Composite vulnerability includes exposure, sensitivity and adaptive capacity; rankings depend on method and period.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S03",
+      "title": "Kerala State Action Plan on Climate Change 2023–2030",
+      "publisher": "Government of Kerala",
+      "year": "2022; plan 2023–2030",
+      "type": "Government plan",
+      "url": "https://envt.kerala.gov.in/2022/12/07/state-action-plan-on-climate-change-2023-2030/",
+      "review": "Official document landing page",
+      "note": "Document indexed; full PDF retrieval timed out. Sector interventions require section-level review before design.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S04",
+      "title": "Tamil Nadu Climate Action Tracker",
+      "publisher": "Government of Tamil Nadu / Vasudha Foundation",
+      "year": "Ongoing portal",
+      "type": "Government data portal",
+      "url": "https://tnclimatetracker.tn.gov.in/",
+      "review": "Public overview",
+      "note": "Mission and sector context; individual indicators have their own dates. No live feed is copied here.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S05",
+      "title": "Karnataka State Action Plan on Climate Change 2024–2030 monitoring portal",
+      "publisher": "EMPRI / Government of Karnataka",
+      "year": "Plan 2024–2030",
+      "type": "Government plan",
+      "url": "https://ksapccmonitoring.in/ksapcc-ui/department/landingPage.html",
+      "review": "Official overview",
+      "note": "Current plan period verified on portal; expenditure and activity tracking are not proof of outcomes.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S06",
+      "title": "Andhra Pradesh SAPCC profile",
+      "publisher": "MoEFCC NAPCC dashboard",
+      "year": "2012 plan; current profile",
+      "type": "Government plan",
+      "url": "https://napccindia.moef.gov.in/sapcc/state/andhra-pradesh",
+      "review": "Official overview and geographic caveat",
+      "note": "SAPCC 1.0 covers undivided Andhra Pradesh before reorganisation. Do not transfer old boundaries or totals to the present state.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S07",
+      "title": "Telangana SAPCC profile",
+      "publisher": "MoEFCC NAPCC dashboard / EPTRI",
+      "year": "SAPCC 1.0; current profile",
+      "type": "Government plan",
+      "url": "https://napccindia.moef.gov.in/sapcc/state/telangana",
+      "review": "Official overview",
+      "note": "Post-bifurcation framework; implementation and current local baselines must be checked separately.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S08",
+      "title": "Puducherry SAPCC 2.0 profile",
+      "publisher": "MoEFCC NAPCC dashboard / DSTE",
+      "year": "Plan 2021–2030",
+      "type": "Government plan",
+      "url": "https://napccindia.moef.gov.in/sapcc/state/puducherry",
+      "review": "Official overview",
+      "note": "Puducherry, Karaikal, Mahe and Yanam have different coastal and river settings.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S09",
+      "title": "Telangana Cool Roof Policy 2023–2028",
+      "publisher": "Government of Telangana",
+      "year": "2023",
+      "type": "Government policy",
+      "url": "https://telangana.gov.in/wp-content/uploads/2023/05/Telangana-Cool-Roof-Policy-2023-2028.pdf",
+      "review": "Indexed policy provisions",
+      "note": "Roof reflectance and emittance provisions screened; local applicability and current amendments need checking.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S10",
+      "title": "Dynamic Ground Water Resources of Karnataka 2024",
+      "publisher": "CGWB / Ground Water Directorate, Karnataka",
+      "year": "Assessment 2024",
+      "type": "Government assessment",
+      "url": "https://cgwb.gov.in/cgwbpnm/public/publication-detail/1623",
+      "review": "Publication record and indexed report description",
+      "note": "Assessment-unit data must be extracted before selecting a site; not a current well-level measurement.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S11",
+      "title": "Dynamic Ground Water Resources / Ground Water Quality of Tamil Nadu 2024",
+      "publisher": "CGWB",
+      "year": "Assessment 2024",
+      "type": "Government assessment",
+      "url": "https://cgwb.gov.in/cgwbpnm/publication-detail/1418",
+      "review": "Publication record",
+      "note": "Source identified, full tables not extracted. Quantity and potable-water quality require separate local tests.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S12",
+      "title": "Risk and Vulnerability Assessment of Indian Agriculture to Climate Change",
+      "publisher": "ICAR-CRIDA",
+      "year": "2020",
+      "type": "Government research",
+      "url": "https://www.icar-crida.res.in/assets_c/img/Books/Atlas%20climate%20change%20Aug%202020.pdf",
+      "review": "Title and indexed description",
+      "note": "Agricultural screening atlas; full district tables not extracted. Historical district boundaries may differ.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S13",
+      "title": "Climate-resilient agriculture books and technical bulletins",
+      "publisher": "ICAR-CRIDA / NICRA",
+      "year": "Multiple years",
+      "type": "Research catalogue",
+      "url": "https://icar-crida.res.in/publications_books.html",
+      "review": "Publication catalogue",
+      "note": "A route to crop and farm-pond technical guidance; catalogue inclusion is not a demonstrated local effect size.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S14",
+      "title": "Landslide-triggering rainfall in northern Kerala: attribution assessment",
+      "publisher": "World Weather Attribution",
+      "year": "2024",
+      "type": "Attribution assessment",
+      "url": "https://www.worldweatherattribution.org/landslide-triggering-rainfall-made-more-intense-by-human-induced-climate-change-devastating-highly-vulnerable-communities-in-northern-kerala/",
+      "review": "Findings and uncertainty discussion",
+      "note": "Models indicate intensified rainfall; complex mountain dynamics create substantial uncertainty. Rainfall attribution is not a complete landslide-causation model.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S15",
+      "title": "The heavy precipitation event of December 2015 in Chennai, India",
+      "publisher": "van Oldenborgh et al.; BAMS / WWA",
+      "year": "2016",
+      "type": "Peer-reviewed study summary",
+      "url": "https://www.worldweatherattribution.org/chennai-floods-december-2015/",
+      "review": "Research-team summary with journal citation",
+      "note": "No human-caused signal detected for this defined one-day event; this does not disprove climate change or address all flood drivers.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S16",
+      "title": "Chennai Flood 2015",
+      "publisher": "National Institute of Disaster Management",
+      "year": "2021",
+      "type": "Government research",
+      "url": "https://nidm.gov.in/PDF/pubs/ChennailFlood_NIDM2021.pdf",
+      "review": "Indexed report description",
+      "note": "Flood-management resource; full report not reviewed. No numerical local attribution is taken from it.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S17",
+      "title": "Coastal erosion: NCCR shoreline assessment and hazard-line context",
+      "publisher": "MoEFCC / MoES, official parliamentary response",
+      "year": "2023; observations 1990–2018",
+      "type": "Government assessment",
+      "url": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1982315",
+      "review": "Assessment summary and planning provisions",
+      "note": "Shoreline movement combines natural and human drivers. Historical erosion is not a prediction of future local retreat.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S18",
+      "title": "Desertification and Land Degradation Atlas collection",
+      "publisher": "SAC–ISRO / VEDAS",
+      "year": "2021 atlas; 2018–19 mapping",
+      "type": "Government data portal",
+      "url": "https://vedas.sac.gov.in/en/Desertification_Status_Mapping_(DSM)_Atlas.html",
+      "review": "Official atlas catalogue",
+      "note": "Remote-sensing screening; field soil and land-use verification required. Full atlas tables not extracted.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S19",
+      "title": "National Inventory of Sewage Treatment Plants in India",
+      "publisher": "CPCB",
+      "year": "2021; inventory 2020",
+      "type": "Government assessment",
+      "url": "https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTIyOF8xNjE1MTk2MzIyX21lZGlhcGhvdG85NTY0LnBkZg%3D%3D",
+      "review": "Introduction, definitions and inventory overview",
+      "note": "Installed capacity, operating capacity and compliant treatment differ. Historical inventory is not today’s plant performance.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S20",
+      "title": "Wetland maintenance: Jakkur Lake",
+      "publisher": "Biome Environmental Trust",
+      "year": "2018",
+      "type": "Practitioner case",
+      "url": "https://biometrust.org/wetland-maintenance-jakkur-lake/",
+      "review": "Site observations and maintenance account",
+      "note": "Documents mixed inflows, vegetation management and institutional roles; not a controlled impact evaluation.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S21",
+      "title": "Adoption of Natural Farming and its Effect on Crop Yield and Farmers’ Livelihood in India",
+      "publisher": "ICAR-NAARM / ICAR-CRIDA for NITI Aayog",
+      "year": "2020 report; hosted 2021",
+      "type": "Government research",
+      "url": "https://www.niti.gov.in/sites/default/files/2021-03/NaturalFarmingProjectReport-ICAR-NAARM.pdf",
+      "review": "Study design, farmer-perception section and conclusion excerpts",
+      "note": "Survey and sample analysis across Andhra Pradesh, Karnataka and Maharashtra; adoption selection and crop differences limit causal inference.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S22",
+      "title": "Restoration research programme",
+      "publisher": "ATREE",
+      "year": "Ongoing programme",
+      "type": "Research programme",
+      "url": "https://www.atree.org/restoration/",
+      "review": "Research-programme overview",
+      "note": "Landscape-specific restoration and invasive-species research; programme description does not establish a universal outcome.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S23",
+      "title": "The Grasslands Initiative",
+      "publisher": "ATREE",
+      "year": "Ongoing programme",
+      "type": "Research programme",
+      "url": "https://www.atree.org/tgi/",
+      "review": "Research-programme overview",
+      "note": "Open natural ecosystems have conservation and livelihood value; use local habitat histories before choosing restoration.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S24",
+      "title": "Coral bleaching and marine heatwave monitoring",
+      "publisher": "MoEFCC / INCOIS, official parliamentary response",
+      "year": "2024",
+      "type": "Government assessment",
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2041457&lang=2&reg=3",
+      "review": "Official event and monitoring summary",
+      "note": "Reports 2024 Lakshadweep bleaching and available monitoring; not a current reef-condition bulletin.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S25",
+      "title": "Coral reef information and warning services",
+      "publisher": "INCOIS",
+      "year": "Ongoing service",
+      "type": "Government data portal",
+      "url": "https://incois.gov.in/site/services/coralReef.jsp",
+      "review": "Service objectives",
+      "note": "Source for monitoring and warnings; users must consult dated official bulletins for current conditions.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S26",
+      "title": "Annual Report on Solid Waste Management 2021–2022",
+      "publisher": "CPCB",
+      "year": "Reporting 2021–2022",
+      "type": "Government assessment",
+      "url": "https://cpcb.nic.in/uploads/MSW/MSW_AnnualReport_2021-22.pdf",
+      "review": "Selected state tables on processing, dumpsites and monitoring",
+      "note": "Historic reported administrative data; verify actual waste flows, worker conditions and facility compliance locally.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S27",
+      "title": "AR6 WGIII Summary for Policymakers",
+      "publisher": "IPCC",
+      "year": "2022",
+      "type": "Scientific assessment",
+      "url": "https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/",
+      "review": "Indexed sector findings",
+      "note": "Global synthesis, not South India project evidence. No local savings percentage inferred.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S28",
+      "title": "AR6 WGIII Chapter 10: Transport",
+      "publisher": "IPCC",
+      "year": "2022",
+      "type": "Scientific assessment",
+      "url": "https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-10/",
+      "review": "Indexed chapter findings",
+      "note": "Transit and active travel evidence is global; route-level demand and lifecycle emissions need local assessment.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S29",
+      "title": "Forests of the Western Ghats",
+      "publisher": "Wildlife Institute of India",
+      "year": "Undated legacy page",
+      "type": "Research background",
+      "url": "https://v1.wii.gov.in/eia/casestudies/highway_projects_1_reconnaissance_of_the_project_area_the_forests_of_western_ghats",
+      "review": "Ecological background text",
+      "note": "Legacy case-study text focuses on Maharashtra. Used only for general ecosystem diversity, not southern-site statistics.",
+      "checked": "2026-10-15"
+    },
+    {
+      "id": "S30",
+      "title": "CREST: Rooftop Evaluation for Solar Tool",
+      "publisher": "CSTEP",
+      "year": "2020",
+      "type": "Research tool",
+      "url": "https://cstep.in/events/launch-csteps-rooftop-evaluation-for-solar-tool-crest/",
+      "review": "Indexed tool-launch description",
+      "note": "Bengaluru rooftop assessment example; not a tariff, payback or current structural certification.",
+      "checked": "2026-10-15"
+    }
+  ],
+  "issues": [
+    {
+      "id": "K01",
+      "title": "Reliable village water",
+      "tamil": "கிராம நீர் பாதுகாப்பு",
+      "theme": "Water",
+      "states": [
+        "Tamil Nadu"
+      ],
+      "places": "Ramanathapuram; southern Tamil Nadu screening areas",
+      "evidence": "Groundwater resource and quality assessments are distinct evidence streams [S11]. Regional evidence cannot establish a particular village’s unmet need.",
+      "response": "Assess demand, leakage, storage and source quality first; compare repairs, safe rainwater capture and hydrogeologically suitable recharge. Reject recharge where contamination or saline conditions make it unsafe.",
+      "baseline": "Seasonal supply days, source tests, household collection time, extraction and recharge context.",
+      "measure": "Reliable supply days; tested water quality; collection time; operating cost.",
+      "owner": "Panchayat or utility with an explicitly appointed maintenance operator.",
+      "gap": "Exact village, household baseline, aquifer suitability and lifecycle budget unverified.",
+      "sources": [
+        "S11"
+      ]
+    },
+    {
+      "id": "K02",
+      "title": "Groundwater depletion in hard-rock catchments",
+      "tamil": "நிலத்தடி நீர்",
+      "theme": "Water",
+      "states": [
+        "Karnataka",
+        "Telangana",
+        "Andhra Pradesh"
+      ],
+      "places": "Interior Karnataka; Telangana plateau; Rayalaseema",
+      "evidence": "CGWB’s Karnataka assessment provides resource screening [S10]; Telangana’s state plan supplies sector context [S07]. Neither is a well-yield guarantee.",
+      "response": "Build a community water budget; meter large abstractions; align crops with dependable supply; assess managed recharge with a hydrogeologist and downstream users.",
+      "baseline": "Seasonal water levels, abstraction, well failures and water quality.",
+      "measure": "Water-level trend over comparable seasons; extraction; irrigation water per unit output.",
+      "owner": "Groundwater department, panchayat and participating water users.",
+      "gap": "Assessment-unit tables and present village surveys still needed.",
+      "sources": [
+        "S10",
+        "S07"
+      ]
+    },
+    {
+      "id": "K03",
+      "title": "Urban lakes and sewage inflows",
+      "tamil": "ஏரிகள் மற்றும் கழிவுநீர்",
+      "theme": "Water",
+      "states": [
+        "Karnataka"
+      ],
+      "places": "Bengaluru lake catchments; Jakkur as a documented case",
+      "evidence": "Jakkur’s practitioner account describes treated and untreated inflows, vegetation work and multiple maintenance institutions [S20].",
+      "response": "Trace every inlet; intercept pollution; verify treatment compliance; evaluate wetlands as polishing stages with ongoing maintenance, rather than substitutes for sewage treatment.",
+      "baseline": "Inlet flows and pollutant loads; seasonal lake chemistry; treatment uptime.",
+      "measure": "Compliant inflows; oxygen and nutrient trends; recurring maintenance completed.",
+      "owner": "Utility, lake custodian and contracted operator, with community oversight.",
+      "gap": "2018 case observations are not current lake measurements or a causal impact trial.",
+      "sources": [
+        "S20",
+        "S19"
+      ]
+    },
+    {
+      "id": "K04",
+      "title": "Flood pathways and wetland storage",
+      "tamil": "வெள்ளத் தாங்குதிறன்",
+      "theme": "Floods",
+      "states": [
+        "Tamil Nadu",
+        "Telangana",
+        "Karnataka",
+        "Puducherry"
+      ],
+      "places": "Chennai basin; Hyderabad; Bengaluru; Puducherry urban catchments",
+      "evidence": "Flood studies require rainfall, drainage, land-use and exposure evidence together. The Chennai event summary cautions against treating flood damage as rainfall attribution [S15].",
+      "response": "Map drainage and flood storage at catchment scale; protect water pathways; assess retention areas, maintenance and accessible evacuation routes. Check whether interventions shift flooding downstream.",
+      "baseline": "Drain connectivity, observed inundation depth and duration, vulnerable assets and rainfall.",
+      "measure": "Inundation duration under comparable storms; protected routes; warning reach.",
+      "owner": "Urban local body, drainage authority and disaster-management teams.",
+      "gap": "Hydraulic modelling and local consent needed before earthworks.",
+      "sources": [
+        "S15",
+        "S16",
+        "S08"
+      ]
+    },
+    {
+      "id": "K05",
+      "title": "Landslide exposure in the Western Ghats",
+      "tamil": "மலைச்சரிவு அபாயம்",
+      "theme": "Floods",
+      "states": [
+        "Kerala",
+        "Tamil Nadu",
+        "Karnataka"
+      ],
+      "places": "Wayanad; Nilgiris; Kodagu as separate screening landscapes",
+      "evidence": "The 2024 Wayanad assessment found intensified triggering rain with substantial modelling uncertainty [S14]. It does not establish the cause of every slope failure.",
+      "response": "Use official susceptibility maps, geotechnical inspection and local rainfall thresholds; prioritise evacuation access and exposure reduction. Retaining structures need engineered designs.",
+      "baseline": "Slope geology, past failures, drainage, rainfall and households in runout paths.",
+      "measure": "Warning-to-action time; evacuation drills; people and assets removed from high exposure.",
+      "owner": "District disaster authority, qualified geotechnical team and local government.",
+      "gap": "Transfer from Wayanad to other slopes requires independent validation.",
+      "sources": [
+        "S14"
+      ]
+    },
+    {
+      "id": "K06",
+      "title": "Hot classrooms and public buildings",
+      "tamil": "வெப்பத்திலிருந்து பாதுகாப்பு",
+      "theme": "Heat",
+      "states": [
+        "Tamil Nadu",
+        "Telangana",
+        "Karnataka",
+        "Andhra Pradesh",
+        "Kerala",
+        "Puducherry"
+      ],
+      "places": "Tiruchirappalli concept; hot urban and peri-urban institutions",
+      "evidence": "Telangana’s cool-roof policy defines material-performance provisions [S09]; it is policy evidence, not measured results for a particular school.",
+      "response": "Compare reflective roofs, external shade, safe ventilation and efficient cooling. Inspect waterproofing, structure, glare, maintenance and indoor air quality before retrofit.",
+      "baseline": "Paired indoor/outdoor temperature and humidity logs; occupancy; roof condition; electricity.",
+      "measure": "Occupied hours above an agreed comfort threshold; comparable indoor temperature; kWh.",
+      "owner": "Building owner with facilities operator and qualified designer.",
+      "gap": "Building selection, hot-weather comparison and costed specifications pending.",
+      "sources": [
+        "S09",
+        "S04"
+      ]
+    },
+    {
+      "id": "K07",
+      "title": "Outdoor workers and unequal heat exposure",
+      "tamil": "வெளிப்புறப் பணியாளர் வெப்ப அபாயம்",
+      "theme": "Heat",
+      "states": [
+        "Tamil Nadu",
+        "Telangana",
+        "Andhra Pradesh",
+        "Karnataka",
+        "Kerala",
+        "Puducherry"
+      ],
+      "places": "Construction sites, markets, farms and transport hubs",
+      "evidence": "State climate plans address health and livelihoods [S06, S07]. Air temperature alone does not capture all occupational exposure.",
+      "response": "Have occupational-health professionals design shade, rest, safe drinking-water access and warning procedures. Adapt work schedules with workers, protect wages and provide an emergency response protocol.",
+      "baseline": "Task and exposure mapping; humidity and radiant heat; access to shade and water.",
+      "measure": "Protected work periods; warning coverage; recorded heat incidents with reporting quality checked.",
+      "owner": "Employer and local authority with worker representatives and health teams.",
+      "gap": "No medical threshold or clinical advice is inferred from this bank.",
+      "sources": [
+        "S06",
+        "S07"
+      ]
+    },
+    {
+      "id": "K08",
+      "title": "Shoreline erosion and coastal livelihoods",
+      "tamil": "கடலோர அரிப்பு",
+      "theme": "Coasts",
+      "states": [
+        "Tamil Nadu",
+        "Kerala",
+        "Karnataka",
+        "Andhra Pradesh",
+        "Puducherry"
+      ],
+      "places": "Coromandel and Malabar coasts; Puducherry and Karaikal",
+      "evidence": "NCCR’s official summary reports shoreline change from both human and natural drivers [S17]. Historic erosion rates do not forecast an individual property’s future.",
+      "response": "Commission sediment-cell and hazard assessment; compare setbacks, dune recovery, relocation support and engineered protection. Evaluate neighbouring-shore impacts and fishing access.",
+      "baseline": "Shoreline positions, seasonal beach profiles, structures, access and land tenure.",
+      "measure": "Beach-profile trend; maintained livelihood access; exposure avoided.",
+      "owner": "Coastal authority and local government with fishing communities.",
+      "gap": "Permits, sediment budget and long-term maintenance must be resolved.",
+      "sources": [
+        "S17"
+      ]
+    },
+    {
+      "id": "K09",
+      "title": "Cyclones, surge and delta settlements",
+      "tamil": "புயல் மற்றும் கடல் சீற்றம்",
+      "theme": "Coasts",
+      "states": [
+        "Andhra Pradesh",
+        "Tamil Nadu",
+        "Puducherry"
+      ],
+      "places": "Krishna and Godavari deltas; coastal Tamil Nadu; Yanam and Karaikal",
+      "evidence": "State profiles identify differing cyclone, surge and river settings [S06, S08]. Hazard combinations vary by location.",
+      "response": "Map compound river–rain–surge exposure; strengthen last-mile warning, inclusive shelters and resilient essential services. Validate any ecosystem buffer against local habitat and hydrology.",
+      "baseline": "Elevation, evacuation travel time, warning reach, essential-service exposure.",
+      "measure": "Accessible shelter coverage; drill completion; service restoration time.",
+      "owner": "District disaster authority, local government and utility owners.",
+      "gap": "Current official hazard maps and facility audits needed.",
+      "sources": [
+        "S06",
+        "S08"
+      ]
+    },
+    {
+      "id": "K10",
+      "title": "Reefs and marine heatwaves",
+      "tamil": "பவளப்பாறை பாதுகாப்பு",
+      "theme": "Coasts",
+      "states": [
+        "Lakshadweep",
+        "Tamil Nadu"
+      ],
+      "places": "Lakshadweep; Gulf of Mannar for separate monitoring",
+      "evidence": "The official 2024 response records Lakshadweep bleaching and INCOIS monitoring services [S24, S25]. This is not a current Gulf of Mannar condition report.",
+      "response": "Use dated bleaching alerts and ecological surveys; reduce local sewage, anchor and extraction damage; agree community-led response. Restoration cannot remove ocean warming.",
+      "baseline": "Reef-cover transects, temperature stress, local pressures and fishing dependence.",
+      "measure": "Live coral and recruitment trends; reduced damaging activity; livelihood resilience.",
+      "owner": "Relevant reef and fisheries authorities with island or coastal communities.",
+      "gap": "Reef-specific condition and recovery evidence needed before restoration claims.",
+      "sources": [
+        "S24",
+        "S25"
+      ]
+    },
+    {
+      "id": "K11",
+      "title": "Dryland crops under erratic rainfall",
+      "tamil": "மானாவாரி விவசாயம்",
+      "theme": "Farming",
+      "states": [
+        "Andhra Pradesh",
+        "Karnataka",
+        "Telangana",
+        "Tamil Nadu"
+      ],
+      "places": "Historical Anantapur region; interior dryland farming belts",
+      "evidence": "ICAR’s vulnerability atlas and NICRA catalogue support agricultural screening and technology selection [S12, S13]; local effect sizes are not extracted here.",
+      "response": "Co-design crop calendars, locally suited varieties, soil-moisture conservation and diversified cropping with KVK agronomists. Test small plots before wider adoption.",
+      "baseline": "Crop-wise yields, dry spells, soil moisture, input costs and labour.",
+      "measure": "Yield stability across seasons; net margin; crop-failure frequency.",
+      "owner": "Farmer group or FPO with KVK and agreed field support.",
+      "gap": "Current district boundaries, farmer cluster and two-season evaluation design needed.",
+      "sources": [
+        "S12",
+        "S13"
+      ]
+    },
+    {
+      "id": "K12",
+      "title": "Natural farming: test benefits and trade-offs",
+      "tamil": "இயற்கை விவசாய மதிப்பீடு",
+      "theme": "Farming",
+      "states": [
+        "Andhra Pradesh",
+        "Karnataka"
+      ],
+      "places": "Crop-specific farmer trials in Andhra Pradesh and Karnataka",
+      "evidence": "ICAR’s survey and sample study reports differing experiences between crops and states [S21]. Farmer perception and adopter comparisons do not establish universal causal benefits.",
+      "response": "Use comparable plots and whole-farm records to evaluate input reduction, nutrient balance, pest management and transition labour. Preserve farmer choice and avoid guaranteed yield or income claims.",
+      "baseline": "Crop and soil comparability; prior yield; purchased and household inputs; labour.",
+      "measure": "Net return including labour; yield variability; soil indicators; adoption retention.",
+      "owner": "Participating farmers, independent agronomist and evaluation team.",
+      "gap": "Selection bias, market premiums and long-term nutrient balance need explicit treatment.",
+      "sources": [
+        "S21"
+      ]
+    },
+    {
+      "id": "K13",
+      "title": "Farm ponds and watershed interventions",
+      "tamil": "நீர்ப்பிடிப்பு மேலாண்மை",
+      "theme": "Farming",
+      "states": [
+        "Andhra Pradesh",
+        "Telangana",
+        "Karnataka",
+        "Tamil Nadu"
+      ],
+      "places": "Semi-arid catchments; location selected after hydrology",
+      "evidence": "ICAR-CRIDA lists farm-pond design guidance [S13]. A catalogue listing does not prove a pond is suitable or beneficial at every farm.",
+      "response": "Assess catchment water balance, soils, safety, evaporation and downstream rights; compare in-situ conservation with storage and supplemental irrigation.",
+      "baseline": "Runoff, seasonal demand, soils, evaporation and downstream users.",
+      "measure": "Supplemental water delivered; crop benefit; maintenance; downstream effects.",
+      "owner": "Farmer group and watershed institution with engineering support.",
+      "gap": "No storage volume or construction budget should be set before survey.",
+      "sources": [
+        "S13",
+        "S18"
+      ]
+    },
+    {
+      "id": "K14",
+      "title": "Land degradation and soil loss",
+      "tamil": "நிலச் சீரழிவு",
+      "theme": "Land",
+      "states": [
+        "Tamil Nadu",
+        "Andhra Pradesh",
+        "Telangana",
+        "Karnataka",
+        "Kerala"
+      ],
+      "places": "Erosion-prone slopes and degraded cultivated catchments",
+      "evidence": "SAC–ISRO provides land-degradation mapping and change-analysis resources [S18]. Remote-sensing categories need ground verification.",
+      "response": "Identify the degradation process first; assess contour measures, ground cover and appropriate grazing or cultivation changes. Protect drainage and land-user rights.",
+      "baseline": "Erosion features, soil depth, cover, infiltration and land-use history.",
+      "measure": "Ground cover; soil loss proxy; infiltration; productive use maintained.",
+      "owner": "Land users and watershed authority with soil-conservation specialists.",
+      "gap": "Field diagnosis needed; a degraded-land label is not permission for plantation.",
+      "sources": [
+        "S18"
+      ]
+    },
+    {
+      "id": "K15",
+      "title": "Native habitats and invasive plants",
+      "tamil": "உள்ளூர் உயிரினங்கள் பாதுகாப்பு",
+      "theme": "Biodiversity",
+      "states": [
+        "Tamil Nadu",
+        "Kerala",
+        "Karnataka"
+      ],
+      "places": "Nilgiris and other Western Ghats landscapes",
+      "evidence": "ATREE documents landscape-specific restoration and invasive-species research [S22]. Intervention success depends on habitat, disturbance and follow-up.",
+      "response": "Map native habitat and invasion; pilot species-appropriate removal with native recovery, erosion control and repeat monitoring. Budget follow-up before scaling.",
+      "baseline": "Native species, invasive cover, regeneration and community resource use.",
+      "measure": "Native recovery; invasive rebound; habitat function and livelihood effects.",
+      "owner": "Forest or habitat custodian, restoration ecologist and rights-holding communities.",
+      "gap": "Removal-only campaigns and sapling counts cannot establish restoration success.",
+      "sources": [
+        "S22",
+        "S29"
+      ]
+    },
+    {
+      "id": "K16",
+      "title": "Grasslands are ecosystems too",
+      "tamil": "புல்வெளி சூழலியல்",
+      "theme": "Biodiversity",
+      "states": [
+        "Tamil Nadu",
+        "Karnataka",
+        "Andhra Pradesh",
+        "Telangana",
+        "Kerala"
+      ],
+      "places": "Montane grasslands and Deccan open natural ecosystems",
+      "evidence": "ATREE’s grassland initiative recognises ecological and pastoral value [S23]. Open landscapes must not automatically be treated as empty land.",
+      "response": "Verify historic habitat, native species and customary grazing; protect suitable open ecosystems. Evaluate restoration with botanists and land users before adding trees.",
+      "baseline": "Habitat history, native cover, birds and plants, grazing use and tenure.",
+      "measure": "Native habitat retained; species recovery; pastoral access maintained.",
+      "owner": "Habitat custodian, ecologist and pastoral or community representatives.",
+      "gap": "Site-specific conservation design and rights assessment required.",
+      "sources": [
+        "S23"
+      ]
+    },
+    {
+      "id": "K17",
+      "title": "Sewage treatment that actually operates",
+      "tamil": "செயல்படும் கழிவுநீர் சுத்திகரிப்பு",
+      "theme": "Waste",
+      "states": [
+        "Tamil Nadu",
+        "Karnataka",
+        "Telangana",
+        "Kerala",
+        "Andhra Pradesh",
+        "Puducherry"
+      ],
+      "places": "Urban and peri-urban settlements; receiving rivers and lakes",
+      "evidence": "CPCB distinguishes installed, operational and compliant treatment [S19]. Its 2020 inventory is historical.",
+      "response": "Measure real flows and pollution loads; repair collection and treatment bottlenecks; plan safe sludge management and verified reuse demand with funded operations.",
+      "baseline": "Connected flows, bypasses, effluent tests, energy and operator capacity.",
+      "measure": "Compliant treated flow; bypass frequency; verified safe reuse.",
+      "owner": "Utility or local body with accountable plant operator.",
+      "gap": "Current plant tests, permits and full operating budget required.",
+      "sources": [
+        "S19"
+      ]
+    },
+    {
+      "id": "K18",
+      "title": "Organic waste, dumpsites and methane",
+      "tamil": "கழிவு மற்றும் மீத்தேன்",
+      "theme": "Waste",
+      "states": [
+        "Tamil Nadu",
+        "Karnataka",
+        "Kerala",
+        "Telangana",
+        "Andhra Pradesh",
+        "Puducherry"
+      ],
+      "places": "Municipalities, markets and institutional campuses",
+      "evidence": "CPCB’s 2021–22 report records state processing and dumpsite information [S26]. Reported facilities do not demonstrate today’s processing quality.",
+      "response": "Audit composition and actual material flows; segregate at source; compare composting, digestion and safe residual disposal. Include worker safety, leachate, odour and product off-take.",
+      "baseline": "Weighed waste streams, contamination, disposal routes and operating costs.",
+      "measure": "Verified diversion; contamination; processing uptime; methane leakage where relevant.",
+      "owner": "Local body and operator with waste-worker participation.",
+      "gap": "Avoid counting collected tonnage as treated tonnage or unverified carbon savings.",
+      "sources": [
+        "S26"
+      ]
+    },
+    {
+      "id": "K19",
+      "title": "Efficient buildings and cleaner energy",
+      "tamil": "ஆற்றல் திறன்",
+      "theme": "Energy",
+      "states": [
+        "Tamil Nadu",
+        "Karnataka",
+        "Telangana",
+        "Andhra Pradesh",
+        "Kerala",
+        "Puducherry"
+      ],
+      "places": "Public buildings, SMEs and residential clusters",
+      "evidence": "IPCC’s global assessment supports efficiency and cleaner energy [S27]; local savings need building-level measurement.",
+      "response": "Audit loads; address avoidable demand and efficiency; assess rooftop solar, cooling equipment and refrigerant management. Check roof safety and lifecycle disposal.",
+      "baseline": "Metered electricity, occupancy, equipment and structural condition.",
+      "measure": "Weather-adjusted kWh; lifecycle costs; emissions using a disclosed factor.",
+      "owner": "Asset owner, qualified energy professional and maintenance contractor.",
+      "gap": "No payback, tariff or emissions factor is assumed.",
+      "sources": [
+        "S27",
+        "S30"
+      ]
+    },
+    {
+      "id": "K20",
+      "title": "Accessible low-carbon travel",
+      "tamil": "குறைந்த கார்பன் போக்குவரத்து",
+      "theme": "Transport",
+      "states": [
+        "Tamil Nadu",
+        "Karnataka",
+        "Telangana",
+        "Kerala",
+        "Andhra Pradesh",
+        "Puducherry"
+      ],
+      "places": "Chennai, Bengaluru, Hyderabad, Kochi and secondary cities",
+      "evidence": "IPCC transport findings support public and active travel [S28]. They do not quantify savings for a particular Indian corridor.",
+      "response": "Assess safe shaded walking, universal access, connected transit and suitable fleet electrification together. Evaluate demand, grid emissions and access for lower-income users.",
+      "baseline": "Travel patterns, safety, fares, vehicle occupancy and energy use.",
+      "measure": "Reliable access; mode shift; avoided vehicle-km; lifecycle emissions.",
+      "owner": "Transport authority and local body with commuters and accessibility groups.",
+      "gap": "Route feasibility and local lifecycle comparison needed.",
+      "sources": [
+        "S28"
+      ]
+    },
+    {
+      "id": "K21",
+      "title": "District evidence before funding",
+      "tamil": "ஆதாரத்துடன் திட்டமிடல்",
+      "theme": "Governance",
+      "states": [
+        "Tamil Nadu",
+        "Kerala",
+        "Karnataka",
+        "Andhra Pradesh",
+        "Telangana",
+        "Puducherry",
+        "Lakshadweep"
+      ],
+      "places": "Every proposed district, village or institutional project",
+      "evidence": "CEEW’s vulnerability method combines exposure, sensitivity and adaptive capacity [S02]. A composite ranking cannot replace a local baseline.",
+      "response": "Document the exact place, baseline, unmet need, implementation partner, maintenance owner, costed design and measurable outcome. Agree consent, safeguards, procurement and reporting before funding.",
+      "baseline": "Dated local measurements, affected groups, existing services and counterfactual.",
+      "measure": "Outcome against baseline; distribution of benefits; full costs and maintenance.",
+      "owner": "Named project proponent and independent reviewer; appointments require acceptance.",
+      "gap": "No intervention here is a validated or funded POIGAI project.",
+      "sources": [
+        "S02",
+        "S05"
+      ]
+    },
+    {
+      "id": "K22",
+      "title": "Choose evidence at the right scale",
+      "tamil": "சரியான அளவில் ஆதாரம்",
+      "theme": "Governance",
+      "states": [
+        "Tamil Nadu",
+        "Kerala",
+        "Karnataka",
+        "Andhra Pradesh",
+        "Telangana",
+        "Puducherry",
+        "Lakshadweep"
+      ],
+      "places": "Regional assessment → district screening → site design",
+      "evidence": "MoES synthesises observed and projected regional climate [S01]. Scenario outputs, weather forecasts and measured local conditions answer different questions.",
+      "response": "Keep observation periods, scenarios, model resolution and uncertainty visible. Use multiple relevant datasets and technical review; investigate disagreements rather than averaging incompatible risk indices.",
+      "baseline": "Source year, geography, methods, scenario and data quality.",
+      "measure": "Traceable claims; reproducible baselines; documented uncertainty and correction history.",
+      "owner": "Knowledge editor and relevant subject specialist.",
+      "gap": "This edition screens selected sources and does not claim an exhaustive systematic review.",
+      "sources": [
+        "S01"
+      ]
+    }
+  ]
+}
