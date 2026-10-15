@@ -69,6 +69,15 @@ export async function impactApi(req,env,getUser){
   await audit(env,user.id,'funder_preferences',org.id,'preferences_changed');
   return j({message:'Private matching preferences saved.'});
  }
+ if(path==='/api/impact/match-consent'){
+  if(!org||org.kind==='funder'||typeof data.consent!=='boolean')return j({error:'Implementer consent required.'},403);
+  const id=clean(data.id,80),p=id?await project(env,org.id,id):null;
+  if(!p)return j({error:'Project not found.'},404);
+  if(!['draft','submitted','needs_info','under_review','eligible_for_matching'].includes(p.stage))return j({error:'Project stage prevents consent changes.'},409);
+  await env.DB.prepare('UPDATE impact_proposals SET match_consent=?,updated_at=? WHERE id=? AND organisation_id=?').bind(data.consent?1:0,time,id,org.id).run();
+  await audit(env,user.id,'proposal',id,data.consent?'matching_opt_in':'matching_opt_out');
+  return j({message:data.consent?'Matching consent recorded; eligibility review is still required.':'Matching consent withdrawn.'});
+ }
  if(path==='/api/impact/organisation'){
   const name=clean(data.name,150),kind=clean(data.kind,20),state=clean(data.state,100),district=clean(data.district,100),description=clean(data.description,1000),registration=typeof data.registration==='string'?data.registration.slice(0,120):'',website=typeof data.website==='string'?data.website.slice(0,250):'';
   if(!name||!role.includes(kind)||!state||!district||!description)return j({error:'Complete the organisation fields.'},400);
