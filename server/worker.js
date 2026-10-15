@@ -95,15 +95,21 @@ async function api(request,env){
  }
  throw new HttpError(404,'Not found.');
 }
+let cleanupAt=0;
+async function cleanup(env){
+ const time=now();
+ await env.DB.batch(['auth_tokens','auth_sessions','auth_limits'].map(table=>env.DB.prepare(`DELETE FROM ${table} WHERE expires_at<=?`).bind(time)));
+}
+const PUBLIC_PATHS=new Set(['/','/index.html','/styles.css','/script.js','/assets/poigai-symbol.svg','/account','/account/','/account/index','/account/index.html','/account/account.css','/account/account.js']);
 export default {
- async scheduled(_event,env){
-  if(!env.DB)return;
-  const time=now();
-  await env.DB.batch(['auth_tokens','auth_sessions','auth_limits'].map(table=>env.DB.prepare(`DELETE FROM ${table} WHERE expires_at<=?`).bind(time)));
- },
- async fetch(request,env){try{
+ async fetch(request,env,context){try{
   const url=new URL(request.url);
-  if(url.pathname.startsWith('/api/'))return await api(request,env);
+  if(url.pathname.startsWith('/api/')){
+   const response=await api(request,env);
+   if(env.DB&&context?.waitUntil&&now()-cleanupAt>3600){cleanupAt=now();context.waitUntil(cleanup(env).catch(()=>{}));}
+   return response;
+  }
+  if(!PUBLIC_PATHS.has(url.pathname))return new Response('Not found',{status:404,headers:{...headers,'Content-Type':'text/plain; charset=utf-8'}});
   // One canonical origin keeps host-only sessions and email links consistent.
   if(url.hostname==='poigai.com'&&url.pathname.startsWith('/account'))return Response.redirect('https://www.poigai.com'+url.pathname+url.search,308);
   const response=await env.ASSETS.fetch(request),out=new Response(response.body,response);
