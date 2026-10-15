@@ -100,7 +100,7 @@ async function cleanup(env){
  const time=now();
  await env.DB.batch(['auth_tokens','auth_sessions','auth_limits'].map(table=>env.DB.prepare(`DELETE FROM ${table} WHERE expires_at<=?`).bind(time)));
 }
-const PUBLIC_PATHS=new Set(['/','/index.html','/styles.css','/script.js','/assets/poigai-symbol.svg','/account','/account/','/account/index','/account/index.html','/account/account.css','/account/account.js']);
+const PUBLIC_PATHS=new Set(['/','/index.html','/styles.css','/script.js','/assets/poigai-symbol.svg','/account','/account/','/account/index','/account/index.html','/account/account.css','/account/account.js','/projects','/projects/','/projects/index','/projects/index.html','/projects/projects.css','/projects/projects.js']);
 export default {
  async fetch(request,env,context){try{
   const url=new URL(request.url);
