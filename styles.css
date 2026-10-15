@@ -129,3 +129,120 @@ footer{background:#082720;border-color:#25483E}.footmain{border-color:#315449}.f
 .floating-dock>a.dock-primary{background:#D9A05D;color:#18362F}
 .floating-dock>a:hover{color:#A9E1C8}.floating-dock>a.dock-primary:hover{background:#E4B477;color:#18362F}
 @media(max-width:760px){nav{background:#F7F5EE;box-shadow:0 14px 24px #0B302B18}.side-rail{background:rgba(11,48,43,.97);border-color:#356353}}
+
+
+/* POIGAI premium dark-green sitewide theme — 2026-10-15 */
+:root{
+  color-scheme:dark;
+  --forest:#0B302B;
+  --forest2:#16473C;
+  --teal:#78C8AF;
+  --cream:#F7EEDC;
+  --paper:#081F1B;
+  --ink:#F2F2E9;
+  --muted:#B4C5BA;
+  --line:#294A40;
+  --gold:#D9A05D;
+}
+html{background:#071915;color-scheme:dark}
+body{background:#071915;color:#F2F2E9}
+.topline{background:#061713;color:#D7E8DD;border-color:#294A40}
+header{background:rgba(7,28,23,.97);border-bottom-color:#294A40;backdrop-filter:blur(16px)}
+.logo{color:#F7EEDC}
+.logo small{color:#A9C4B4}
+.mark{background:#0B302B;border-color:#3C7762}
+nav{color:#D0DED4}
+nav a:hover{color:#78C8AF}
+.navbtn{background:#D9A05D;color:#102B24}
+.navbtn:hover{background:#E8B977;color:#102B24}
+.menu{color:#F7EEDC}
+.hero{
+ background:radial-gradient(ellipse at 82% 48%,rgba(28,91,66,.55) 0%,rgba(12,49,40,.68) 34%,#071915 78%);
+ color:#F2F2E9;
+}
+.eyebrow,.kicker{color:#78C8AF}
+.hero h1,.section h2,.contact h2{color:#F7EEDC}
+.hero h1 em,.section h2 em,.dark h2 em,.belief h2 em,.contact h2 em{color:#78C8AF}
+.hero-copy>p,.prose p,.twocol>p,.contactgrid>div>p{color:#C1D0C5}
+.btn.primary,.primary{background:#D9A05D;color:#102B24}
+.btn.primary:hover,.primary:hover{background:#E8B977;color:#102B24}
+.simple{color:#F7EEDC}
+.smallnote{color:#A9C4B4}
+.orbit{border-color:#2F6752}
+.o2{border-color:#285742}
+.core{background:#0B302B;color:#F7EEDC;border-color:#4C8A70;box-shadow:0 20px 50px #0005}
+.core span{color:#78C8AF}
+.bubble{background:#102D25;border-color:#315746;box-shadow:0 12px 35px #0004}
+.bubble b{color:#F7EEDC}
+.bubble small,.caption{color:#A9C4B4}
+.herofoot{color:#9DB6A7}
+.principles{background:#0B2620;border-color:#294A40}
+.principles span{color:#D7E5DA;border-color:#294A40}
+.principles i{color:#D9A05D}
+.section{background:#0A211C}
+.kicker span{color:#88A998}
+.cards article{background:#102A22;border-color:#2B4A3D}
+.cards article.featured{background:#153A2B}
+.cards h3{color:#F7EEDC}
+.cards p{color:#B9CBBE}
+.cards article>a,.under{color:#78C8AF}
+.under{border-color:#477A61}
+.dark{background:#061713;border-color:#23483B}
+.dark .kicker{color:#78C8AF}
+.dark .kicker span{color:#88A998}
+.dark .twocol>p{color:#C1D0C5}
+.steps{border-color:#315746}
+.steps article{border-color:#315746}
+.steps h3{color:#F7EEDC}
+.steps p{color:#B9CBBE}
+.notice{background:#102D24;border-color:#315746;color:#D8E5DA}
+.notice b{color:#fff}
+.partnergrid article{background:#102E24;border-color:#315746}
+.partnergrid article.warm{background:#2B281D;border-color:#5A4A2F}
+.round{border-color:#477A61;color:#78C8AF}
+.warm .round{border-color:#80633A;color:#E7BC7D}
+.partnergrid small{color:#9CD6B9}
+.warm small{color:#E3BD82}
+.partnergrid h3{color:#F7EEDC}
+.partnergrid p{color:#C1D0C5}
+.light{background:#D9A05D;color:#102B24}
+.light:hover{background:#E8B977}
+.outline{background:transparent;border-color:#D9A05D;color:#F0D2A5}
+.belief{background:#102A21;border-color:#294A40}
+.beliefmark{background:#0B302B;border-color:#3C7762}
+.belief small{color:#78C8AF}
+.belief h2{color:#F7EEDC}
+.belief>p{color:#C1D0C5}
+.contact form{background:#102A22;border-color:#315143;box-shadow:0 15px 45px #0004}
+.contact form h3{color:#F7EEDC}
+.contact form h3 small{color:#A9BCAF}
+.contact label{color:#D2DFD5}
+.contact input,.contact select,.contact textarea{background:#091D18;border-color:#355647;color:#F7EEDC}
+.contact input::placeholder,.contact textarea::placeholder{color:#8FA99A}
+.contact input:focus,.contact select:focus,.contact textarea:focus{border-color:#78C8AF;box-shadow:0 0 0 3px #78C8AF20}
+.point b{color:#F7EEDC}
+.point small{color:#B4C5BA}
+.fine{color:#A7B8AC}
+.contact #msg{color:#78C8AF}
+footer{background:#04130F;border-color:#23483B}
+.footmain{border-color:#294A40}
+.footmain p{color:#B4C5BA}
+.footmain>a:last-child{color:#78C8AF}
+.footbottom{color:#91A99A}
+.side-rail{background:#061713;border-color:#294A40}
+.rail-brand{background:#123D31;border-color:#3C7762;color:#F7EEDC}
+.rail-caption{color:#A9C4B4}
+.rail-link{color:#C3D7C9}
+.rail-link i{background:#123D31;border-color:#477762;color:#F7EEDC}
+.rail-link:hover,.rail-link:focus-visible,.rail-link.active{background:#245B48;color:#fff;border-color:#78C8AF}
+.floating-dock{background:rgba(6,31,25,.97);border-color:#356353;box-shadow:0 14px 45px #0006}
+.dock-label{color:#A9CDBA}
+.floating-dock>a{color:#F7EEDC}
+.floating-dock>a.dock-primary{background:#D9A05D;color:#18362F}
+.floating-dock>a:hover{color:#A9E1C8}
+.floating-dock>a.dock-primary:hover{background:#E8B977;color:#102B24}
+@media(max-width:760px){
+ nav{background:#071F19;box-shadow:0 14px 24px #0007}
+ .side-rail{background:rgba(6,23,19,.98);border-color:#356353}
+ .hero{background:radial-gradient(ellipse at 78% 60%,rgba(25,82,59,.56) 0%,rgba(10,43,34,.8) 42%,#071915 82%)}
+}
