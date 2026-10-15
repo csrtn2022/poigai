@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import vm from 'node:vm';
 import worker from '../server/worker.js';
-const fileChrome="<link rel=\"stylesheet\" href=\"/site-chrome.css?v=20261016-a\"><script src=\"/site-chrome.js?v=20261016-a\" defer></script>";
+const fileChrome="<link rel=\"stylesheet\" href=\"/site-chrome.css?v=20261016-ripple-fix2\"><script src=\"/site-chrome.js?v=20261016-ripple-fix2\" defer></script>";
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const data=JSON.parse(read('knowledge/districts/data.json'));
 const bank=JSON.parse(read('knowledge/data.json'));
