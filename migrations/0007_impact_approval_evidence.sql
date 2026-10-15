@@ -1,0 +1,1 @@
+ALTER TABLE impact_audit ADD COLUMN details TEXT NOT NULL DEFAULT '';
