@@ -41,3 +41,5 @@ body.poigai-theme{background:var(--charcoal)!important;color:var(--ivory)}
 .poigai-theme #enquiry-privacy{border-top:1px solid var(--line)}
 @media(max-width:760px){.poigai-theme .hero{padding:46px 7% 55px;gap:30px;min-height:0}.poigai-theme .hero h1{font-size:clamp(34px,8.5vw,52px)}.hero-visual{transform:none;padding:9px;border-radius:16px}.hero-visual figcaption{font-size:10px}.location-visual{grid-template-columns:1fr;gap:15px}.poigai-theme nav{background:#14231C!important}.poigai-theme .menu{background:#193126;color:var(--ivory);border-color:#41634F}.p-project .climate-art{margin:20px 0}.poigai-theme .p-nav{background:transparent!important}}
 @media(prefers-reduced-motion:reduce){.hero-visual{transform:none}}
+/* Knowledge bank entry keeps shared navigation usable at intermediate widths. */
+@media(min-width:761px) and (max-width:1200px){.poigai-theme header{height:auto;min-height:82px;flex-wrap:wrap;padding:16px 5%;gap:16px}.poigai-theme header nav{flex-wrap:wrap;gap:16px;font-size:11px}}
