@@ -1,3 +1,4 @@
+import './build-assessment.mjs';
 import './build-districts.mjs';
 import './build-knowledge.mjs';
 import {cp,mkdir,rm} from 'node:fs/promises';
