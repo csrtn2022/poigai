@@ -18,8 +18,9 @@ export async function impactApi(req,env,getUser){
  }
  const user=await getUser(req,env);
  if(!user)return j({error:'Sign in to a verified stakeholder account.'},401);
+ const organisation=await owner(env,user.id);
  if(path==='/api/impact/my'&&req.method==='GET'){
-  const org=await owner(env,user.id);
+  const org=organisation;
   const projects=org?await rows(env.DB.prepare('SELECT * FROM impact_proposals WHERE organisation_id=? ORDER BY updated_at DESC LIMIT 100'),org.id):[];
   return j({organisation:org,projects});
  }
@@ -44,7 +45,7 @@ export async function impactApi(req,env,getUser){
  const raw=await req.text();if(raw.length>8192)return j({error:'Request too large.'},413);
  let data;try{data=JSON.parse(raw);}catch{return j({error:'Invalid JSON.'},400)}
  if(!data||typeof data!=='object'||Array.isArray(data))return j({error:'Invalid request.'},400);
- const org=await owner(env,user.id),time=now();
+ const time=now();
  if(path==='/api/impact/organisation'){
   const name=clean(data.name,150),kind=clean(data.kind,20),state=clean(data.state,100),district=clean(data.district,100),description=clean(data.description,1000),registration=typeof data.registration==='string'?data.registration.slice(0,120):'',website=typeof data.website==='string'?data.website.slice(0,250):'';
   if(!name||!role.includes(kind)||!state||!district||!description)return j({error:'Complete the organisation fields.'},400);
