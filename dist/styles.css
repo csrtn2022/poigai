@@ -401,3 +401,5 @@ nav a:hover,.floating-dock>a:hover{color:#FFF4DC;text-decoration:underline}
  .logo small{font-size:7px;letter-spacing:.07em;white-space:normal}
  .topline{overflow-wrap:anywhere}
 }
+/* Enquiry controls and accessible mobile actions. */
+.enquiry-consent{display:flex!important;align-items:flex-start;gap:10px;font-size:12px!important;line-height:1.6;margin:18px 0!important}.enquiry-consent input{width:20px!important;height:20px;flex:0 0 20px;margin-top:3px;accent-color:#FFE0A3}.enquiry-consent a{color:inherit;text-decoration:underline}.enquiry-actions{display:flex;gap:12px;flex-wrap:wrap;margin:15px 0}#draft-panel[hidden]{display:none!important}#draft-panel{margin-top:22px;border-top:1px solid #fff4dc66;padding-top:18px}#enquiry-draft{font:13px/1.6 system-ui;min-height:190px}#msg{overflow-wrap:anywhere}#msg:empty{display:none}#enquiry-privacy p{font-size:14px;line-height:1.8}#enquiry-privacy a{color:inherit}#form select{max-width:100%;min-width:0}#form button:disabled{opacity:.65;cursor:wait}@media(max-width:760px){.enquiry-actions>*{width:100%;justify-content:center;text-align:center;min-height:44px}#form .row{display:block}#form .row>div{margin-bottom:15px}}

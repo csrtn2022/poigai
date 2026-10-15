@@ -11,5 +11,3 @@ if('IntersectionObserver' in window&&sections.length&&railLinks.length){
  },{rootMargin:'-20% 0px -55% 0px',threshold:[0,.15,.35,.6]});
  sections.forEach(section=>observer.observe(section));
 }
-const form=document.querySelector('#form');
-if(form)form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const v=id=>document.querySelector(id).value;const subject=encodeURIComponent('POIGAI enquiry — '+v('#type'));const body=encodeURIComponent('Enquiry type: '+v('#type')+'\nName: '+v('#name')+'\nOrganisation: '+v('#org')+'\nEmail: '+v('#email')+'\n\nInterest:\n'+v('#interest')+'\n\nPrepared using the POIGAI website; please review and send this message.');const m=document.querySelector('#msg');m.textContent='Your draft is ready. Select the link to open your email application, review the details and press Send. The website has not submitted an enquiry. ';const a=document.createElement('a');a.href='mailto:contact@poigai.com?subject='+subject+'&body='+body;a.textContent='Open email draft ↗';a.className='under';m.appendChild(a);});
