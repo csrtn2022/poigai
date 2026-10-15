@@ -4,6 +4,7 @@
   "compatibility_date": "2026-10-15",
   "vars": {
     "AUTH_ENABLED": "true",
+    "ADMIN_ENABLED": "true",
     "ENQUIRIES_ENABLED": "true",
     "APP_ORIGIN": "https://www.poigai.com"
   },
