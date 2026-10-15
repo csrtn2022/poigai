@@ -1,3 +1,4 @@
+import {enquiries} from './enquiries.js';
 const encoder=new TextEncoder();
 const COOKIE='__Host-poigai_session';
 const TYPES=new Set(['ngo','corporate','technical','proponent']);
@@ -100,12 +101,12 @@ async function cleanup(env){
  const time=now();
  await env.DB.batch(['auth_tokens','auth_sessions','auth_limits'].map(table=>env.DB.prepare(`DELETE FROM ${table} WHERE expires_at<=?`).bind(time)));
 }
-const PUBLIC_PATHS=new Set(['/','/index.html','/styles.css','/script.js','/assets/poigai-symbol.svg','/account','/account/','/account/index','/account/index.html','/account/account.css','/account/account.js','/projects','/projects/','/projects/index','/projects/index.html','/projects/projects.css','/projects/projects.js']);
+const PUBLIC_PATHS=new Set(['/','/index.html','/styles.css','/script.js','/enquiry.js','/robots.txt','/sitemap.xml','/assets/poigai-social.png','/assets/poigai-symbol.svg','/account','/account/','/account/index','/account/index.html','/account/account.css','/account/account.js','/projects','/projects/','/projects/index','/projects/index.html','/projects/projects.css','/projects/projects.js']);
 export default {
  async fetch(request,env,context){try{
   const url=new URL(request.url);
   if(url.pathname.startsWith('/api/')){
-   const response=await api(request,env);
+   const response=url.pathname.startsWith('/api/enquiries')?await enquiries(request,env):await api(request,env);
    if(env.DB&&context?.waitUntil&&now()-cleanupAt>3600){cleanupAt=now();context.waitUntil(cleanup(env).catch(()=>{}));}
    return response;
   }
