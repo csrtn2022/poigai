@@ -10,6 +10,17 @@ export async function adminApi(request,env,passwordMatches,passwordHash){
  if(path==='/api/admin/status'&&request.method==='GET')return json({available:enabled(env)});
 
  if(!enabled(env))return json({error:'Administrator access is not activated.'},503);
+ if(path==='/api/admin/request-activation'&&request.method==='POST'){
+  if(!env.ADMIN_BOOTSTRAP_KEY||request.headers.get('authorization')!==('Bearer '+env.ADMIN_BOOTSTRAP_KEY))return json({error:'Not found.'},404);
+  const t=expiry(),owner=await env.DB.prepare("SELECT id,email FROM admin_users WHERE id='Admin' AND email='contact@poigai.com' AND status='pending' AND password_hash IS NULL").first();
+  if(!owner)return json({error:'Activation not available.'},409);
+  const token=Array.from(crypto.getRandomValues(new Uint8Array(32)),x=>x.toString(16).padStart(2,'0')).join('');
+  await env.DB.prepare('INSERT INTO admin_activation_tokens(token_hash,admin_id,expires_at,created_at) VALUES(?,?,?,?)').bind(await digest(token),owner.id,t+1800,t).run();
+  const link=env.APP_ORIGIN+'/admin/#activate='+token;
+  const response=await fetch('https://api.resend.com/emails',{method:'POST',headers:{'Authorization':'Bearer '+env.RESEND_API_KEY,'Content-Type':'application/json'},body:JSON.stringify({from:'POIGAI <contact@poigai.com>',to:[owner.email],subject:'Activate your POIGAI administrator account',text:'Your owner-only POIGAI admin activation link (valid 30 minutes, single use):\\n\\n'+link+'\\n\\nDo not forward this link. If you did not request it, ignore this email.'})});
+  if(!response.ok){await env.DB.prepare('DELETE FROM admin_activation_tokens WHERE token_hash=?').bind(await digest(token)).run();return json({error:'Mail delivery failed.'},503);}
+  return json({message:'Activation email submitted to the fixed owner inbox.'},202);
+ }
  if(path==='/api/admin/activate'&&request.method==='POST'){
   if(request.headers.get('origin')!==env.APP_ORIGIN)return json({error:'Invalid origin.'},403);
   if(!request.headers.get('content-type')?.startsWith('application/json'))return json({error:'JSON required.'},415);
