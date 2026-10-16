@@ -2,6 +2,7 @@ import {enquiries} from './enquiries.js';
 import {adminApi} from './admin.js';
 import {impactApi} from './impact.js';
 import {publicActivity} from './activity.js';
+import {recordVisitor,visitorMonth} from './visitors.js';
 const encoder=new TextEncoder();
 const COOKIE='__Host-poigai_session';
 const TYPES=new Set(['ngo','corporate','technical','proponent']);
@@ -102,6 +103,7 @@ async function api(request,env){
 let cleanupAt=0;
 async function cleanup(env){
  const time=now();
+ await env.DB.prepare('DELETE FROM visitor_monthly WHERE month<?').bind(visitorMonth()).run().catch(()=>{});
  await env.DB.batch(['auth_tokens','auth_sessions','auth_limits'].map(table=>env.DB.prepare(`DELETE FROM ${table} WHERE expires_at<=?`).bind(time)));
 }
 const PUBLIC_PATHS=new Set(['/knowledge/puducherry/','/knowledge/puducherry/index.html','/knowledge/investment/','/knowledge/investment/index.html','/knowledge/investment/investment.css','/knowledge/investment/investment.js','/knowledge/assessment/','/knowledge/assessment/index.html','/knowledge/assessment/assessment.css','/knowledge/assessment/assessment.js','/knowledge/assessment/calculator.js','/knowledge/assessment/data.json','/knowledge/assessment/problem-register.csv','/knowledge/assessment/impact-template.csv','/knowledge/districts','/knowledge/districts/','/knowledge/districts/index.html','/knowledge/districts/districts.css','/knowledge/districts/districts.js','/knowledge/districts/data.json','/knowledge/districts/district-register.csv','/knowledge/districts/district-knowledge-bank.md','/knowledge','/knowledge/','/knowledge/index.html','/knowledge/knowledge.css','/knowledge/knowledge.js','/knowledge/data.json','/knowledge/knowledge-bank.md','/knowledge/sources.csv','/partners','/partners/','/partners/index.html','/donors.css','/funders/readiness/','/funders/readiness/index.html','/funders','/funders/','/funders/index.html','/funders/funders.js','/trust','/trust/','/trust/index.html','/funders/briefs/print.js','/funders/briefs/d01','/funders/briefs/d01/','/funders/briefs/d01/index.html','/funders/briefs/d02','/funders/briefs/d02/','/funders/briefs/d02/index.html','/funders/briefs/d03','/funders/briefs/d03/','/funders/briefs/d03/index.html','/','/index.html','/site-chrome.css','/site-chrome.js','/activity.js','/activity.css','/how-it-works/','/how-it-works/index.html','/how-it-works/journeys.css','/legal/','/legal/index.html','/workspace/','/workspace/index.html','/workspace/workspace.js','/data-explorer/','/data-explorer/index.html','/data-explorer/explorer.js','/data-explorer/organisations.js','/impact-partners/','/impact-partners/index.html','/site-map/','/site-map/index.html','/styles.css','/theme.css','/assets/climate/water.svg','/assets/climate/heat.svg','/assets/climate/agriculture.svg','/assets/climate/south-india.svg','/script.js','/enquiry.js','/robots.txt','/sitemap.xml','/assets/poigai-social.png','/assets/poigai-symbol.svg','/assets/poigai-approved-ripple-v2.svg','/assets/poigai-stakeholder-ecosystem.svg','/account','/account/','/account/index','/account/index.html','/account/account.css','/account/account.js','/projects','/projects/','/projects/index','/projects/index.html','/projects/projects.css','/projects/projects.js']);
@@ -117,6 +119,7 @@ export default {
   // One canonical origin keeps host-only sessions and email links consistent.
   if(url.hostname==='poigai.com'&&url.pathname.startsWith('/account'))return Response.redirect('https://www.poigai.com'+url.pathname+url.search,308);
   const response=await env.ASSETS.fetch(request),out=new Response(response.body,response);
+  if(response.status===200&&response.headers.get('content-type')?.includes('text/html')&&context?.waitUntil)context.waitUntil(recordVisitor(request,env).catch(()=>{}));
   for(const [key,value]of Object.entries(headers))if(key!=='Content-Type'&&key!=='Cache-Control')out.headers.set(key,value);
   if(url.pathname.startsWith('/account'))out.headers.set('Cache-Control','no-store');
   return out;
