@@ -41,4 +41,4 @@ el('copy-enquiry').addEventListener('click',async()=>{
  try{await navigator.clipboard.writeText(el('enquiry-draft').value);feedback('Enquiry copied; it has not been sent. Paste it into an email to contact@poigai.com, review it and press Send.');}
  catch{el('enquiry-draft').focus();el('enquiry-draft').select();feedback('Select and copy the enquiry text, then email contact@poigai.com. Nothing has been sent by copying.');}
 });
-fetch('/api/enquiries/status',{cache:'no-store',signal:AbortSignal.timeout(6000)}).then(r=>r.ok?r.json():{}).then(status=>{online=status.available===true&&location.origin==='https://www.poigai.com';availability();}).catch(()=>{online=false;availability();});
+fetch('/api/enquiries/status',{cache:'no-store',signal:AbortSignal.timeout(6000)}).then(r=>r.ok?r.json():{}).then(status=>{online=status.available===true&&location.protocol==='https:';availability();}).catch(()=>{online=false;availability();});
