@@ -5,7 +5,7 @@ import worker from '../server/worker.js';
 const root=new URL('../',import.meta.url);
 const read=path=>readFileSync(new URL(path,root),'utf8');
 test('all donor pages, briefs and shared assets pass the public runtime allowlist',async()=>{
- const paths=['/','/funders/','/trust/','/partners/','/funders/briefs/d01/','/funders/briefs/d02/','/funders/briefs/d03/','/donors.css','/funders/funders.js','/funders/briefs/print.js'];
+ const paths=['/','/funders/','/trust/','/partners/','/funders/briefs/d01/','/funders/briefs/d02/','/funders/briefs/d03/','/donors.css','/activity.css','/activity.js','/funders/funders.js','/funders/briefs/print.js'];
  for(const path of paths){let called=false;const response=await worker.fetch(new Request('https://www.poigai.com'+path),{ASSETS:{fetch:()=>{called=true;return new Response('asset');}}});assert.equal(response.status,200,path);assert(called,path);}
 });
 test('public briefs remain concepts and link to current full readiness records',()=>{
