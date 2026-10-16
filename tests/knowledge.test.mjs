@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import vm from 'node:vm';
 import worker from '../server/worker.js';
-const fileChrome="<link rel=\"stylesheet\" href=\"/site-chrome.css?v=20261016-footer-v5\"><script src=\"/site-chrome.js?v=20261016-footer-v5\" defer></script>";
+const fileChrome="<link rel=\"stylesheet\" href=\"/site-chrome.css?v=20261016-mobile-nav-v6\"><script src=\"/site-chrome.js?v=20261016-mobile-nav-v6\" defer></script>";
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const data=JSON.parse(read('knowledge/data.json'));
 test('knowledge claims remain traceable and publish with matching downloadable data',async()=>{
