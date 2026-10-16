@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {calculate} from '../knowledge/assessment/calculator.js';
 import worker from '../server/worker.js';
-const fileChrome="<link rel=\"stylesheet\" href=\"/site-chrome.css?v=20261016-navigation-v4\"><script src=\"/site-chrome.js?v=20261016-navigation-v4\" defer></script>";
+const fileChrome="<link rel=\"stylesheet\" href=\"/site-chrome.css?v=20261016-footer-v5\"><script src=\"/site-chrome.js?v=20261016-footer-v5\" defer></script>";
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 test('cost scenarios keep unknown costs unpriced and reject invalid ranges',()=>{
  assert.deepEqual(calculate([{quantity:'10',low:'160000',high:'160000'},{quantity:'',low:'',high:''}]),{low:1600000,high:1600000,priced:1,unpriced:1,errors:[]});
