@@ -12,3 +12,19 @@ body.pg-shell #pg-header{height:84px!important;min-height:84px!important;max-hei
 
 /* Isolate shared header from legacy page-specific nav and figure rules. */
 body.pg-shell #pg-header{position:fixed!important;left:0!important;right:0!important;top:0!important;box-sizing:border-box!important;width:100%!important;max-width:100vw!important}body.pg-shell #pg-header .pg-links{background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0!important;margin:0!important;padding:0!important;min-width:0!important}body.pg-shell #pg-header .pg-menu{background:transparent!important;border:0!important;box-shadow:none!important}body.pg-shell #pg-header .pg-dropdown{background:#09291f!important;border:1px solid #3a6753!important}body.pg-shell #pg-header .pg-logo img{max-width:76px!important}body.pg-shell>header:not(#pg-header),body.pg-shell>.topline{display:none!important}
+
+/* Keep shared navigation in the header's layout. Legacy mobile nav rules use
+   absolute positioning, which places the links outside the scrollable header
+   and clips expanded dropdowns on phones. */
+body.pg-shell #pg-header .pg-links{position:static!important;inset:auto!important;width:auto!important;max-width:100%!important}
+@media(max-width:1100px){
+  body.pg-shell #pg-header{height:auto!important;max-height:100dvh!important;overflow-y:auto!important;overflow-x:hidden!important}
+  body.pg-shell #pg-header .pg-toggle{display:block!important;order:3!important}
+  body.pg-shell #pg-header .pg-logo{flex:1!important;min-width:0!important}
+  body.pg-shell #pg-header .pg-actions{order:2!important}
+  body.pg-shell #pg-header .pg-links{flex:0 0 100%!important;align-items:stretch!important;max-height:none!important;overflow:visible!important;padding:8px 0!important}
+  body.pg-shell #pg-header .pg-menu{width:100%!important;min-width:0!important}
+  body.pg-shell #pg-header .pg-menu>summary{min-height:48px;touch-action:manipulation}
+  body.pg-shell #pg-header .pg-dropdown{position:static!important;min-width:0!important;width:100%!important}
+  body.pg-shell #pg-header .pg-dropdown a{display:block;min-height:44px;white-space:normal!important;overflow-wrap:anywhere}
+}
