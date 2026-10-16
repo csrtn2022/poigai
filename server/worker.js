@@ -1,6 +1,7 @@
 import {enquiries} from './enquiries.js';
 import {adminApi} from './admin.js';
 import {impactApi} from './impact.js';
+import {publicActivity} from './activity.js';
 const encoder=new TextEncoder();
 const COOKIE='__Host-poigai_session';
 const TYPES=new Set(['ngo','corporate','technical','proponent']);
@@ -108,7 +109,7 @@ export default {
  async fetch(request,env,context){try{
   const url=new URL(request.url);
   if(url.pathname.startsWith('/api/')){
-   const response=url.pathname.startsWith('/api/impact/')?await impactApi(request,env,userForSession):url.pathname.startsWith('/api/admin/')?await adminApi(request,env,passwordMatches,passwordHash):url.pathname.startsWith('/api/enquiries')?await enquiries(request,env):await api(request,env);
+   const response=url.pathname==='/api/public-activity'&&request.method==='GET'?await publicActivity(env):url.pathname.startsWith('/api/impact/')?await impactApi(request,env,userForSession):url.pathname.startsWith('/api/admin/')?await adminApi(request,env,passwordMatches,passwordHash):url.pathname.startsWith('/api/enquiries')?await enquiries(request,env):await api(request,env);
    if(env.DB&&context?.waitUntil&&now()-cleanupAt>3600){cleanupAt=now();context.waitUntil(cleanup(env).catch(()=>{}));}
    return response;
   }
