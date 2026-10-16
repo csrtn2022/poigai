@@ -22,3 +22,20 @@ html,body{max-width:100%;overflow-x:clip}.stakeholder-ecosystem{box-sizing:borde
 /* Mobile-friendly readable counterpart to wide vector ecosystem illustration */
 .stakeholder-mobile-directory{display:none}.stakeholder-mobile-directory h3{color:#f5d38e;font-size:20px;margin:0 0 14px}.stakeholder-mobile-directory ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}.stakeholder-mobile-directory li{background:#103d32;border:1px solid #5c947e;border-radius:9px;padding:13px 12px;color:#f4e8cf;font-size:13px;line-height:1.4}@media(max-width:680px){.stakeholder-mobile-directory{display:block;margin:15px auto 12px;max-width:100%}.stakeholder-ecosystem figure{max-width:100%!important}.stakeholder-ecosystem .stakeholder-intro{text-align:left}.stakeholder-ecosystem .stakeholder-intro p{font-size:15px}}@media(max-width:350px){.stakeholder-mobile-directory ul{grid-template-columns:1fr}}
 
+
+/* Mobile ecosystem: readable roles flow vertically instead of shrinking desktop text. */
+.stakeholder-mobile-hub{text-align:center;padding:20px 12px;border:1px solid #b79651;border-radius:14px;background:#073d33;margin-bottom:16px}
+.stakeholder-mobile-hub img{display:block;width:76px;height:76px;max-width:100%;margin:0 auto 10px;object-fit:contain}
+.stakeholder-mobile-hub h3{margin:0;font:700 26px Georgia,serif;letter-spacing:.1em}
+.stakeholder-mobile-hub p{margin:8px 0 0;color:#c5ded1;font-size:14px}
+@media(max-width:680px){
+ .stakeholder-ecosystem figure>img{display:none!important}
+ .stakeholder-ecosystem figure{border:0;box-shadow:none;background:transparent;overflow:visible!important}
+ .stakeholder-ecosystem figcaption{padding:0 0 12px;text-align:left}
+ .stakeholder-mobile-directory ul{grid-template-columns:minmax(0,1fr);gap:12px}
+ .stakeholder-mobile-directory li{display:flex;align-items:flex-start;gap:12px;padding:16px;min-width:0;border-color:#537b65}
+ .stakeholder-mobile-directory li>div{min-width:0}
+ .stakeholder-number{display:grid;place-items:center;flex:0 0 34px;height:34px;border:1px solid #b79651;border-radius:50%;color:#f5d38e;font:700 12px system-ui}
+ .stakeholder-mobile-directory h4{font:700 17px/1.35 Georgia,serif;margin:0 0 6px;color:#f5d38e;overflow-wrap:anywhere}
+ .stakeholder-mobile-directory li p{font:14px/1.6 system-ui;margin:0;color:#d6e7dd;overflow-wrap:anywhere}
+}
